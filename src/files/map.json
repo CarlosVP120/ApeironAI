@@ -1,0 +1,150 @@
+{
+  "type": "Map",
+  "maps": [
+    {
+      "text": "IND",
+      "size": 1.0,
+      "Country": "India",
+      "city": "Chennai",
+      "lat": 13.0827,
+      "lng": 80.2707
+    },
+    {
+      "text": "UAE",
+      "size": 1.0,
+      "Country": "United Arab Emirates",
+      "city": "Dubai",
+      "lat": 23.4241,
+      "lng": 53.8478
+    },
+    {
+      "text": "USA",
+      "size": 1.0,
+      "Country": "United States",
+      "city": "New York",
+      "lat": 37.0902,
+      "lng": -95.7129
+    },
+    {
+      "text": "UK",
+      "size": 1.0,
+      "Country": "United Kingdom",
+      "city": "London",
+      "lat": 51.5074,
+      "lng": 0.1278
+    },
+    {
+      "text": "AUS",
+      "size": 1.0,
+      "Country": "Australia",
+      "city": "Sydney",
+      "lat": -33.8688,
+      "lng": 151.2093
+    },
+    {
+      "text": "CAN",
+      "size": 1.0,
+      "Country": "Canada",
+      "city": "Toronto",
+      "lat": 43.6532,
+      "lng": -79.3832
+    },
+    {
+      "text": "NZ",
+      "size": 1.0,
+      "Country": "New Zealand",
+      "city": "Auckland",
+      "lat": -36.8485,
+      "lng": 174.7633
+    },
+    {
+      "text": "SG",
+      "size": 1.0,
+      "Country": "Singapore",
+      "city": "Singapore",
+      "lat": 1.3521,
+      "lng": 103.8198
+    },
+    {
+      "text": "SA",
+      "size": 1.0,
+      "Country": "South Africa",
+      "city": "Cape Town",
+      "lat": -33.9249,
+      "lng": 18.4241
+    },
+    {
+      "text": "PK",
+      "size": 1.0,
+      "Country": "Pakistan",
+      "city": "Karachi",
+      "lat": 24.8615,
+      "lng": 67.0099
+    },
+
+    {
+      "text": "AF",
+      "size": 1.0,
+      "Country": "Afghanistan",
+      "city": "Kabul",
+      "lat": 34.5553,
+      "lng": 69.2075
+    },
+    {
+      "text": "IR",
+      "size": 1.0,
+      "Country": "Iran",
+      "city": "Tehran",
+      "lat": 35.6892,
+      "lng": 51.389
+    },
+    {
+      "text": "IQ",
+      "size": 1.0,
+      "Country": "Iraq",
+      "city": "Baghdad",
+      "lat": 33.3406,
+      "lng": 44.4009
+    },
+    {
+      "text": "SY",
+      "size": 1.0,
+      "Country": "Syria",
+      "city": "Damascus",
+      "lat": 33.5138,
+      "lng": 36.2765
+    },
+    {
+      "text": "JO",
+      "size": 1.0,
+      "Country": "Jordan",
+      "city": "Amman",
+      "lat": 31.9552,
+      "lng": 35.945
+    },
+    {
+      "text": "MEX",
+      "size": 1.0,
+      "Country": "Mexico",
+      "city": "Mexico City",
+      "lat": 19.4326,
+      "lng": -99.1332
+    },
+    {
+      "text": "RUS",
+      "size": 1.0,
+      "Country": "Russia",
+      "city": "Moscow",
+      "lat": 55.7558,
+      "lng": 37.6173
+    },
+    {
+      "text": "CHN",
+      "size": 1.0,
+      "Country": "China",
+      "city": "Beijing",
+      "lat": 39.9042,
+      "lng": 116.4074
+    }
+  ]
+}
