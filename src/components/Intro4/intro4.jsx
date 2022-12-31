@@ -64,8 +64,8 @@ const Intro4 = ({ sliderRef, blackStar }) => {
             style={{ display: "flex", height: "100vh" }}
           >
             <h1 className="align-self-center" style={{ fontSize: "3.3vw" }}>
-              Unlock the power of <span className="color-font">AI</span> to{" "}
-              <span className="color-font">change your future</span>.
+              Unlock the power of <span className="color-font">Carlos GEI</span>{" "}
+              to <span className="color-font">change your future</span>.
             </h1>
           </div>
           <div
