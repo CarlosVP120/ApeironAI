@@ -86,39 +86,34 @@ function Guest() {
 // User
 function User({ signOutHandler }) {
   return (
-    <div className="tw-w-full tw-h-[100vh] tw-text-center">
-      <div className="tw-h-full tw-flex tw-flex-col tw-justify-center">
-        <h1
-          className="tw-self-center tw-mb-10"
-          style={{ fontSize: "60px", fontFamily: "Poppins" }}
-        >
-          Apeiron
-          <span className={styles.color_font} style={{ fontWeight: "bold" }}>
-            AI
-          </span>
-        </h1>
-        <h1 className="tw-text-gray-500 tw-text-4xl tw-font-semi-bold tw-py-4">
-          Welcome
-        </h1>
+    <div className="tw-w-full tw-h-[100vh] tw-text-center tw-bg-black tw-text-white">
+      <div className="tw-h-full tw-flex tw-flex-col tw-pt-4 tw-gap-10">
+        <div className="tw-flex tw-justify-between tw-items-center tw-p-4">
+          <h1
+            className="tw-self-center tw-mb-10  tw-text-white tw-justify-center tw-pl-10"
+            style={{ fontSize: "2rem", fontFamily: "Poppins" }}
+          >
+            Apeiron
+            <span className={styles.color_font} style={{ fontWeight: "bold" }}>
+              AI
+            </span>
+          </h1>
+          <div className="tw-flex  tw-justify-center">
+            <button
+              className="tw-bg-purple-600 tw-text-white tw-p-4 tw-rounded-md tw-m-2"
+              onClick={signOutHandler}
+            >
+              {auth.currentUser.displayName} Sign Out
+            </button>
+          </div>
+        </div>
+
         <div className="details">
-          <h1 className="tw-text-gray-500 tw-text-4xl tw-font-semi-bold tw-py-4">
-            Name: {auth.currentUser.displayName}
-          </h1>
-          <h1 className="tw-text-gray-500 tw-text-4xl tw-font-semi-bold tw-py-4">
-            Email: {auth.currentUser.email}
-          </h1>
-          <h1 className="tw-text-gray-500 tw-text-4xl tw-font-semi-bold tw-py-4">
+          <h1 className=" tw-text-4xl tw-font-semi-bold tw-py-4">
             UID: {auth.currentUser.uid}
           </h1>
         </div>
-        <div className="tw-flex  tw-justify-center">
-          <button
-            className="tw-bg-purple-600 tw-text-white tw-p-4 tw-rounded-md tw-m-2"
-            onClick={signOutHandler}
-          >
-            Sign Out
-          </button>
-        </div>
+
         {/* Select Product Page */}
       </div>
     </div>
