@@ -34,6 +34,9 @@ const Intro4 = ({ sliderRef, blackStar }) => {
 
     globeEl.current.controls().minPolarAngle = Math.PI / 3.5;
     globeEl.current.controls().maxPolarAngle = Math.PI - Math.PI / 3;
+
+    globeEl.current.scene().add(new THREE.AmbientLight(0xbbbbbb, 0.35));
+
     globeEl.current.scene().rotation.y = -Math.PI * (5 / 9);
     globeEl.current.scene().rotation.z = -Math.PI / 6;
 
@@ -82,18 +85,12 @@ const Intro4 = ({ sliderRef, blackStar }) => {
               backgroundColor={"rgba(0,0,0,0)"}
               atmosphereAltitude={0.14}
               globeMaterial={globeMaterial}
-              hexPolygonColor={(e) => {
-                if (["USA", "CAN", "MEX", "UAE"].includes(e.properties.name)) {
-                  return "#ff4000";
-                } else {
-                  return "#9cff00";
-                }
-              }}
+              hexPolygonColor={() => "#ffffff"}
               width={width}
               height={height}
               arcsData={arcsData}
               arcColor={(e) => {
-                return e.order % 2 === 0 ? "#9cff00" : "#ff4000";
+                return e.order % 2 === 0 ? "#cf9fff" : "#0057c7";
               }}
               arcAltitude={(e) => {
                 return e.arcAlt;

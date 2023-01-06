@@ -3,12 +3,18 @@ import Script from "next/script";
 import loadingPace from "../../common/loadingPace";
 import appData from "../../data/app.json";
 
-const LoadingScreen = () => {
+const LoadingScreen = ({ disabled }) => {
   React.useEffect(() => {
+    if (disabled) {
+      appData.showLoading = false;
+    } else {
+      appData.showLoading = true;
+    }
+
     let bodyEl = document.querySelector("body");
     if (appData.showLoading) {
       loadingPace();
-      
+
       if (bodyEl.classList.contains("hideX")) {
         bodyEl.classList.remove("hideX");
       }
@@ -16,10 +22,11 @@ const LoadingScreen = () => {
       bodyEl.classList.add("hideX");
     }
   });
+
   return (
     <>
       <div className={`${appData.showLoading === true ? "showX" : "hideX"}`}>
-        <div className="loading">
+        <div className={`loading ${disabled === true ? "tw-hidden" : ""}`}>
           <span>L</span>
           <span>o</span>
           <span>a</span>

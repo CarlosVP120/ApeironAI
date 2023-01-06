@@ -14,7 +14,7 @@ const Navbar = ({ lr, nr, theme }) => {
     >
       <div className="container">
         <Link href="/">
-          <a className="ml-3 ml-md-0">
+          <a className="ml-3 ml-md-0 p-2 tw-rounded-lg tw-transition tw-font-semi-bold tw-duration-500 hover:tw-bg-gray-200 hover:tw-text-black ">
             {/* {theme ? (
               theme === "themeL" ? (
                 <img ref={lr} src={appData.darkLogo} alt="logo" />
@@ -50,108 +50,67 @@ const Navbar = ({ lr, nr, theme }) => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item dropdown" onClick={handleDropdown}>
-              <span
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Home
-              </span>
-              <div className="dropdown-menu">
-                <Link href={`/homepage/home1-dark`}>
-                  <a className="dropdown-item">Main Home</a>
-                </Link>
-                <Link href={`/homepage/home2-dark`}>
-                  <a className="dropdown-item">Creative Agency</a>
-                </Link>
-                <Link href={`/homepage/home5-dark`}>
-                  <a className="dropdown-item">Digital Agency</a>
-                </Link>
-                <Link href={`/homepage/home4-dark`}>
-                  <a className="dropdown-item">Business One Page</a>
-                </Link>
-                <Link href={`/homepage/home3-dark`}>
-                  <a className="dropdown-item">Corporate Business</a>
-                </Link>
-                <Link href={`/homepage/home6-dark`}>
-                  <a className="dropdown-item">Modern Agency</a>
-                </Link>
-                <Link href={`/homepage/home7-dark`}>
-                  <a className="dropdown-item">Freelancer</a>
-                </Link>
-                <Link href={`/homepage/home8-dark`}>
-                  <a className="dropdown-item">Architecture</a>
-                </Link>
-              </div>
-            </li>
-            <li className="nav-item">
-              <Link href={`/about/about-dark`}>
-                <a className="nav-link">About</a>
+            <li className="nav-item nav-link">
+              <Link href={`/`}>
+                <a className=" tw-transition tw-duration-400 hover:tw-border-b-gray-200 tw-border-transparent tw-border-2  ">
+                  Home
+                </a>
               </Link>
             </li>
-            <li className="nav-item dropdown" onClick={handleDropdown}>
-              <span
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Works
-              </span>
-              <div className="dropdown-menu">
-                <Link href={`/showcase/showcase-dark`}>
-                  <a className="dropdown-item">Showcase Parallax</a>
-                </Link>
-                <Link href={`/showcase4/showcase4-dark`}>
-                  <a className="dropdown-item">Showcase Carousel</a>
-                </Link>
-                <Link href={`/showcase3/showcase3-dark`}>
-                  <a className="dropdown-item">Showcase Circle</a>
-                </Link>
-                <Link href={`/works/works-dark`}>
-                  <a className="dropdown-item">Portfolio Masonry</a>
-                </Link>
-                <Link href={`/works2/works2-dark`}>
-                  <a className="dropdown-item">Portfolio Filtering</a>
-                </Link>
-                <Link href={`/works3/works3-dark`}>
-                  <a className="dropdown-item">Portfolio Gallery</a>
-                </Link>
-              </div>
+            <li className="nav-item nav-link">
+              <Link href={`/features`}>
+                <a className="tw-transition tw-duration-400 hover:tw-border-b-gray-200 tw-border-transparent tw-border-2  ">
+                  Features
+                </a>
+              </Link>
             </li>
-            <li className="nav-item dropdown" onClick={handleDropdown}>
-              <span
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Blog
-              </span>
-              <div className="dropdown-menu">
-                <Link href={`/blog/blog-dark`}>
-                  <a className="dropdown-item">Blog Standerd</a>
-                </Link>
-                <Link href={`/blog-list/blog-list-dark`}>
-                  <a className="dropdown-item">Blog List</a>
-                </Link>
-                <Link href={`/blog-grid/blog-grid-dark`}>
-                  <a className="dropdown-item">Blog Grid</a>
-                </Link>
-                <Link href={`/blog-details/blog-details-dark`}>
-                  <a className="dropdown-item">Blog Details</a>
-                </Link>
-              </div>
+            <li className="nav-item nav-link">
+              <Link href={`/pricing`}>
+                <a className="tw-transition tw-duration-400 hover:tw-border-b-gray-200 tw-border-transparent tw-border-2  ">
+                  Pricing
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item nav-link">
+              <Link href={`/contact`}>
+                <a className="tw-transition tw-duration-400 hover:tw-border-b-gray-200 tw-border-transparent tw-border-2  ">
+                  Contact
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item nav-link">
+              <Link href={`/about`}>
+                <a className="tw-transition tw-duration-400 hover:tw-border-b-gray-200 tw-border-transparent tw-border-2  ">
+                  About Us
+                </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <Link href={`/contact/contact-dark`}>
-                <a className="nav-link">Contact</a>
-              </Link>
+              <button className="nav-link tw-relative tw-inline-flex tw-items-center tw-justify-center tw-p-4 tw-px-5 tw-py-3 tw-overflow-hidden tw-font-medium tw-text-indigo-600 tw-transition tw-duration-300 tw-ease-out tw-rounded-lg tw-shadow tw-group hover:tw-ring-purple-500 hover:tw-shadow-purple-700 hover:tw-shadow-md ">
+                <Link href={`/register`}>
+                  <a>
+                    <span className="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-600 tw-via-purple-600 tw-to-pink-700"></span>
+                    <span className="tw-absolute tw-bottom-0 tw-right-0 tw-block tw-w-64 tw-h-64 tw-mb-32 tw-mr-4 tw-transition tw-duration-500 tw-origin-bottom-left tw-transform tw-rotate-45 tw-translate-x-24 tw-bg-pink-600 tw-rounded-full tw-opacity-10 group-hover:tw-rotate-180 tw-ease"></span>
+                    <span className="tw-relative tw-text-white d-flex tw-font-bold">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        className="tw-w-5 tw-h-5 tw-mr-2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"
+                        />
+                      </svg>
+                      Login or Signup
+                    </span>
+                  </a>
+                </Link>
+              </button>
             </li>
           </ul>
         </div>

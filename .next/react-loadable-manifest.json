@@ -10,9 +10,5 @@
     "files": [
       "static/chunks/node_modules_next_dist_client_dev_noop_js.js"
     ]
-  },
-  "../components/World.jsx -> react-globe.gl": {
-    "id": "./node_modules/react-globe.gl/dist/react-globe.gl.module.js",
-    "files": []
   }
 }

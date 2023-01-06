@@ -30,13 +30,14 @@ const mouseEffect = () => {
         (cursorInner.style.visibility = "visible"),
         (cursorOuter.style.visibility = "visible");
     }
-    document.querySelectorAll("a").forEach(function (item) {
+
+    document.querySelectorAll("a", "Link").forEach(function (item) {
       item.addEventListener("mouseenter", function () {
         cursorInner.classList.add("cursor-hover"),
           cursorOuter.classList.add("cursor-hover");
       });
     });
-    document.querySelectorAll("a").forEach(function (item) {
+    document.querySelectorAll("a", "Link").forEach(function (item) {
       item.addEventListener("mouseleave", function () {
         cursorInner.classList.remove("cursor-hover"),
           cursorOuter.classList.remove("cursor-hover");
@@ -45,6 +46,7 @@ const mouseEffect = () => {
       (cursorInner.style.visibility = "visible"),
       (cursorOuter.style.visibility = "visible");
   }
+
   mousecursor();
 };
 

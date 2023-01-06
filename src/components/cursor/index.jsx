@@ -5,9 +5,10 @@ const Cursor = () => {
   React.useEffect(() => {
     mouseEffect();
   }, []);
+
   return (
     <>
-      <div className="mouse-cursor cursor-outer"></div>
+      <div className="mouse-cursor cursor-outer d-none"></div>
       <div className="mouse-cursor cursor-inner"></div>
     </>
   );
