@@ -87,10 +87,10 @@ function Guest() {
 function User({ signOutHandler }) {
   return (
     <div className="tw-w-full tw-h-[100vh] tw-text-center tw-bg-black tw-text-white">
-      <div className="tw-h-full tw-flex tw-flex-col tw-pt-4 tw-gap-10">
-        <div className="tw-flex tw-justify-between tw-items-center tw-p-4">
+      <div className="tw-h-full tw-flex tw-flex-col tw-pt-4 tw-gap-10 ">
+        <div className="tw-flex tw-justify-between tw-items-center tw-px-10">
           <h1
-            className="tw-self-center tw-mb-10  tw-text-white tw-justify-center tw-pl-10"
+            className="tw-self-center tw-text-white tw-justify-center"
             style={{ fontSize: "2rem", fontFamily: "Poppins" }}
           >
             Apeiron
@@ -98,12 +98,18 @@ function User({ signOutHandler }) {
               AI
             </span>
           </h1>
-          <div className="tw-flex  tw-justify-center">
+          <div className="tw-flex tw-justify-center ">
+            <div
+              className="tw-self-center
+            "
+            >
+              {auth.currentUser.displayName}
+            </div>
             <button
-              className="tw-bg-purple-600 tw-text-white tw-p-4 tw-rounded-md tw-m-2"
+              className="tw-bg-purple-600 tw-text-white tw-py-2 tw-px-3 tw-rounded-md tw-ml-3"
               onClick={signOutHandler}
             >
-              {auth.currentUser.displayName} Sign Out
+              Sign Out
             </button>
           </div>
         </div>
