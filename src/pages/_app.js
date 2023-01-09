@@ -18,7 +18,9 @@ function MyApp({ Component, pageProps }) {
       {/* <Cursor /> */}
       {Component.name !== "Login" &&
       Component.name !== "Register" &&
-      Component.name !== "ToolHomePage" ? (
+      Component.name !== "ToolHomePage" &&
+      Component.name !== "MarkeX" &&
+      Component.name !== "CodeX" ? (
         <>
           <LoadingScreen disabled={false} />
           <Component {...pageProps} />

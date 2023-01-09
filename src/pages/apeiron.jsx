@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import styles from "../styles/Form.module.css";
-import Link from "next/link";
 import { useSession, getSession, signOut } from "next-auth/react";
 import { auth, db } from "../../firebase/firebaseClient";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { data } from "autoprefixer";
 import { useRouter } from "next/router";
+import Guest from "../components/Guest";
 
 export default function ToolHomePage() {
   // const { data: session } = useSession();
@@ -49,13 +49,20 @@ export default function ToolHomePage() {
     router.replace("/login");
   };
 
+  const redirectHandler = (path) => {
+    router.replace(path);
+  };
+
   return (
     <>
       <Head>
-        <title>ApeironAI</title>
+        <title>Tools</title>
       </Head>
       {auth.currentUser !== null ? (
-        <User signOutHandler={signOutHandler} />
+        <User
+          signOutHandler={signOutHandler}
+          redirectHandler={redirectHandler}
+        />
       ) : (
         <Guest />
       )}
@@ -63,28 +70,7 @@ export default function ToolHomePage() {
   );
 }
 
-// Guest
-function Guest() {
-  return (
-    // center in the middle of the page
-    <div className="tw-w-full tw-h-[100vh] tw-text-center">
-      <div className="tw-h-full tw-flex tw-flex-col tw-justify-center">
-        <h1
-          className="tw-self-center tw-mb-10"
-          style={{ fontSize: "60px", fontFamily: "Poppins" }}
-        >
-          Apeiron
-          <span className={styles.color_font} style={{ fontWeight: "bold" }}>
-            AI
-          </span>
-        </h1>
-      </div>
-    </div>
-  );
-}
-
-// User
-function User({ signOutHandler }) {
+function User({ signOutHandler, redirectHandler }) {
   return (
     <div className="tw-w-full tw-h-[100vh] tw-text-center tw-bg-black tw-text-white">
       <div className="tw-h-full tw-flex tw-flex-col tw-pt-4 tw-gap-10 ">
@@ -120,16 +106,23 @@ function User({ signOutHandler }) {
         <div className="tw-h-3/4 tw-justify-center tw-flex tw-w-full ">
           <div className="tw-justify-center tw-self-center tw-flex tw-gap-10">
             <div className="tw-relative tw-group">
-              <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-200 tw-animate-tilt"></div>
-              <button className="tw-relative tw-px-7 tw-py-4 tw-bg-black tw-rounded-lg tw-leading-none tw-flex tw-flex-col tw-items-center">
+              <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
+              <button
+                className="tw-relative tw-px-7 tw-py-4 tw-bg-black tw-rounded-lg tw-leading-none tw-flex tw-flex-col tw-items-center"
+                onClick={redirectHandler.bind(this, "/codex")}
+              >
                 <div className="tw-text-white tw-text-2xl tw-font-bold tw-mb-4">
-                  <h1 className="tw-opacity-60 group-hover:tw-opacity-100 tw-transition tw-duration-700">
+                  <h1 className="tw-opacity-60 group-hover:tw-opacity-100 tw-transition tw-duration-300">
                     CodeX
                   </h1>
-                  <p>
+                  <p className="tw-flex tw-flex-col tw-justify-center tw-items-center">
                     <span className="tw-text-pink-600 tw-font-bold tw-text-base">
                       Your AI tool for code.
                     </span>
+                    <p className="tw-text-sm tw-text-gray-400 tw-font-bold tw-text-center tw-max-w-[20vw] tw-my-3">
+                      With CodeX, find the best solutions for your coding
+                      problems, and learn how to code better.
+                    </p>
                   </p>
                 </div>
                 <div className="tw-flex tw-gap-2 tw-text-white tw-text-sm tw-font-bold tw-divide-x tw-divide-gray-600">
@@ -159,17 +152,25 @@ function User({ signOutHandler }) {
             </div>
 
             <div className="tw-relative tw-group">
-              <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-700 group-hover:tw-duration-200 tw-animate-tilt"></div>
+              <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
 
-              <button className="tw-relative tw-px-7 tw-py-4 tw-bg-black tw-rounded-lg tw-leading-none tw-flex tw-flex-col tw-items-center  ">
+              <button
+                className="tw-relative tw-px-7 tw-py-4 tw-bg-black tw-rounded-lg tw-leading-none tw-flex tw-flex-col tw-items-center  "
+                onClick={redirectHandler.bind(this, "/markex")}
+              >
                 <div className="tw-text-white tw-text-2xl tw-font-bold tw-mb-4">
-                  <h1 className="tw-opacity-60 group-hover:tw-opacity-100 tw-transition tw-duration-700">
+                  <h1 className="tw-opacity-60 group-hover:tw-opacity-100 tw-transition tw-duration-300">
                     MarkeX
                   </h1>
-                  <p>
+
+                  <p className="tw-flex tw-flex-col tw-justify-center tw-items-center">
                     <span className="tw-text-pink-600 tw-font-bold tw-text-base">
                       Your market helper.
                     </span>
+                    <p className="tw-text-sm tw-text-gray-400 tw-font-bold tw-text-center tw-max-w-[20vw] tw-my-3">
+                      With MarkeX, find the best description for your products
+                      and create the best ads.
+                    </p>
                   </p>
                 </div>
                 <div className="tw-flex tw-gap-2 tw-text-white tw-text-sm tw-font-bold tw-divide-x tw-divide-gray-600">

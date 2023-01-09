@@ -30,10 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/apeiron.js"
     ],
-    "/login": [
+    "/markex": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/login.js"
+      "static/chunks/pages/markex.js"
     ]
   },
   "ampFirstPages": []
