@@ -9,6 +9,7 @@ import {
   arrayUnion,
   onSnapshot,
 } from "firebase/firestore";
+import ApeironNavbar from "./ApeironNavbar";
 
 export default function Descriptions() {
   const [dataArray, setDataArray] = useState([]);
@@ -86,9 +87,16 @@ export default function Descriptions() {
       <div className="tw-h-full tw-bg-neutral-900 tw-w-[20vw] tw-rounded-tr-lg tw-font-bold tw-pt-3 tw-px-3">
         <button
           className="tw-w-full"
-          onClick={() => setNewProductWelcome(true)}
+          onClick={() => {
+            setNewProductWelcome(true);
+            setUnderlined("");
+          }}
         >
-          <RecentCard isNew={true} />
+          {underlined === "" ? (
+            <RecentCard isNew={true} isUnderlined={true} />
+          ) : (
+            <RecentCard isNew={true} isUnderlined={false} />
+          )}
         </button>
         <div>
           {/* MAP OF THE RECENTCARDS */}

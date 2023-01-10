@@ -7,6 +7,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { data } from "autoprefixer";
 import { useRouter } from "next/router";
 import Guest from "../components/Guest";
+import ApeironNavbar from "../components/ApeironNavbar";
 
 export default function ToolHomePage() {
   // const { data: session } = useSession();
@@ -74,34 +75,11 @@ function User({ signOutHandler, redirectHandler }) {
   return (
     <div className="tw-w-full tw-h-[100vh] tw-text-center tw-bg-black tw-text-white">
       <div className="tw-h-full tw-flex tw-flex-col tw-pt-4 tw-gap-10 ">
-        <div className="tw-flex tw-justify-between tw-items-center tw-px-10">
-          <h1
-            className="tw-self-center tw-text-white tw-justify-center"
-            style={{ fontSize: "2rem", fontFamily: "Poppins" }}
-          >
-            Apeiron
-            <span className={styles.color_font} style={{ fontWeight: "bold" }}>
-              AI
-            </span>
-          </h1>
-          <div className="tw-flex tw-justify-center ">
-            <div className="tw-self-center">{auth.currentUser.displayName}</div>
-            <button
-              onClick={signOutHandler}
-              class="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3"
-            >
-              <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#ff8a05] tw-via-[#ff5478] tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-[#ff5478] group-hover:tw-to-[#ff8a05] tw-absolute"></span>
-              <span
-                class="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-400
-"
-              >
-                <span class="tw-relative tw-text-white">Sign Out</span>
-              </span>
-            </button>
-
-            {/* add the prefix "tw-" to EVERY TAG in the above <a> component */}
-          </div>
-        </div>
+        <ApeironNavbar
+          signOutHandler={signOutHandler}
+          value="main"
+          redirectHandler={redirectHandler}
+        />
 
         <div className="tw-h-3/4 tw-justify-center tw-flex tw-w-full ">
           <div className="tw-justify-center tw-self-center tw-flex tw-gap-10">
@@ -206,7 +184,3 @@ function User({ signOutHandler, redirectHandler }) {
     </div>
   );
 }
-
-// add the prefix "tw-" to every tag here:
-// relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400
-// tw-relative tw-px-6 tw-py-3 tw-transition-all tw-ease-out tw-bg-gray-900 tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-400
