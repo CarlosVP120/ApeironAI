@@ -10,13 +10,17 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import ApeironNavbar from "./ApeironNavbar";
+import { data } from "autoprefixer";
 
 export default function Descriptions() {
   const [dataArray, setDataArray] = useState([]);
   const docRef = doc(db, "users", auth.currentUser.uid);
   useEffect(() => {
     onSnapshot(docRef, (doc) => {
-      setDataArray(doc.data().descriptions);
+      // if there is no data, set it to an empty array
+      if (doc.data().descriptions) {
+        setDataArray(doc.data().descriptions.reverse());
+      }
     });
   }, []);
 
@@ -65,7 +69,7 @@ export default function Descriptions() {
               .split(" ", 2)
               .join(" ")
               .replace(/[^a-zA-Z ]/g, ""),
-            prompt,
+            askName + value + askDescription,
             data.result.choices[0].text
           );
           setValue("");
@@ -100,27 +104,31 @@ export default function Descriptions() {
             <RecentCard isNew={true} isUnderlined={false} />
           )}
         </button>
-        <div className="">
+        <div>
           {/* MAP OF THE RECENTCARDS */}
-          {dataArray.length > 0
-            ? dataArray.map((data) => (
-                <button
-                  className={`tw-w-full`}
-                  onClick={() => {
-                    setNewProductWelcome(false);
-                    setShowingProduct(data);
-                    console.log(data);
-                    setUnderlined(data.name);
-                  }}
-                >
-                  {underlined === data.name ? (
-                    <RecentCard name={data.name} isUnderlined={true} />
-                  ) : (
-                    <RecentCard name={data.name} isUnderlined={false} />
-                  )}
-                </button>
-              ))
-            : null}
+          {dataArray.length > 0 ? (
+            // invert the order of the dataArray
+            dataArray.map((data) => (
+              <button
+                className={`tw-w-full`}
+                onClick={() => {
+                  setNewProductWelcome(false);
+                  setShowingProduct(data);
+                  setUnderlined(data.name);
+                }}
+              >
+                {underlined === data.name ? (
+                  <RecentCard name={data.name} isUnderlined={true} />
+                ) : (
+                  <RecentCard name={data.name} isUnderlined={false} />
+                )}
+              </button>
+            ))
+          ) : (
+            <div className="tw-h-full tw-w-full tw-flex tw-self-center tw-flex-col tw-justify-center tw-items-center tw-mt-[30vh]">
+              <h1>You have no recent products. Start by creating a new one!</h1>
+            </div>
+          )}
         </div>
       </div>
       {/* Full container */}
@@ -142,6 +150,8 @@ export default function Descriptions() {
               name={showingProduct.name}
               prompt={showingProduct.prompt}
               completion={showingProduct.completion}
+              writeToDatabase={writeToDatabase}
+              setShowingProduct={setShowingProduct}
             />
           )}
         </div>
