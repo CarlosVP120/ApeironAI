@@ -152,6 +152,7 @@ export default function Descriptions() {
               completion={showingProduct.completion}
               writeToDatabase={writeToDatabase}
               setShowingProduct={setShowingProduct}
+              setUnderlined={setUnderlined}
             />
           )}
         </div>

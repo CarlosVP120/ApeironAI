@@ -7,15 +7,8 @@ export default function ShowingProduct({
   completion,
   writeToDatabase,
   setShowingProduct,
+  setUnderlined,
 }) {
-  const [nameUpdated, setNameUpdated] = useState(name);
-  const [promptUpdated, setPromptUpdated] = useState(prompt);
-  const [completionUpdated, setCompletionUpdated] = useState(completion);
-
-  console.log("nameUpdated: " + nameUpdated);
-  console.log("promptUpdated: " + promptUpdated);
-  console.log("completionUpdated: " + completionUpdated);
-
   const updateResponse = useCallback(async (longer) => {
     const requestMode = longer
       ? "Give me a longer and more detailed version of this description: "
@@ -30,18 +23,18 @@ export default function ShowingProduct({
     });
     const data = await response.json().then((data) => {
       writeToDatabase(
-        nameUpdated + (longer ? " longer" : " shorter"),
+        name + (longer ? " longer" : " shorter"),
         requestMode + completion,
         data.result.choices[0].text
       );
-      setNameUpdated(nameUpdated + (longer ? " longer" : " shorter"));
-      setPromptUpdated(requestMode + completion);
-      setCompletionUpdated(data.result.choices[0].text);
+
       setShowingProduct({
-        name: nameUpdated,
-        prompt: promptUpdated,
-        completion: completionUpdated,
+        name: name + (longer ? " longer" : " shorter"),
+        prompt: requestMode + completion,
+        completion: data.result.choices[0].text,
       });
+
+      setUnderlined(name + (longer ? " longer" : " shorter"));
     });
   });
 
@@ -50,14 +43,14 @@ export default function ShowingProduct({
       <h1
         className={` tw-text-4xl tw-font-bold tw-py-3 tw-px-4 tw-rounded-lg ${styles.color_font}`}
       >
-        {nameUpdated}
+        {name}
       </h1>
       <div className="tw-flex tw-flex-col tw-px-10 tw-py-5 tw-w-5/6 tw-justify-center tw-bg-neutral-900 tw-my-auto tw-rounded-lg">
         <div>
-          <p className="tw-text-white tw-text-base tw-mb-4">{promptUpdated}</p>
+          <p className="tw-text-white tw-text-base tw-mb-4">{prompt}</p>
           <div className="tw-flex tw-justify-center tw-items-center tw-mb-4">
             <div className="tw-flex tw-justify-center tw-items-center tw-bg-neutral-800 tw-rounded-lg tw-py-3 tw-px-4 ">
-              {completionUpdated}
+              {completion}
             </div>
             <div className="tw-flex tw-ml-4 tw-flex-col tw-h-full tw-bg-neutral-800 tw-px-2 tw-py-1 tw-rounded-xl tw-gap-3">
               <button
