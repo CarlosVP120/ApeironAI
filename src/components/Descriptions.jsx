@@ -102,23 +102,25 @@ export default function Descriptions() {
         </button>
         <div className="">
           {/* MAP OF THE RECENTCARDS */}
-          {dataArray.map((data) => (
-            <button
-              className={`tw-w-full`}
-              onClick={() => {
-                setNewProductWelcome(false);
-                setShowingProduct(data);
-                console.log(data);
-                setUnderlined(data.name);
-              }}
-            >
-              {underlined === data.name ? (
-                <RecentCard name={data.name} isUnderlined={true} />
-              ) : (
-                <RecentCard name={data.name} isUnderlined={false} />
-              )}
-            </button>
-          ))}
+          {dataArray.length > 0
+            ? dataArray.map((data) => (
+                <button
+                  className={`tw-w-full`}
+                  onClick={() => {
+                    setNewProductWelcome(false);
+                    setShowingProduct(data);
+                    console.log(data);
+                    setUnderlined(data.name);
+                  }}
+                >
+                  {underlined === data.name ? (
+                    <RecentCard name={data.name} isUnderlined={true} />
+                  ) : (
+                    <RecentCard name={data.name} isUnderlined={false} />
+                  )}
+                </button>
+              ))
+            : null}
         </div>
       </div>
       {/* Full container */}
