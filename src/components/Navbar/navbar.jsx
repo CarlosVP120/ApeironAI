@@ -87,7 +87,7 @@ const Navbar = ({ lr, nr, theme }) => {
             </li>
             <li className="nav-item">
               <button className="nav-link tw-relative tw-inline-flex tw-items-center tw-justify-center tw-p-4 tw-px-5 tw-py-3 tw-overflow-hidden tw-font-medium tw-text-indigo-600 tw-transition tw-duration-300 tw-ease-out tw-rounded-lg tw-shadow tw-group hover:tw-ring-purple-500 hover:tw-shadow-purple-700 hover:tw-shadow-md ">
-                <Link href={`/register`}>
+                <Link href={"/login"}>
                   <a>
                     <span className="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-600 tw-via-purple-600 tw-to-pink-700"></span>
                     <span className="tw-absolute tw-bottom-0 tw-right-0 tw-block tw-w-64 tw-h-64 tw-mb-32 tw-mr-4 tw-transition tw-duration-500 tw-origin-bottom-left tw-transform tw-rotate-45 tw-translate-x-24 tw-bg-pink-600 tw-rounded-full tw-opacity-10 group-hover:tw-rotate-180 tw-ease"></span>

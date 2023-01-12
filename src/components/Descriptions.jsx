@@ -36,7 +36,7 @@ export default function Descriptions() {
   const [prompt, setPrompt] = useState("");
   const [completion, setCompletion] = useState("");
   const [newProductWelcome, setNewProductWelcome] = useState(true);
-  const [showingProduct, setShowingProduct] = useState([]);
+  const [showingProduct, setShowingProduct] = useState({});
   const [underlined, setUnderlined] = useState("");
 
   const askName = "Give me a 2-words name for a ";
@@ -69,13 +69,15 @@ export default function Descriptions() {
             data.result.choices[0].text
           );
           setValue("");
-          setCompletion(data.result.choices[0].text);
-          setProductName(
-            data.result.choices[0].text
+          setNewProductWelcome(false);
+          setShowingProduct({
+            name: data.result.choices[0].text
               .split(" ", 2)
               .join(" ")
-              .replace(/[^a-zA-Z ]/g, "")
-          );
+              .replace(/[^a-zA-Z ]/g, ""),
+            prompt: askName + value + askDescription,
+            completion: data.result.choices[0].text,
+          });
         });
       }
     },
@@ -83,10 +85,10 @@ export default function Descriptions() {
   );
 
   return (
-    <div className="tw-flex tw-justify-center tw-w-full tw-h-full">
-      <div className="tw-h-full tw-bg-neutral-900 tw-w-[20vw] tw-rounded-tr-lg tw-font-bold tw-pt-3 tw-px-3">
+    <div className="tw-flex tw-justify-center tw-w-full tw-h-full tw-overflow-hidden">
+      <div className="tw-h-full tw-bg-neutral-900 tw-w-[20vw] tw-rounded-tr-lg tw-font-bold tw-px-3 tw-overflow-y-scroll">
         <button
-          className="tw-w-full"
+          className="tw-w-full tw-sticky tw-top-0 tw-z-10 tw-bg-neutral-900 tw-pt-3"
           onClick={() => {
             setNewProductWelcome(true);
             setUnderlined("");
@@ -98,7 +100,7 @@ export default function Descriptions() {
             <RecentCard isNew={true} isUnderlined={false} />
           )}
         </button>
-        <div>
+        <div className="">
           {/* MAP OF THE RECENTCARDS */}
           {dataArray.map((data) => (
             <button
@@ -106,6 +108,7 @@ export default function Descriptions() {
               onClick={() => {
                 setNewProductWelcome(false);
                 setShowingProduct(data);
+                console.log(data);
                 setUnderlined(data.name);
               }}
             >
