@@ -4,7 +4,12 @@ import { useRouter } from "next/router";
 import Guest from "../components/Guest";
 import Head from "next/head";
 import ApeironNavbar from "../components/ApeironNavbar";
-import CodeSnippet from "../components/CodeSnippet";
+import ExplainCode from "../components/ExplainCode";
+import Typewriter from "typewriter-effect";
+import ConvertCode from "../components/ConvertCode";
+import CodeXButtons from "../components/CodeXButtons";
+import GenerateCode from "../components/GenerateCode";
+import CmdAssitance from "../components/CmdAssistance";
 
 export default function CodeX() {
   const router = useRouter();
@@ -46,7 +51,18 @@ function Test({ router }) {
           signOutHandler={signOutHandler}
           value="codex"
         />
-        <CodeSnippet />
+        <div className="tw-text-5xl tw-font-bold tw-text-white tw-mt-4 ">
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter.typeString("Welcome to CodeX").start();
+            }}
+          />
+        </div>
+        <CodeXButtons setValue={setValue} value={value} />
+        {value === "Explain Code" && <ExplainCode />}
+        {value === "Convert Code" && <ConvertCode />}
+        {value === "Generate Code" && <GenerateCode />}
+        {value === "Cmd Assistance" && <CmdAssitance />}
       </div>
     </div>
   );
