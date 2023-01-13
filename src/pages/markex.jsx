@@ -23,70 +23,12 @@ export default function MarkeX() {
       <Head>
         <title>MarkeX</title>
       </Head>
-      {auth.currentUser !== null ? <Test router={router} /> : <Guest />}
+      {auth.currentUser !== null ? <Main router={router} /> : <Guest />}
     </>
   );
 }
 
-function Main() {
-  const [value, setValue] = React.useState("");
-  const [prompt, setPrompt] = React.useState("");
-  const [completion, setCompletion] = React.useState("");
-
-  const handleInput = React.useCallback((e) => {
-    setValue(e.target.value);
-  }, []);
-
-  const handleKeyDown = React.useCallback(
-    async (e) => {
-      if (e.key === "Enter") {
-        setPrompt(value);
-        setCompletion("Loading...");
-        const response = await fetch("/api/hello", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ text: value }),
-        });
-        const data = await response.json();
-        setValue("");
-        setCompletion(data.result.choices[0].text);
-      }
-    },
-    [value]
-  );
-
-  return (
-    <>
-      <Head>
-        <title>MarkeX</title>
-      </Head>
-      <div className={styles.main}>
-        <div>Please type your prompt</div>
-        <input
-          value={value}
-          onChange={handleInput}
-          onKeyDown={handleKeyDown}
-          className="tw-bg-gray-100 tw-px-4"
-        />
-        <div>Prompt: {prompt}</div>
-        <div>
-          Completion:{" "}
-          {completion.split("\n").map((item) => (
-            // eslint-disable-next-line react/jsx-key
-            <>
-              {item}
-              <br />
-            </>
-          ))}
-        </div>
-      </div>
-    </>
-  );
-}
-
-function Test({ router }) {
+function Main({ router }) {
   const signOutHandler = async () => {
     await auth.signOut();
     router.replace("/login");
@@ -100,13 +42,15 @@ function Test({ router }) {
 
   return (
     <div className="tw-w-full tw-h-[100vh] tw-text-center tw-bg-black tw-text-white">
-      <div className="tw-h-full tw-flex tw-flex-col tw-pt-4 tw-gap-4 ">
+      <div className="tw-h-full tw-flex tw-flex-col">
         <ApeironNavbar
           setValue={setValue}
+          selected={value}
           redirectHandler={redirectHandler}
           signOutHandler={signOutHandler}
           value="markex"
         />
+
         {value === "Descriptions" && <Descriptions />}
         {value === "Keywords" && <Keywords />}
         {value === "Ads" && <Ads />}
@@ -114,3 +58,61 @@ function Test({ router }) {
     </div>
   );
 }
+
+// function Main() {
+//   const [value, setValue] = React.useState("");
+//   const [prompt, setPrompt] = React.useState("");
+//   const [completion, setCompletion] = React.useState("");
+
+//   const handleInput = React.useCallback((e) => {
+//     setValue(e.target.value);
+//   }, []);
+
+//   const handleKeyDown = React.useCallback(
+//     async (e) => {
+//       if (e.key === "Enter") {
+//         setPrompt(value);
+//         setCompletion("Loading...");
+//         const response = await fetch("/api/hello", {
+//           method: "POST",
+//           headers: {
+//             "Content-Type": "application/json",
+//           },
+//           body: JSON.stringify({ text: value }),
+//         });
+//         const data = await response.json();
+//         setValue("");
+//         setCompletion(data.result.choices[0].text);
+//       }
+//     },
+//     [value]
+//   );
+
+//   return (
+//     <>
+//       <Head>
+//         <title>MarkeX</title>
+//       </Head>
+//       <div className={styles.main}>
+//         <div>Please type your prompt</div>
+//         <input
+//           value={value}
+//           onChange={handleInput}
+//           onKeyDown={handleKeyDown}
+//           className="tw-bg-gray-100 tw-px-4"
+//         />
+//         <div>Prompt: {prompt}</div>
+//         <div>
+//           Completion:{" "}
+//           {completion.split("\n").map((item) => (
+//             // eslint-disable-next-line react/jsx-key
+//             <>
+//               {item}
+//               <br />
+//             </>
+//           ))}
+//         </div>
+//       </div>
+//     </>
+//   );
+// }

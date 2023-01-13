@@ -1,17 +1,34 @@
-export default function Ads() {
-  return (
-    <div tw-font-bold tw-text-gray-100>
-      <h1 className="tw-text-2xl tw-font-bold tw-text-gray-100 tw-mb-2 tw-h-full tw-flex tw-justify-center tw-items-center">
-        Ads
-      </h1>
+import { useCallback, useEffect, useState } from "react";
 
-      <input
-        className="tw-w-full tw-text-black tw-px-4 tw-rounded-md tw-border-2 tw-border-gray-300 tw-bg-gray-100 tw-mb-4 tw-px-4 tw-py-2 tw-focus:tw-border-[#ff8a05] tw-focus:tw-bg-white tw-focus:tw-shadow-md tw-w-auto  "
-        placeholder="Type your prompt here..."
-      />
-      <p className="tw-text-gray-300 tw-mb-4">
-        A short headline about your ad.
-      </p>
-    </div>
+import { auth, db } from "../../firebase/firebaseClient";
+import { doc, onSnapshot } from "firebase/firestore";
+import MarkeXLayout from "./MarkeXLayout";
+
+export default function Ads() {
+  const type = "ads";
+
+  const [dataArray, setDataArray] = useState([]);
+
+  const docRef = doc(db, "users", auth.currentUser.uid);
+
+  useEffect(() => {
+    onSnapshot(docRef, (doc) => {
+      // if there is no data, set it to an empty array
+      if (doc.data().ads) {
+        setDataArray(doc.data().ads.reverse());
+      }
+    });
+  }, []);
+
+  const askName = "Generate 5 ads for . based on the headline: ";
+  const askDescription = `.\nStrictly separate them with commas, for example: \n"ad-1", "ad-2", "ad-3", "ad-4", "ad-5"`;
+
+  return (
+    <MarkeXLayout
+      dataArray={dataArray}
+      type={type}
+      askName={askName}
+      askDescription={askDescription}
+    />
   );
 }

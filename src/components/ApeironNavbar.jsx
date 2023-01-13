@@ -8,9 +8,10 @@ export default function ApeironNavbar({
   redirectHandler,
   signOutHandler,
   value,
+  selected,
 }) {
   return (
-    <div className="tw-flex tw-justify-between tw-items-center tw-px-10">
+    <div className="tw-flex tw-justify-between tw-items-center tw-px-10 tw-relative tw-py-3">
       <h1
         className="tw-self-center tw-text-white tw-justify-center"
         style={{ fontSize: "2rem", fontFamily: "Poppins" }}
@@ -27,10 +28,13 @@ export default function ApeironNavbar({
               onClick={() => setValue("Descriptions")}
               class="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3"
             >
-              <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-purple-500 group-hover:tw-to-blue-500 tw-absolute"></span>
+              <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
               <span
-                class="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500
-"
+                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
+                  selected === "Descriptions"
+                    ? "tw-bg-opacity-0"
+                    : "tw-bg-black"
+                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span class="tw-relative tw-text-white tw-flex tw-items-center">
                   <svg
@@ -56,10 +60,11 @@ export default function ApeironNavbar({
               onClick={() => setValue("Keywords")}
               class="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3"
             >
-              <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-purple-500 group-hover:tw-to-blue-500 tw-absolute"></span>
+              <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
               <span
-                class="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500
-"
+                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
+                  selected === "Keywords" ? "tw-bg-opacity-0" : "tw-bg-black"
+                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span class="tw-relative tw-text-white tw-flex tw-items-center">
                   <svg
@@ -85,10 +90,11 @@ export default function ApeironNavbar({
               onClick={() => setValue("Ads")}
               class="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3"
             >
-              <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-purple-500 group-hover:tw-to-blue-500 tw-absolute"></span>
+              <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
               <span
-                class="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500
-"
+                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
+                  selected === "Ads" ? "tw-bg-opacity-0" : "tw-bg-black"
+                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span class="tw-relative tw-text-white tw-flex tw-items-center">
                   <svg
