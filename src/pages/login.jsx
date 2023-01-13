@@ -79,7 +79,7 @@ export default function Login() {
       })
       .then((userCredential) => {
         formik.resetForm();
-        router.replace("http://localhost:3000/apeiron");
+        router.replace("/apeiron");
       });
   }
 
@@ -89,11 +89,13 @@ export default function Login() {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then(function onSuccess(...args) {
-        router.replace("http://localhost:3000/apeiron");
+        router.replace("/apeiron");
       })
       .catch((error) => {
         if (error.code === "auth/account-exists-with-different-credential") {
           alert("Email already exists, please login with email and password");
+        } else if (error.code === "auth/invalid-credential") {
+          alert("Invalid credential");
         } else {
           alert("Something went wrong");
         }
@@ -106,7 +108,7 @@ export default function Login() {
     const provider = new GithubAuthProvider();
     signInWithPopup(auth, provider)
       .then(function onSuccess(...args) {
-        router.replace("http://localhost:3000/apeiron");
+        router.replace("/apeiron");
       })
       .catch((error) => {
         if (error.code === "auth/account-exists-with-different-credential") {
