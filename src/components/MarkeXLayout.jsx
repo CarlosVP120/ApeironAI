@@ -283,8 +283,8 @@ function NewProductWelcome({ type, setPlatform, askName }) {
         Let's get started!
       </h1>
 
-      <div className="tw-flex tw-self-center tw-gap-6">
-        <div className=" tw-flex tw-flex-col tw-gap-3 tw-max-w-[33%] tw-text-sm">
+      <div className="tw-flex tw-self-center tw-gap-6 tw-justify-center">
+        <div className=" tw-flex tw-flex-col tw-gap-3 tw-w-[33%] tw-text-sm">
           <h1 className="tw-flex tw-flex-col tw-items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -314,7 +314,7 @@ function NewProductWelcome({ type, setPlatform, askName }) {
             </div>
           )}
         </div>
-        <div className=" tw-flex tw-flex-col tw-gap-3 tw-max-w-[33%] tw-text-sm">
+        <div className=" tw-flex tw-flex-col tw-gap-3 tw-w-[33%] tw-text-sm">
           <h1 className="tw-flex tw-flex-col tw-items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -344,7 +344,7 @@ function NewProductWelcome({ type, setPlatform, askName }) {
             </div>
           )}
         </div>
-        <div className=" tw-flex tw-flex-col tw-gap-3 tw-max-w-[33%] tw-text-sm">
+        <div className=" tw-flex tw-flex-col tw-gap-3 tw-w-[33%] tw-text-sm">
           <h1 className="tw-flex tw-flex-col tw-items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
