@@ -7,9 +7,9 @@ import ApeironNavbar from "../components/ApeironNavbar";
 import ExplainCode from "../components/ExplainCode";
 import Typewriter from "typewriter-effect";
 import ConvertCode from "../components/ConvertCode";
-import CodeXButtons from "../components/CodeXButtons";
 import GenerateCode from "../components/GenerateCode";
 import CmdAssitance from "../components/CmdAssistance";
+import FixGrammar from "../components/FixGrammar";
 
 export default function CodeX() {
   const router = useRouter();
@@ -47,6 +47,7 @@ function Test({ router }) {
       <div className="tw-h-full tw-flex tw-flex-col tw-pt-4 tw-gap-4 ">
         <ApeironNavbar
           setValue={setValue}
+          selected={value}
           redirectHandler={redirectHandler}
           signOutHandler={signOutHandler}
           value="codex"
@@ -58,11 +59,12 @@ function Test({ router }) {
             }}
           />
         </div>
-        <CodeXButtons setValue={setValue} value={value} />
+
         {value === "Explain Code" && <ExplainCode />}
         {value === "Convert Code" && <ConvertCode />}
         {value === "Generate Code" && <GenerateCode />}
         {value === "Cmd Assistance" && <CmdAssitance />}
+        {value === "Fix Grammar" && <FixGrammar />}
       </div>
     </div>
   );
