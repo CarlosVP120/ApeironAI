@@ -199,11 +199,10 @@ export default function MarkeXLayout({
                     <div className="tw-flex tw-w-full tw-items-center tw-justify-center">
                       <input
                         className="tw-w-9/12 tw-bg-neutral-900 tw-text-gray-100 tw-px-4 tw-py-2 tw-rounded-lg tw-outline-none tw-text-sm"
-                        placeholder={`${
-                          type === "ads"
+                        placeholder={`${type === "ads"
                             ? "Type a short headline/title about your ad..."
                             : "Describe to us what your product is and what it does in a few words..."
-                        }`}
+                          }`}
                         value={value}
                         onChange={handleInput}
                         onKeyDown={handleKeyDown}
@@ -215,8 +214,8 @@ export default function MarkeXLayout({
                         {type === "ads"
                           ? "Create Ad"
                           : type === "descriptions"
-                          ? "Create Product"
-                          : "Find Keywords"}
+                            ? "Create Product"
+                            : "Find Keywords"}
                       </button>
                     </div>
                   )}
@@ -397,9 +396,8 @@ function NewProductWelcome({ type, setPlatform, askName }) {
           <div className="tw-flex tw-justify-center tw-items-center ">
             <div className="tw-flex tw-items-center tw-gap-5">
               <button
-                className={`tw-flex tw-items-center ${
-                  selected === "Google" ? "tw-bg-gray-800" : "tw-bg-gray-100"
-                } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
+                className={`tw-flex tw-items-center ${selected === "Google" ? "tw-bg-gray-800" : "tw-bg-gray-100"
+                  } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
                 onClick={() => {
                   setPlatform("Google");
                   askName = askName.replace(/\./g, "Google");
@@ -413,9 +411,8 @@ function NewProductWelcome({ type, setPlatform, askName }) {
                 ></Image>
               </button>
               <button
-                className={`tw-flex tw-items-center ${
-                  selected === "Facebook" ? "tw-bg-gray-800" : "tw-bg-gray-100"
-                } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
+                className={`tw-flex tw-items-center ${selected === "Facebook" ? "tw-bg-gray-800" : "tw-bg-gray-100"
+                  } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
                 onClick={() => {
                   setPlatform("Facebook");
                   askName = askName.replace(/\./g, "Facebook");
@@ -429,9 +426,8 @@ function NewProductWelcome({ type, setPlatform, askName }) {
                 ></Image>
               </button>
               <button
-                className={`tw-flex tw-items-center ${
-                  selected === "Instagram" ? "tw-bg-gray-800" : "tw-bg-gray-100"
-                } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
+                className={`tw-flex tw-items-center ${selected === "Instagram" ? "tw-bg-gray-800" : "tw-bg-gray-100"
+                  } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
                 onClick={() => {
                   setPlatform("Instagram");
                   askName = askName.replace(/\./g, "Instagram");
