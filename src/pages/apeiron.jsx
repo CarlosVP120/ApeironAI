@@ -74,7 +74,7 @@ export default function ToolHomePage() {
 function User({ signOutHandler, redirectHandler }) {
   return (
     <div className="tw-w-full tw-h-[100vh] tw-text-center tw-bg-black tw-text-white">
-      <div className="tw-h-full tw-flex tw-flex-col tw-pt-4 tw-gap-10 ">
+      <div className="tw-h-full tw-flex tw-flex-col tw-gap-10 ">
         <ApeironNavbar
           signOutHandler={signOutHandler}
           value="main"

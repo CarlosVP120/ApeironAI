@@ -44,7 +44,7 @@ function Test({ router }) {
 
   return (
     <div className="tw-w-full tw-h-[100vh] tw-text-center tw-bg-black tw-text-white">
-      <div className="tw-h-full tw-flex tw-flex-col tw-pt-4 tw-gap-4 ">
+      <div className="tw-h-full tw-flex tw-flex-col w-gap-4 ">
         <ApeironNavbar
           setValue={setValue}
           selected={value}

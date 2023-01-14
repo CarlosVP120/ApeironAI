@@ -11,7 +11,7 @@ export default function ApeironNavbar({
   selected,
 }) {
   return (
-    <div className="tw-flex tw-justify-between tw-items-center tw-px-10 tw-relative tw-py-3">
+    <div className="tw-flex tw-justify-between tw-items-center tw-px-10 tw-relative tw-py-3 tw-pt-4 ">
       <h1
         className="tw-self-center tw-text-white tw-justify-center"
         style={{ fontSize: "2rem", fontFamily: "Poppins" }}
@@ -30,11 +30,10 @@ export default function ApeironNavbar({
             >
               <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
               <span
-                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
-                  selected === "Descriptions"
-                    ? "tw-bg-opacity-0"
-                    : "tw-bg-black"
-                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${selected === "Descriptions"
+                  ? "tw-bg-opacity-0"
+                  : "tw-bg-black"
+                  }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span class="tw-relative tw-text-white tw-flex tw-items-center">
                   <svg
@@ -62,9 +61,8 @@ export default function ApeironNavbar({
             >
               <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
               <span
-                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
-                  selected === "Keywords" ? "tw-bg-opacity-0" : "tw-bg-black"
-                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${selected === "Keywords" ? "tw-bg-opacity-0" : "tw-bg-black"
+                  }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span class="tw-relative tw-text-white tw-flex tw-items-center">
                   <svg
@@ -92,9 +90,8 @@ export default function ApeironNavbar({
             >
               <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
               <span
-                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
-                  selected === "Ads" ? "tw-bg-opacity-0" : "tw-bg-black"
-                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${selected === "Ads" ? "tw-bg-opacity-0" : "tw-bg-black"
+                  }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span class="tw-relative tw-text-white tw-flex tw-items-center">
                   <svg
@@ -120,19 +117,18 @@ export default function ApeironNavbar({
       ) : null}
 
       {value === "codex" ? (
-        <div className="tw-justify-center tw-flex">
-          <div className="tw-justify-center tw-self-center tw-flex tw-gap-6">
+        <div className="tw-justify-center tw-flex ">
+          <div className="tw-justify-center tw-self-center tw-flex tw-gap-2">
             <button
               onClick={() => setValue("Explain Code")}
               class="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3"
             >
-              <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
+              <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6] tw-absolute"></span>
               <span
-                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
-                  selected === "Explain Code"
-                    ? "tw-bg-opacity-0"
-                    : "tw-bg-black"
-                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${selected === "Explain Code"
+                  ? "tw-bg-opacity-0"
+                  : "tw-bg-black"
+                  }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span class="tw-relative tw-text-white tw-flex tw-items-center">
                   <svg
@@ -160,11 +156,10 @@ export default function ApeironNavbar({
             >
               <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
               <span
-                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
-                  selected === "Convert Code"
-                    ? "tw-bg-opacity-0"
-                    : "tw-bg-black"
-                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${selected === "Convert Code"
+                  ? "tw-bg-opacity-0"
+                  : "tw-bg-black"
+                  }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span class="tw-relative tw-text-white tw-flex tw-items-center">
                   <svg
@@ -192,11 +187,10 @@ export default function ApeironNavbar({
             >
               <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
               <span
-                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
-                  selected === "Generate Code"
-                    ? "tw-bg-opacity-0"
-                    : "tw-bg-black"
-                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${selected === "Generate Code"
+                  ? "tw-bg-opacity-0"
+                  : "tw-bg-black"
+                  }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span class="tw-relative tw-text-white tw-flex tw-items-center">
                   <svg
@@ -224,11 +218,10 @@ export default function ApeironNavbar({
             >
               <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
               <span
-                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
-                  selected === "Cmd Assistance"
-                    ? "tw-bg-opacity-0"
-                    : "tw-bg-black"
-                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${selected === "Cmd Assistance"
+                  ? "tw-bg-opacity-0"
+                  : "tw-bg-black"
+                  }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span class="tw-relative tw-text-white tw-flex tw-items-center">
                   <svg
@@ -256,9 +249,8 @@ export default function ApeironNavbar({
             >
               <span class="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
               <span
-                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
-                  selected === "Fix Grammar" ? "tw-bg-opacity-0" : "tw-bg-black"
-                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+                class={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${selected === "Fix Grammar" ? "tw-bg-opacity-0" : "tw-bg-black"
+                  }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span class="tw-relative tw-text-white tw-flex tw-items-center">
                   <svg
