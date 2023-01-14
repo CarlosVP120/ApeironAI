@@ -46,7 +46,7 @@ export default function TypeCodex() {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;">Explain </span> your code`
               )
-              .pauseFor(700)
+              .pauseFor(500)
               .deleteAll()
               .typeString(
                 `Convert your code to other <span style="  background: -webkit-gradient(
@@ -63,7 +63,7 @@ export default function TypeCodex() {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;">languages</span>`
               )
-              .pauseFor(700)
+              .pauseFor(500)
               .deleteAll()
               .typeString(
                 `Generate <span style="  background: -webkit-gradient(
@@ -80,7 +80,7 @@ export default function TypeCodex() {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;">code </span>for you`
               )
-              .pauseFor(700)
+              .pauseFor(500)
               .deleteAll()
               .typeString(
                 `Get <span style="  background: -webkit-gradient(
@@ -97,7 +97,7 @@ export default function TypeCodex() {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;">Command </span> assistance`
               )
-              .pauseFor(700)
+              .pauseFor(500)
               .deleteAll()
               .typeString(
                 `Fix <span style="  background: -webkit-gradient(
@@ -114,10 +114,10 @@ export default function TypeCodex() {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;">Grammar </span> errors`
               )
-              .pauseFor(700)
+              .pauseFor(500)
               .deleteAll()
               .typeString(`All in one place`)
-              .pauseFor(700)
+              .pauseFor(500)
               .deleteAll()
               .typeString(
                 `All in <span style="  background: -webkit-gradient(

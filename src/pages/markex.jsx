@@ -8,6 +8,7 @@ import Descriptions from "../components/Descriptions";
 import Keywords from "../components/Keywords";
 import Ads from "../components/Ads";
 import ApeironNavbar from "../components/ApeironNavbar";
+import TypeMarkex from "../components/TypeMarkeX";
 
 export default function MarkeX() {
   const router = useRouter();
@@ -50,6 +51,8 @@ function Main({ router }) {
           signOutHandler={signOutHandler}
           value="markex"
         />
+
+        {value === "" && <TypeMarkex />}
 
         {value === "Descriptions" && <Descriptions />}
         {value === "Keywords" && <Keywords />}

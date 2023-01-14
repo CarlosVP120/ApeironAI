@@ -9,7 +9,7 @@ import ConvertCode from "../components/ConvertCode";
 import GenerateCode from "../components/GenerateCode";
 import CmdAssitance from "../components/CmdAssistance";
 import FixGrammar from "../components/FixGrammar";
-import TypeCodex from "./typeCodeX";
+import TypeCodex from "../components/typeCodeX";
 
 export default function CodeX() {
   const router = useRouter();
