@@ -1,9 +1,14 @@
+import { useState } from "react";
+
 export default function GenerateCode() {
+
+  const [inputText, setInputText] = useState("");
+
   return (
     <div className="tw-w-full tw-h-[100vh] tw-bg-black tw-text-white tw-flex tw-justify-center">
-      <div className="tw-h-full tw-flex tw-flex-col tw-pt-4 tw-gap-4">
-        <div className="tw-font-bold tw-text-white tw-mt-4 tw-flex tw-justify-center tw-shadow-inner">
-          <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none">
+      <div className="tw-h-full tw-w-full tw-flex tw-flex-col tw-justify-center ">
+        <div className="tw-font-bold tw-text-white tw-flex tw-justify-center tw-shadow-inner tw-w-full tw-h-full tw-items-center">
+          <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none tw-w-[30%] tw-h-[80%] tw-justify-between">
             <h1 className="tw-flex tw-items-center tw-text-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -25,12 +30,12 @@ export default function GenerateCode() {
               Create new code based on the syntax provided.
             </h2>
             <h2 className="tw-mt-4 ">What do you want to create?</h2>
-            <input className="tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-100" />
+            <textarea className="tw-mt-4 tw-w-full tw-h-[80%] tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-300 tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0" value={inputText} onChange={(e) => setInputText(e.target.value)} />
             <button className="tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-100">
               Generate
             </button>
           </div>
-          <div className="tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none">
+          <div className="tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-max-w-[65%] tw-h-[80%]">
             <h1 className="tw-flex tw-items-center tw-text-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,8 +57,8 @@ export default function GenerateCode() {
               This is where your code will appear.
             </h2>
             <h2>
-              <pre className="tw-text-sm tw-mt-4 tw-text-gray-400">
-                <code>
+              <pre className="tw-text-sm tw-mt-4 tw-text-gray-400 tw-overflow-auto">
+                <code className="tw-text-sm tw-mt-4 tw-text-gray-400">
                   {`// Path: src\components\CmdAssistance.jsx
 export default function CmdAssitance() {
     return (

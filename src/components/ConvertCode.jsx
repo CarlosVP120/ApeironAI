@@ -1,9 +1,38 @@
+import { useState } from "react";
+
 export default function ConvertCode({ setValue, value }) {
+
+
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
+  const [language, setLanguage] = useState("javascript");
+
+  const handleTab = (e) => {
+    if (e.keyCode === 9) {
+      e.preventDefault();
+      const start = e.target.selectionStart;
+      const end = e.target.selectionEnd;
+      setInput(
+        input.substring(0, start) +
+        "\t" +
+        input.substring(end, input.length)
+      );
+      e.target.selectionStart = e.target.selectionEnd = start + 1;
+    }
+  };
+
+  const handleSelect = (e) => {
+    setLanguage(e.target.value);
+  };
+
+  console.log(language);
+
+
   return (
     <div className="tw-w-full tw-h-[100vh] tw-bg-black tw-text-white tw-flex tw-justify-center">
-      <div className="tw-h-full tw-flex tw-flex-col tw-pt-4 tw-gap-4">
-        <div className="tw-font-bold tw-text-white tw-mt-4 tw-flex tw-justify-center tw-shadow-inner">
-          <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none">
+      <div className="tw-h-full tw-w-full tw-flex tw-flex-col tw-justify-center ">
+        <div className="tw-font-bold tw-text-white tw-flex tw-justify-center tw-shadow-inner tw-w-full tw-h-full tw-items-center" >
+          <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none tw-w-[45%] tw-h-[80%] tw-justify-between">
             <h1 className="tw-flex tw-items-center tw-text-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -25,13 +54,13 @@ export default function ConvertCode({ setValue, value }) {
               Convert your code into a different programming language
             </h2>
             <h2 className="tw-mt-4 ">Paste your code below...</h2>
-            <textarea className="tw-mt-4 tw-w-full tw-h-64 tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-100 tw-resize-none" />
+            <textarea className="tw-mt-4 tw-w-full tw-h-[80%] tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-300 tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0" onKeyDown={handleTab} value={input} onChange={(e) => setInput(e.target.value)} />
             <button className="tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-100">
               Convert
             </button>
           </div>
-          <div className="tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none">
-            <h1 className="tw-flex tw-items-center tw-text-2xl">
+          <div className="tw-flex tw-flex-col tw-bg-neutral-800 tw-justify-center tw-items-center tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-w-[45%] tw-h-[80%]">
+            <h1 className="tw-flex tw-items-center tw-text-2xl tw-w-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -48,111 +77,27 @@ export default function ConvertCode({ setValue, value }) {
               </svg>
               Which language?
             </h1>
-            <h2 className="tw-mt-1 tw-text-sm">
+            <h2 className="tw-mt-1 tw-text-sm tw-w-full">
               Select the language you want to convert your code to
             </h2>
-            <div className="tw-mt-4 tw-flex tw-flex-col tw-gap-4">
-              <ul>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    className="tw-mr-2 tw-cursor-pointer"
-                  />
-                  <span className="tw-cursor-pointer">Python</span>
-                </label>
-              </ul>
-              <ul>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    className="tw-mr-2 tw-cursor-pointer"
-                  />
-                  <span className="tw-cursor-pointer">JavaScript</span>
-                </label>
-              </ul>
-              <ul>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    className="tw-mr-2 tw-cursor-pointer"
-                  />
-                  <span className="tw-cursor-pointer">C++</span>
-                </label>
-              </ul>
-              <ul>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    className="tw-mr-2 tw-cursor-pointer"
-                  />
-                  <span className="tw-cursor-pointer">C#</span>
-                </label>
-              </ul>
-              <ul>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    className="tw-mr-2 tw-cursor-pointer"
-                  />
-                  <span className="tw-cursor-pointer">Java</span>
-                </label>
-              </ul>
-              <ul>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    className="tw-mr-2 tw-cursor-pointer"
-                  />
-                  <span className="tw-cursor-pointer">PHP</span>
-                </label>
-              </ul>
-              <ul>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    className="tw-mr-2 tw-cursor-pointer"
-                  />
-                  <span className="tw-cursor-pointer">Ruby</span>
-                </label>
-              </ul>
-              <ul>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    className="tw-mr-2 tw-cursor-pointer"
-                  />
-                  <span className="tw-cursor-pointer">Swift</span>
-                </label>
-              </ul>
-              <ul>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    className="tw-mr-2 tw-cursor-pointer"
-                  />
-                  <span className="tw-cursor-pointer">Go</span>
-                </label>
-              </ul>
-
-              <ul>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    className="tw-mr-2 tw-cursor-pointer"
-                  />
-                  <span className="tw-cursor-pointer">Rust</span>
-                </label>
-              </ul>
+            <div className="tw-w-full">
+              <select className="tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-300 tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0" onChange={handleSelect}>
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+                <option value="c">C</option>
+                <option value="c++">C++</option>
+                <option value="c#">C#</option>
+                <option value="php">PHP</option>
+                <option value="ruby">Ruby</option>
+                <option value="swift">Swift</option>
+                <option value="kotlin">Kotlin</option>
+                <option value="go">Go</option>
+                <option value="rust">Rust</option>
+                <option value="scala">Scala</option>
+                <option value="dart">Dart</option>
+                <option value="haskell">Haskell</option>
+              </select>
             </div>
           </div>
         </div>
