@@ -5,11 +5,11 @@ import Guest from "../components/Guest";
 import Head from "next/head";
 import ApeironNavbar from "../components/ApeironNavbar";
 import ExplainCode from "../components/ExplainCode";
-import Typewriter from "typewriter-effect";
 import ConvertCode from "../components/ConvertCode";
 import GenerateCode from "../components/GenerateCode";
 import CmdAssitance from "../components/CmdAssistance";
 import FixGrammar from "../components/FixGrammar";
+import TypeCodex from "./typeCodeX";
 
 export default function CodeX() {
   const router = useRouter();
@@ -52,13 +52,8 @@ function Test({ router }) {
           signOutHandler={signOutHandler}
           value="codex"
         />
-        <div className="tw-text-5xl tw-font-bold tw-text-white tw-mt-4 ">
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter.typeString("Welcome to CodeX").start();
-            }}
-          />
-        </div>
+
+        {value === "" && <TypeCodex />}
 
         {value === "Explain Code" && <ExplainCode />}
         {value === "Convert Code" && <ConvertCode />}
