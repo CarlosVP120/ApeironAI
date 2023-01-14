@@ -133,7 +133,7 @@ export default function MarkeXLayout({
 
   return (
     <div className="tw-flex tw-justify-center tw-w-full tw-h-full tw-overflow-hidden">
-      <div className="tw-h-full tw-bg-neutral-900 tw-w-[20vw] tw-rounded-tr-lg tw-font-bold tw-px-3 tw-overflow-y-scroll">
+      <div className="tw-h-full tw-bg-neutral-900 tw-w-[20vw] tw-rounded-tr-lg tw-font-bold tw-px-3 tw-overflow-y-auto">
         <button
           className="tw-w-full tw-sticky tw-top-0 tw-z-10 tw-bg-neutral-900 tw-pt-3"
           onClick={() => {

@@ -64,7 +64,7 @@ export default function ShowingProduct({
           </div>
         )}
       </div>
-      <div className="tw-relative tw-flex tw-flex-col tw-px-3 tw-max-w-[95%] tw-justify-center tw-bg-neutral-900 tw-my-auto tw-rounded-lg tw-pt-3 tw-overflow-y-scroll">
+      <div className="tw-relative tw-flex tw-flex-col tw-px-3 tw-max-w-[95%] tw-justify-center tw-bg-neutral-900 tw-my-auto tw-rounded-lg tw-pt-3 tw-overflow-y-auto">
         <div className="tw-h-full">
           <p className="tw-text-white tw-text-base tw-mb-4">
             Showing completion for: {prompt}
