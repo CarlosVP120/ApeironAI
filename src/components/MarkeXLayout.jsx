@@ -4,14 +4,12 @@ import ShowingProduct from "./ShowingProduct";
 import { auth, db } from "../../firebase/firebaseClient";
 import {
   doc,
-  getDoc,
   updateDoc,
   arrayUnion,
-  onSnapshot,
 } from "firebase/firestore";
-import ApeironNavbar from "./ApeironNavbar";
-import { data } from "autoprefixer";
 import Image from "next/image";
+import Typewriter from "typewriter-effect";
+import styles from "../styles/Form.module.css";
 
 export default function MarkeXLayout({
   dataArray,
@@ -205,11 +203,10 @@ export default function MarkeXLayout({
                     <div className="tw-flex tw-w-full tw-items-center tw-justify-center">
                       <input
                         className="tw-w-9/12 tw-bg-neutral-900 tw-text-gray-100 tw-px-4 tw-py-2 tw-rounded-lg tw-outline-none tw-text-sm"
-                        placeholder={`${
-                          type === "ads"
-                            ? "Type a short headline/title about your ad..."
-                            : "Describe to us what your product is and what it does in a few words..."
-                        }`}
+                        placeholder={`${type === "ads"
+                          ? "Type a short headline/title about your ad..."
+                          : "Describe to us what your product is and what it does in a few words..."
+                          }`}
                         value={value}
                         onChange={handleInput}
                         onKeyDown={handleKeyDown}
@@ -221,8 +218,8 @@ export default function MarkeXLayout({
                         {type === "ads"
                           ? "Create Ad"
                           : type === "descriptions"
-                          ? "Create Product"
-                          : "Find Keywords"}
+                            ? "Create Product"
+                            : "Find Keywords"}
                       </button>
                     </div>
                   )}
@@ -279,8 +276,24 @@ function NewProductWelcome({ type, setPlatform, askName }) {
 
   return (
     <div className="tw-flex tw-w-4/6 tw-h-full tw-flex-col tw-gap-5 tw-justify-center">
-      <h1 className="tw-text-2xl tw-font-bold tw-text-gray-100 tw-mb-5 tw-flex tw-justify-center tw-items-center ">
-        Let's get started!
+      <h1 className="tw-text-3xl tw-font-bold tw-text-gray-100 tw-mb-5 tw-flex tw-justify-center tw-items-center ">
+        <Typewriter
+          onInit={(typewriter) => {
+            typewriter.typeString(`Welcome to <span style="  background: -webkit-gradient(
+              linear,
+              left top,
+              right top,
+              from(#12c2e9),
+              color-stop(#c471ed),
+              to(#f64f59)
+            );
+            background: -webkit-linear-gradient(left, #12c2e9, #c471ed, #f64f59);
+            background: -o-linear-gradient(left, #12c2e9, #c471ed, #f64f59);
+            background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;">MarkeX</span>`).start();
+          }}
+        />
       </h1>
 
       <div className="tw-flex tw-self-center tw-gap-6 tw-justify-center">
@@ -383,9 +396,8 @@ function NewProductWelcome({ type, setPlatform, askName }) {
           <div className="tw-flex tw-justify-center tw-items-center ">
             <div className="tw-flex tw-items-center tw-gap-5">
               <button
-                className={`tw-flex tw-items-center ${
-                  selected === "Google" ? "tw-bg-gray-800" : "tw-bg-gray-100"
-                } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
+                className={`tw-flex tw-items-center ${selected === "Google" ? "tw-bg-gray-800" : "tw-bg-gray-100"
+                  } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
                 onClick={() => {
                   setPlatform("Google");
                   askName = askName.replace(/\./g, "Google");
@@ -399,9 +411,8 @@ function NewProductWelcome({ type, setPlatform, askName }) {
                 ></Image>
               </button>
               <button
-                className={`tw-flex tw-items-center ${
-                  selected === "Facebook" ? "tw-bg-gray-800" : "tw-bg-gray-100"
-                } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
+                className={`tw-flex tw-items-center ${selected === "Facebook" ? "tw-bg-gray-800" : "tw-bg-gray-100"
+                  } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
                 onClick={() => {
                   setPlatform("Facebook");
                   askName = askName.replace(/\./g, "Facebook");
@@ -415,9 +426,8 @@ function NewProductWelcome({ type, setPlatform, askName }) {
                 ></Image>
               </button>
               <button
-                className={`tw-flex tw-items-center ${
-                  selected === "Instagram" ? "tw-bg-gray-800" : "tw-bg-gray-100"
-                } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
+                className={`tw-flex tw-items-center ${selected === "Instagram" ? "tw-bg-gray-800" : "tw-bg-gray-100"
+                  } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
                 onClick={() => {
                   setPlatform("Instagram");
                   askName = askName.replace(/\./g, "Instagram");
