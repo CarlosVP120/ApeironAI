@@ -147,7 +147,7 @@ function User({ signOutHandler, redirectHandler }) {
                     </span>
                     <p className="tw-text-sm tw-text-gray-400 tw-font-bold tw-text-center tw-max-w-[20vw] tw-my-3">
                       With MarkeX, find the best description for your products
-                      and create the best ads.
+                      and create the best ads for your business.
                     </p>
                   </p>
                 </div>
