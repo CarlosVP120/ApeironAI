@@ -5,7 +5,7 @@ import appData from "../../data/app.json";
 import { useRouter } from "next/router";
 
 const LoadingScreen = ({ disabled }) => {
-  router == useRouter();
+  router = useRouter();
 
   const [show, setShow] = React.useState("");
 
