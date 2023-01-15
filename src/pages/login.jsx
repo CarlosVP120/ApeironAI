@@ -51,6 +51,8 @@ export default function Login() {
       ".showX, .progress-wrap.cursor-pointer.active-progress"
     );
 
+    console.log(hideloading);
+
     if (hideloading) {
       hideloading.forEach((element) => {
         element.remove();
