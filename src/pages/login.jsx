@@ -47,10 +47,10 @@ export default function Login() {
   };
 
   useEffect(() => {
-    const hideloading = document.querySelector(".showX");
-    if (hideloading) {
-      hideloading.remove();
-    }
+    // const hideloading = document.querySelector(".showX");
+    // if (hideloading) {
+    //   hideloading.remove();
+    // }
     authListener();
   }, []);
 

@@ -10,16 +10,15 @@ const ScrollToTop = () => {
   }, []);
   return (
     <div
-      // className={`${
-      //   router.pathname === "/login" ||
-      //   router.pathname === "/register" ||
-      //   router.pathname === "/apeiron" ||
-      //   router.pathname === "/markex" ||
-      //   router.pathname === "/codex"
-      //     ? "tw-hidden"
-      //     : ""
-      // } progress-wrap cursor-pointer`}
-      className="progress-wrap cursor-pointer"
+      className={`${
+        router.pathname === "/login" ||
+        router.pathname === "/register" ||
+        router.pathname === "/apeiron" ||
+        router.pathname === "/markex" ||
+        router.pathname === "/codex"
+          ? "tw-hidden"
+          : ""
+      } progress-wrap cursor-pointer`}
     >
       <svg
         className="progress-circle svg-content"
