@@ -2,9 +2,18 @@ import React from "react";
 import Script from "next/script";
 import loadingPace from "../../common/loadingPace";
 import appData from "../../data/app.json";
+import { useRouter } from "next/router";
 
 const LoadingScreen = ({ disabled }) => {
+  router == useRouter();
+
+  const [show, setShow] = React.useState("");
+
   React.useEffect(() => {
+    if (router.pathname !== "/") {
+      setShow("tw-hidden");
+    }
+
     if (disabled) {
       appData.showLoading = false;
     } else {
@@ -25,7 +34,11 @@ const LoadingScreen = ({ disabled }) => {
 
   return (
     <>
-      <div className={`${appData.showLoading === true ? "showX" : "hideX"}`}>
+      <div
+        className={`${
+          appData.showLoading === true ? `showX ${show}` : "hideX"
+        }`}
+      >
         <div className={`loading ${disabled === true ? "tw-hidden" : ""}`}>
           <span>L</span>
           <span>o</span>
