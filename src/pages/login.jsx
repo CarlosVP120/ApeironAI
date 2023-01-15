@@ -47,10 +47,11 @@ export default function Login() {
   };
 
   useEffect(() => {
-    // delete the div with classname showX
-    const div = document.querySelector(".showX");
-    if (div) {
-      div.remove();
+    const hideloading = document.querySelector(".showX");
+    const hideLoadingSVG = document.querySelector(".progress-wrap");
+    if (hideloading) {
+      hideloading.remove();
+      hideLoadingSVG.remove();
     }
     authListener();
   }, []);

@@ -6,8 +6,6 @@ import ScrollToTop from "../components/scrollToTop";
 import LoadingScreen from "../components/Loading-Screen";
 import "../styles/main.scss";
 import "../styles/globals.css";
-import { SessionProvider } from "next-auth/react";
-import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   return (
