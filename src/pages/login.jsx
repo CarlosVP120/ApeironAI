@@ -47,13 +47,9 @@ export default function Login() {
   };
 
   useEffect(() => {
-    const hideloading = document.querySelectorAll(".showX");
+    const hideloading = document.querySelectorAll(".showX, .circleToDelete ");
 
-    const deleteLoading = document.querySelector(
-      ".progress-wrap.cursor-pointer.active-progress"
-    );
-
-    console.log(deleteLoading);
+    console.log(hideloading);
 
     if (hideloading) {
       hideloading.forEach((element) => {
