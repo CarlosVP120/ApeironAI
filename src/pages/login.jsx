@@ -47,11 +47,14 @@ export default function Login() {
   };
 
   useEffect(() => {
-    const hideloading = document.querySelector(
+    const hideloading = document.querySelectorAll(
       ".showX, .progress-wrap.cursor-pointer.active-progress"
     );
+
     if (hideloading) {
-      hideloading.remove();
+      hideloading.forEach((element) => {
+        element.remove();
+      });
     }
     authListener();
   }, []);
