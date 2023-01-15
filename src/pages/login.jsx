@@ -48,10 +48,8 @@ export default function Login() {
 
   useEffect(() => {
     const hideloading = document.querySelector(".showX");
-    const hideLoadingSVG = document.querySelector(".progress-wrap");
     if (hideloading) {
       hideloading.remove();
-      hideLoadingSVG.remove();
     }
     authListener();
   }, []);
