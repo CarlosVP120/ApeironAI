@@ -225,7 +225,7 @@ export default function Login() {
             </form>
 
             <p className="tw-text-center tw-text-gray-400 tw-text-sm">
-              Don't have an account?{" "}
+              Don&apos;t have an account?
               <Link href={"/register"}>
                 <a className="tw-text-blue-700">Sign Up</a>
               </Link>

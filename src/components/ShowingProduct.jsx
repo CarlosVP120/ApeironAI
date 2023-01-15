@@ -40,7 +40,7 @@ export default function ShowingProduct({
 
       setUnderlined(name + (longer ? " longer" : " shorter"));
     });
-  });
+  }, []);
 
   return (
     <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full tw-w-full">
@@ -84,6 +84,7 @@ export default function ShowingProduct({
                   completion.split(",").map((item, index) => {
                     return (
                       <div
+                        key={index}
                         className={`tw-flex tw-justify-center tw-items-center tw-bg-neutral-800 tw-rounded-lg tw-px-3 ${
                           index === 0 ? "tw-hidden" : "tw-py-1"
                         }`}

@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 export default function GenerateCode() {
-
   const [inputText, setInputText] = useState("");
 
   return (
@@ -30,7 +29,11 @@ export default function GenerateCode() {
               Create new code based on the syntax provided.
             </h2>
             <h2 className="tw-mt-4 ">What do you want to create?</h2>
-            <textarea className="tw-mt-4 tw-w-full tw-h-[80%] tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-300 tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0" value={inputText} onChange={(e) => setInputText(e.target.value)} />
+            <textarea
+              className="tw-mt-4 tw-w-full tw-h-[80%] tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-300 tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0"
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+            />
             <button className="tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-100">
               Generate
             </button>
@@ -41,13 +44,13 @@ export default function GenerateCode() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="tw-w-8 tw-h-8 tw-mr-2 tw-stroke-current tw-stroke-2"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
                 />
               </svg>

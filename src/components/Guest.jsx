@@ -17,12 +17,12 @@ const guest = () => {
         <div
           disabled
           type="button"
-          class="tw-self-center tw-text-2xl tw-inline-flex tw-items-center"
+          className="tw-self-center tw-text-2xl tw-inline-flex tw-items-center"
         >
           <svg
             aria-hidden="true"
             role="status"
-            class="tw-inline tw-w-6 tw-h-6 tw-mr-2 tw-text-gray-200 tw-animate-spin dark:tw-text-black"
+            className="tw-inline tw-w-6 tw-h-6 tw-mr-2 tw-text-gray-200 tw-animate-spin dark:tw-text-black"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

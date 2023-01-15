@@ -148,6 +148,7 @@ export default function MarkeXLayout({
             // invert the order of the dataArray
             dataArray.map((data) => (
               <button
+                key={data.name}
                 className={`tw-w-full`}
                 onClick={() => {
                   setNewProductWelcome(false);
@@ -199,10 +200,11 @@ export default function MarkeXLayout({
                     <div className="tw-flex tw-w-full tw-items-center tw-justify-center">
                       <input
                         className="tw-w-9/12 tw-bg-neutral-900 tw-text-gray-100 tw-px-4 tw-py-2 tw-rounded-lg tw-outline-none tw-text-sm"
-                        placeholder={`${type === "ads"
+                        placeholder={`${
+                          type === "ads"
                             ? "Type a short headline/title about your ad..."
                             : "Describe to us what your product is and what it does in a few words..."
-                          }`}
+                        }`}
                         value={value}
                         onChange={handleInput}
                         onKeyDown={handleKeyDown}
@@ -214,8 +216,8 @@ export default function MarkeXLayout({
                         {type === "ads"
                           ? "Create Ad"
                           : type === "descriptions"
-                            ? "Create Product"
-                            : "Find Keywords"}
+                          ? "Create Product"
+                          : "Find Keywords"}
                       </button>
                     </div>
                   )}
@@ -225,12 +227,12 @@ export default function MarkeXLayout({
                   <div
                     disabled
                     type="button"
-                    class="tw-h-full tw-text-2xl tw-inline-flex tw-items-center"
+                    className="tw-h-full tw-text-2xl tw-inline-flex tw-items-center"
                   >
                     <svg
                       aria-hidden="true"
                       role="status"
-                      class="tw-inline tw-w-6 tw-h-6 tw-mr-2 tw-text-gray-200 tw-animate-spin dark:tw-text-gray-600"
+                      className="tw-inline tw-w-6 tw-h-6 tw-mr-2 tw-text-gray-200 tw-animate-spin dark:tw-text-gray-600"
                       viewBox="0 0 100 101"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -303,27 +305,27 @@ function NewProductWelcome({ type, setPlatform, askName }) {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
-              class="tw-w-6 tw-h-6 tw-mb-2"
+              className="tw-w-6 tw-h-6 tw-mb-2"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"
               />
             </svg>
             Examples
           </h1>
           <div className="tw-bg-neutral-900 tw-px-3 tw-py-2 tw-rounded-lg">
-            "Red car that goes fast, but is also safe"
+            &quot;Red car that goes fast, but is also safe&quot;
           </div>
           <div className="tw-bg-neutral-900 tw-px-3 tw-py-2 tw-rounded-lg">
-            "Watch with a heart rate monitor"
+            &quot;Watch with a heart rate monitor&quot;
           </div>
           {type !== "ads" && (
             <div className="tw-bg-neutral-900 tw-px-3 tw-py-2 tw-rounded-lg">
-              "UI/UX Course for Google"
+              &quot;UI/UX Course for Google&quot;
             </div>
           )}
         </div>
@@ -333,13 +335,13 @@ function NewProductWelcome({ type, setPlatform, askName }) {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
-              class="tw-w-6 tw-h-6 tw-mb-2"
+              className="tw-w-6 tw-h-6 tw-mb-2"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
               />
             </svg>
@@ -353,7 +355,7 @@ function NewProductWelcome({ type, setPlatform, askName }) {
           </div>
           {type !== "ads" && (
             <div className="tw-bg-neutral-900 tw-px-3 tw-py-2 tw-rounded-lg">
-              Detects the type of product you're trying to create
+              Detects the type of product you&apos;re trying to create
             </div>
           )}
         </div>
@@ -363,13 +365,13 @@ function NewProductWelcome({ type, setPlatform, askName }) {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
-              class="tw-w-6 tw-h-6 tw-mb-2"
+              className="tw-w-6 tw-h-6 tw-mb-2"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
               />
             </svg>
@@ -383,7 +385,8 @@ function NewProductWelcome({ type, setPlatform, askName }) {
           </div>
           {type !== "ads" && (
             <div className="tw-bg-neutral-900 tw-px-3 tw-py-2 tw-rounded-lg">
-              It's intelligence is limited to the data it has been trained on
+              It&apos;s intelligence is limited to the data it has been trained
+              on
             </div>
           )}
         </div>
@@ -396,8 +399,9 @@ function NewProductWelcome({ type, setPlatform, askName }) {
           <div className="tw-flex tw-justify-center tw-items-center ">
             <div className="tw-flex tw-items-center tw-gap-5">
               <button
-                className={`tw-flex tw-items-center ${selected === "Google" ? "tw-bg-gray-800" : "tw-bg-gray-100"
-                  } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
+                className={`tw-flex tw-items-center ${
+                  selected === "Google" ? "tw-bg-gray-800" : "tw-bg-gray-100"
+                } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
                 onClick={() => {
                   setPlatform("Google");
                   askName = askName.replace(/\./g, "Google");
@@ -405,14 +409,16 @@ function NewProductWelcome({ type, setPlatform, askName }) {
                 }}
               >
                 <Image
+                  alt="image"
                   src={"/assets/google.svg"}
                   width="30"
                   height={30}
                 ></Image>
               </button>
               <button
-                className={`tw-flex tw-items-center ${selected === "Facebook" ? "tw-bg-gray-800" : "tw-bg-gray-100"
-                  } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
+                className={`tw-flex tw-items-center ${
+                  selected === "Facebook" ? "tw-bg-gray-800" : "tw-bg-gray-100"
+                } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
                 onClick={() => {
                   setPlatform("Facebook");
                   askName = askName.replace(/\./g, "Facebook");
@@ -420,14 +426,16 @@ function NewProductWelcome({ type, setPlatform, askName }) {
                 }}
               >
                 <Image
+                  alt="image"
                   src={"/assets/facebook-svgrepo-com.svg"}
                   width="30"
                   height={30}
                 ></Image>
               </button>
               <button
-                className={`tw-flex tw-items-center ${selected === "Instagram" ? "tw-bg-gray-800" : "tw-bg-gray-100"
-                  } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
+                className={`tw-flex tw-items-center ${
+                  selected === "Instagram" ? "tw-bg-gray-800" : "tw-bg-gray-100"
+                } tw-p-2 tw-rounded-lg tw-text-gray-900 tw-font-bold tw-text-sm tw-transition tw-duration-500 hover:tw-bg-gray-800`}
                 onClick={() => {
                   setPlatform("Instagram");
                   askName = askName.replace(/\./g, "Instagram");
@@ -435,6 +443,7 @@ function NewProductWelcome({ type, setPlatform, askName }) {
                 }}
               >
                 <Image
+                  alt="image"
                   src={"/assets/instagram1.svg"}
                   width="30"
                   height={30}

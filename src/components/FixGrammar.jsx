@@ -2,7 +2,7 @@ export default function FixGrammar() {
   return (
     <div className="tw-w-full tw-h-[100vh] tw-bg-black tw-text-white tw-flex tw-justify-center">
       <div className="tw-h-full tw-w-full tw-flex tw-flex-col tw-justify-center ">
-        <div className="tw-font-bold tw-text-white tw-flex tw-justify-center tw-shadow-inner tw-w-full tw-h-full tw-items-center" >
+        <div className="tw-font-bold tw-text-white tw-flex tw-justify-center tw-shadow-inner tw-w-full tw-h-full tw-items-center">
           <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none tw-w-[45%] tw-h-[80%] tw-justify-between">
             <h1 className="tw-flex tw-items-center tw-text-2xl">
               <svg
@@ -37,13 +37,13 @@ export default function FixGrammar() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="tw-w-8 tw-h-8 tw-mr-2 tw-stroke-current tw-stroke-2"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
                 />
               </svg>
@@ -51,12 +51,12 @@ export default function FixGrammar() {
             </h1>
 
             <span className="tw-mt-4 tw-block tw-text-sm">
-              <span className="tw-text-green-500 tw-font-bold tw-mr-2">✔</span> Fixed
-              grammar
+              <span className="tw-text-green-500 tw-font-bold tw-mr-2">✔</span>{" "}
+              Fixed grammar
             </span>
             <span className="tw-mt-4 tw-block tw-text-sm">
-              <span className="tw-text-red-500 tw-font-bold tw-mr-3">✘</span> 1 error
-              found
+              <span className="tw-text-red-500 tw-font-bold tw-mr-3">✘</span> 1
+              error found
             </span>
           </div>
         </div>
