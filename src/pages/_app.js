@@ -9,13 +9,6 @@ import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    if (Component.name === "Login") {
-      document.querySelector(".showX").remove();
-      alert("showX removed");
-    }
-  }, [Component.name]);
-
   return (
     <>
       <Head>
