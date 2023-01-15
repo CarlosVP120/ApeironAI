@@ -48,15 +48,13 @@ export default function Login() {
 
   useEffect(() => {
     const hideloading = document.querySelectorAll(
-      ".showX, .progress-wrap.cursor-pointer "
+      ".progress-wrap.cursor-pointer"
     );
 
     console.log(hideloading);
 
     if (hideloading) {
-      hideloading.forEach((element) => {
-        element.remove();
-      });
+      hideloading.remove();
     }
     authListener();
   }, []);
