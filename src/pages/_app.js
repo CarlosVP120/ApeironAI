@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Script from "next/script";
 import Cursor from "../components/cursor";
@@ -9,6 +9,12 @@ import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    if (Component.name === "Login") {
+      document.querySelector(".showX").remove();
+    }
+  }, [Component.name]);
+
   return (
     <>
       <Head>
