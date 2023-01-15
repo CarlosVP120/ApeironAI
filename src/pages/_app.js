@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     if (Component.name === "Login") {
       document.querySelector(".showX").remove();
+      alert("showX removed");
     }
   }, [Component.name]);
 
