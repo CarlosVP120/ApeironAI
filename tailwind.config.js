@@ -24,6 +24,9 @@ module.exports = {
           },
         },
       },
+      fontFamily: {
+        'code': ['Source Code Pro', 'monospace']
+      }
     },
   },
   plugins: [],

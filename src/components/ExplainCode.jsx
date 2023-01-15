@@ -1,10 +1,18 @@
 import { useCallback } from "react";
 import { useState } from "react";
 import Loading from "./Loading";
+import Editor from "react-simple-code-editor";
+import { highlight, languages } from "prismjs/components/prism-core";
+import "prismjs/components/prism-clike";
+import "prismjs/components/prism-javascript";
+import "prismjs/themes/prism.css";
+import styles from "../styles/styles.module.css";
+import TextAreaWithLineNumber from "text-area-with-line-number";
 
 export default function CodeSnippet() {
+  const code = ``;
 
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(code);
   const [prompt, setPrompt] = useState("");
   const [completion, setCompletion] = useState("");
 
@@ -46,13 +54,11 @@ export default function CodeSnippet() {
     [value]
   );
 
-  console.log(completion);
-
   return (
     <div className="tw-w-full tw-h-[100vh] tw-bg-black tw-text-white tw-flex tw-justify-center">
       <div className="tw-h-full tw-w-full tw-flex tw-flex-col tw-justify-center ">
-        <div className="tw-font-bold tw-text-white tw-flex tw-justify-center tw-shadow-inner tw-w-full tw-h-full tw-items-center" >
-          <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none tw-w-[45%] tw-h-[80%] tw-justify-between">
+        <div className="tw-font-bold tw-text-white tw-flex tw-justify-center tw-shadow-inner tw-w-full tw-h-full tw-items-center">
+          <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none tw-w-[45%] tw-h-[90%] 2xl:tw-h-[80%] tw-justify-between">
             <h1 className="tw-flex tw-items-center tw-text-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,15 +80,22 @@ export default function CodeSnippet() {
               Explain some code based on the syntax provided.
             </h2>
             <h2 className="tw-mt-4 ">Paste your code below...</h2>
-            <textarea className="tw-mt-4 tw-w-full tw-h-[80%] tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-300 tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0" value={value}
-              onChange={handleInput} onKeyDown={handleTab} />
-            <button onClick={handleClick} className="tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-100 tw-transition tw-duration-500 hover:tw-bg-purple-500 hover:tw-text-white">
+            <textarea
+              className="tw-mt-4 tw-w-full tw-h-[80%] tw-p-4 tw-rounded-lg tw-text-[#eeffff] tw-bg-neutral-800 tw-border-black  tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0 tw-font-code"
+              value={value}
+              onChange={handleInput}
+              onKeyDown={handleTab}
+            />
+
+            <button
+              onClick={handleClick}
+              className=" tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-text-white tw-bg-gray-100 tw-transition tw-duration-500 tw-bg-purple-500 hover:tw-bg-white hover:tw-text-black"
+            >
               Explain
             </button>
           </div>
 
-
-          <div className="tw-flex tw-flex-col tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-w-[45%] tw-h-[80%]">
+          <div className="tw-flex tw-flex-col tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-w-[45%] tw-h-[90%] 2xl:tw-h-[80%]">
             {completion !== "Loading..." ? (
               <>
                 <h1 className="tw-flex tw-items-center tw-text-2xl">
@@ -102,10 +115,12 @@ export default function CodeSnippet() {
                   </svg>
                   What does this code do?
                 </h1>
-                <h2 className="tw-mt-1 tw-text-sm">
+                <h2 className="tw-mt-1 tw-text-sm ">
                   Explain what this code does based on the syntax provided.
                 </h2>
-                <h2 className="tw-mt-4 ">The explanation will appear here...</h2>
+                <h2 className="tw-mt-4 ">
+                  The explanation will appear here...
+                </h2>
                 {completion !== "" && (
                   <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden">
                     <div className="tw-text-lg tw-h-full tw-overflow-y-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
