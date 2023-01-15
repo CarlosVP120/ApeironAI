@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps }) {
         LoadingScreen.disabled = false;
       } else {
         LoadingScreen.disabled = true;
+        document.querySelector("body").classList.remove("hideX");
       }
     };
     router.events.on("routeChangeStart", handleRouteChange);
