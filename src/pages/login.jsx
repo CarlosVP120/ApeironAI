@@ -20,7 +20,7 @@ import { auth } from "../../firebase/firebaseClient";
 import Guest from "../components/Guest";
 
 export default function Login() {
-  const [loading, setLoading] = useState(true);
+  const [loadingLogin, setLoading] = useState(true);
   const router = useRouter();
   const [show, setShow] = useState(false);
   const formik = useFormik({
@@ -121,8 +121,8 @@ export default function Login() {
 
   return (
     <>
-      {loading ? <Guest /> : null}
-      {auth.currentUser === null && loading === false ? (
+      {loadingLogin ? <Guest /> : null}
+      {auth.currentUser === null && loadingLogin === false ? (
         <Layout>
           <Head>
             <title>Login</title>
@@ -227,7 +227,7 @@ export default function Login() {
             <p className="tw-text-center tw-text-gray-400 tw-text-sm">
               Don&apos;t have an account?
               <Link href={"/register"}>
-                <a className="tw-text-blue-700">Sign Up</a>
+                <a className="tw-text-blue-700"> Sign Up</a>
               </Link>
             </p>
           </section>

@@ -44,7 +44,9 @@ function MyApp({ Component, pageProps }) {
         </>
       ) : (
         <>
-          <LoadingScreen disabled={true} />
+          <div className="tw-hidden">
+            <LoadingScreen disabled={true} />
+          </div>
           <Component {...pageProps} />
         </>
       )}
