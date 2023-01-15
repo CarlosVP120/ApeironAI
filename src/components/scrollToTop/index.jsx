@@ -9,10 +9,15 @@ const ScrollToTop = () => {
     scrollToTop();
   }, []);
   return (
-    // if the router is login, then hide the component
     <div
       className={`${
-        router.pathname === "/login" ? "tw-hidden" : ""
+        router.pathname === "/login" ||
+        router.pathname === "/register" ||
+        router.pathname === "/apeiron" ||
+        router.pathname === "/markex" ||
+        router.pathname === "/codex"
+          ? "tw-hidden"
+          : ""
       } progress-wrap cursor-pointer`}
     >
       <svg
