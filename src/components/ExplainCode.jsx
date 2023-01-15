@@ -7,7 +7,6 @@ import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism.css";
 import styles from "../styles/styles.module.css";
-import TextAreaWithLineNumber from "text-area-with-line-number";
 
 export default function CodeSnippet() {
   const code = ``;
