@@ -18,6 +18,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase/firebaseClient";
 import Guest from "../components/Guest";
+import LoadingScreen from "../components/Loading-Screen";
 
 export default function Login() {
   const [loadingLogin, setLoading] = useState(true);
@@ -46,6 +47,11 @@ export default function Login() {
   };
 
   useEffect(() => {
+    // delete the div with classname showX
+    const div = document.querySelector(".showX");
+    if (div) {
+      div.remove();
+    }
     authListener();
   }, []);
 
