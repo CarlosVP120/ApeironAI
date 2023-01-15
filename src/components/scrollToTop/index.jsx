@@ -1,12 +1,20 @@
+import { useRouter } from "next/router";
 import React from "react";
 import scrollToTop from "../../common/scrollToTop";
 
 const ScrollToTop = () => {
+  const router = useRouter();
+
   React.useEffect(() => {
     scrollToTop();
   }, []);
   return (
-    <div className="progress-wrap cursor-pointer">
+    // if the router is login, then hide the component
+    <div
+      className={`${
+        router.pathname === "/login" ? "tw-hidden" : ""
+      } progress-wrap cursor-pointer`}
+    >
       <svg
         className="progress-circle svg-content"
         width="100%"
