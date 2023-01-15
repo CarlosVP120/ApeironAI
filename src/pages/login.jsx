@@ -47,7 +47,9 @@ export default function Login() {
   };
 
   useEffect(() => {
-    const hideloading = document.querySelector(".showX");
+    const hideloading = document.querySelector(
+      ".showX, .progress-wrap.cursor-pointer.active-progress"
+    );
     if (hideloading) {
       hideloading.remove();
     }
