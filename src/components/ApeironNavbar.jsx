@@ -251,13 +251,13 @@ export default function ApeironNavbar({
             </button>
 
             <button
-              onClick={() => setValue("Fix Grammar")}
+              onClick={() => setValue("Time Comp.")}
               className="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3 tw-text-xs 2xl:tw-text-base"
             >
               <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
               <span
                 className={`tw-relative tw-px-2 2xl:tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
-                  selected === "Fix Grammar" ? "tw-bg-opacity-0" : "tw-bg-black"
+                  selected === "Time Comp." ? "tw-bg-opacity-0" : "tw-bg-black"
                 }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
               >
                 <span className="tw-relative tw-text-white tw-flex tw-items-center">
@@ -275,7 +275,7 @@ export default function ApeironNavbar({
                       d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75"
                     />
                   </svg>
-                  Fix Grammar
+                  Time Comp.
                 </span>
               </span>
             </button>

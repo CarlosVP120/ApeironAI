@@ -47,14 +47,14 @@ export default function CodeSnippet() {
         body: JSON.stringify({ text: askName + value }),
       });
       const data = await response.json().then((data) => {
-        setCompletion(data.result.choices[0].text);
+        setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
       });
     },
     [value]
   );
 
   return (
-    <div className="tw-w-full tw-h-[100vh] tw-bg-black tw-text-white tw-flex tw-justify-center">
+    <div className="tw-w-full tw-h-[100vh] tw-bg-black tw-text-white tw-flex tw-justify-center tw-overflow-hidden">
       <div className="tw-h-full tw-w-full tw-flex tw-flex-col tw-justify-center ">
         <div className="tw-font-bold tw-text-white tw-flex tw-justify-center tw-shadow-inner tw-w-full tw-h-full tw-items-center">
           <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none tw-w-[45%] tw-h-[90%] 2xl:tw-h-[80%] tw-justify-between">
@@ -84,6 +84,7 @@ export default function CodeSnippet() {
               value={value}
               onChange={handleInput}
               onKeyDown={handleTab}
+              placeholder="print('Hello World')"
             />
 
             <button
@@ -120,10 +121,32 @@ export default function CodeSnippet() {
                 <h2 className="tw-mt-4 ">
                   The explanation will appear here...
                 </h2>
-                {completion !== "" && (
+                {completion !== "" ? (
                   <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden">
                     <div className="tw-text-lg tw-h-full tw-overflow-y-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
-                      {completion}
+                      {completion.split("\n").map((item, key) => {
+                        return (
+                          <span key={key}>
+                            {item}
+                            <br />
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden">
+                    <div className="tw-text-lg tw-h-full tw-overflow-y-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
+                      <span className="tw-opacity-60">
+                        EXAMPLE: print("Hello World")
+                        <br />
+                        <br />
+                        This is a basic Python command that prints the phrase
+                        "Hello World" to the screen. This phrase is often used
+                        as a starting point when learning a new programming
+                        language, as it is a very basic example of using the
+                        print function.
+                      </span>
                     </div>
                   </div>
                 )}

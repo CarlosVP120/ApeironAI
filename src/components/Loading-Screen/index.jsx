@@ -10,7 +10,13 @@ const LoadingScreen = ({ disabled }) => {
   const [show, setShow] = React.useState("");
 
   React.useEffect(() => {
-    if (router.pathname !== "/") {
+    if (
+      router.pathname !== "/" ||
+      router.pathname !== "/features" ||
+      router.pathname !== "/pricing" ||
+      router.pathname !== "/contact" ||
+      router.pathname !== "/about"
+    ) {
       setShow("tw-hidden");
     }
 

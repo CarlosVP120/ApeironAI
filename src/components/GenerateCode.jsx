@@ -6,9 +6,7 @@ import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism.css";
 
 export default function GenerateCode() {
-  const code = ``;
-
-  const [value, setValue] = useState(code);
+  const [value, setValue] = useState("");
   const [prompt, setPrompt] = useState("");
   const [completion, setCompletion] = useState("");
   const [language, setLanguage] = useState("javascript");
@@ -45,7 +43,7 @@ export default function GenerateCode() {
         body: JSON.stringify({ text: askName + value }),
       });
       const data = await response.json().then((data) => {
-        setCompletion(data.result.choices[0].text);
+        setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
       });
     },
     [value]
@@ -53,14 +51,13 @@ export default function GenerateCode() {
 
   const handleSelect = (e) => {
     setLanguage(e.target.value);
-    console.log(e.target.value);
   };
 
   return (
-    <div className="tw-w-full tw-h-[100vh] tw-bg-black tw-text-white tw-flex tw-justify-center">
+    <div className="tw-w-full tw-h-[100vh] tw-bg-black tw-text-white tw-flex tw-justify-center tw-overflow-hidden">
       <div className="tw-h-full tw-w-full tw-flex tw-flex-col tw-justify-center ">
         <div className="tw-font-bold tw-text-white tw-flex tw-justify-center tw-shadow-inner tw-w-full tw-h-full tw-items-center">
-          <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none tw-w-[30%] tw-h-[80%] tw-justify-between">
+          <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none tw-w-[30%] 2xl:tw-h-[80%] tw-h-[90%] tw-justify-between">
             <h1 className="tw-flex tw-items-center tw-text-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +82,7 @@ export default function GenerateCode() {
               {"Generate a " + language + " code that... "}
             </h2>
             <textarea
-              className="tw-mt-4 tw-w-full tw-h-[80%] tw-p-4 tw-rounded-lg tw-text-[#eeffff] tw-bg-neutral-800 tw-border-black  tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0 tw-font-code"
+              className="tw-mt-4 tw-w-full tw-h-[80%] tw-p-4 tw-rounded-lg tw-text-[#eeffff] tw-font-code tw-bg-neutral-800 tw-border-black  tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0 tw-font-code"
               value={value}
               onChange={handleInput}
               onKeyDown={handleTab}
@@ -98,7 +95,7 @@ export default function GenerateCode() {
               Generate
             </button>
           </div>
-          <div className="tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-max-w-[65%] tw-h-[80%]">
+          <div className="tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-max-w-[65%] 2xl:tw-h-[80%] tw-h-[90%]">
             {completion !== "Loading..." ? (
               <>
                 <h1 className="tw-flex tw-items-center tw-text-2xl">
@@ -129,28 +126,50 @@ export default function GenerateCode() {
                     className="tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-text-black tw-bg-gray-300 tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0"
                     onChange={handleSelect}
                   >
-                    <option value="javascript">JavaScript</option>
-                    <option value="python">Python</option>
-                    <option value="java">Java</option>
-                    <option value="html">HTML</option>
-                    <option value="css">CSS</option>
-                    <option value="c">C</option>
-                    <option value="c++">C++</option>
-                    <option value="c#">C#</option>
-                    <option value="php">PHP</option>
-                    <option value="ruby">Ruby</option>
-                    <option value="swift">Swift</option>
-                    <option value="go">Go</option>
-                    <option value="rust">Rust</option>
-                    <option value="scala">Scala</option>
-                    <option value="dart">Dart</option>
-                    <option value="sql">SQL</option>
+                    <option value="Javascript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="C#">C#</option>
+                    <option value="Php">PHP</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="Swift">Swift</option>
+                    <option value="Go">Go</option>
+                    <option value="Rust">Rust</option>
+                    <option value="Scala">Scala</option>
+                    <option value="Dart">Dart</option>
+                    <option value="SQL">SQL</option>
                   </select>
                 </div>
-                {completion !== "" && (
+                {completion !== "" ? (
                   <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden">
-                    <div className="tw-text-lg tw-h-full tw-overflow-y-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
-                      {completion}
+                    <div className="tw-text-lg tw-h-full tw-overflow-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
+                      {completion.split("\n").map((item, key) => {
+                        return (
+                          <span key={key}>
+                            {item}
+                            <br />
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden">
+                    <div className="tw-text-lg tw-h-full tw-overflow-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
+                      <span className="tw-opacity-60">
+                        EXAMPLE: Calculate the area of a circle with radius 5
+                        <br />
+                        <br />
+                        var radius = 5;
+                        <br />
+                        var area = Math.PI * Math.pow(radius, 2);
+                        <br />
+                        console.log('The area of the circle is ' + area);
+                      </span>
                     </div>
                   </div>
                 )}

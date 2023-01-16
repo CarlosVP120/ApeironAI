@@ -8,7 +8,7 @@ import ExplainCode from "../components/ExplainCode";
 import ConvertCode from "../components/ConvertCode";
 import GenerateCode from "../components/GenerateCode";
 import CmdAssitance from "../components/CmdAssistance";
-import FixGrammar from "../components/FixGrammar";
+import TimeComp from "../components/TimeComplexity";
 import TypeCodex from "../components/typeCodeX";
 
 export default function CodeX() {
@@ -59,7 +59,7 @@ function Test({ router }) {
         {value === "Convert Code" && <ConvertCode />}
         {value === "Generate Code" && <GenerateCode />}
         {value === "Cmd Assistance" && <CmdAssitance />}
-        {value === "Fix Grammar" && <FixGrammar />}
+        {value === "Time Comp." && <TimeComp />}
       </div>
     </div>
   );
