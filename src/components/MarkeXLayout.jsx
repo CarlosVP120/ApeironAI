@@ -275,27 +275,19 @@ function NewProductWelcome({ type, setPlatform, askName }) {
   return (
     <div className="tw-flex tw-w-4/6 tw-h-full tw-flex-col tw-gap-5 tw-justify-center">
       <h1 className="tw-text-3xl tw-font-bold tw-text-gray-100 tw-mb-5 tw-flex tw-justify-center tw-items-center ">
-        <Typewriter
-          onInit={(typewriter) => {
-            typewriter
-              .typeString(
-                `Welcome to <span style="  background: -webkit-gradient(
-              linear,
-              left top,
-              right top,
-              from(#12c2e9),
-              color-stop(#c471ed),
-              to(#f64f59)
-            );
-            background: -webkit-linear-gradient(left, #12c2e9, #c471ed, #f64f59);
-            background: -o-linear-gradient(left, #12c2e9, #c471ed, #f64f59);
-            background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;">MarkeX</span>`
-              )
-              .start();
-          }}
-        />
+        {type === "ads" ? (
+          <span>
+            Create a New <span className={styles.color_font}>Ad</span>{" "}
+          </span>
+        ) : type === "descriptions" ? (
+          <span>
+            Create a New <span className={styles.color_font}>Product</span>{" "}
+          </span>
+        ) : (
+          <span>
+            Find <span className={styles.color_font}>Keywords</span>{" "}
+          </span>
+        )}
       </h1>
 
       <div className="tw-flex tw-self-center tw-gap-6 tw-justify-center">
