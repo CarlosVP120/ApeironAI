@@ -24,22 +24,28 @@ export default function ShowingProduct({
       },
       body: JSON.stringify({ text: requestMode + completion }),
     });
-    const data = await response.json().then((data) => {
-      writeToDatabase(
-        name + (longer ? " longer" : " shorter"),
-        requestMode + completion,
-        data.result.choices[0].text
-      );
+    const data = await response
+      .json()
+      .then((data) => {
+        writeToDatabase(
+          name + (longer ? " longer" : " shorter"),
+          requestMode + completion,
+          data.result.choices[0].text,
+          platform
+        );
 
-      setShowingProduct({
-        name: name + (longer ? " longer" : " shorter"),
-        prompt: requestMode + completion,
-        completion: data.result.choices[0].text,
-        platform: platform,
+        setShowingProduct({
+          name: name + (longer ? " longer" : " shorter"),
+          prompt: requestMode + completion,
+          completion: data.result.choices[0].text,
+          platform: platform,
+        });
+
+        setUnderlined(name + (longer ? " longer" : " shorter"));
+      })
+      .catch((err) => {
+        console.log(err);
       });
-
-      setUnderlined(name + (longer ? " longer" : " shorter"));
-    });
   }, []);
 
   return (
