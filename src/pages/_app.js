@@ -6,8 +6,11 @@ import ScrollToTop from "../components/scrollToTop";
 import LoadingScreen from "../components/Loading-Screen";
 import "../styles/main.scss";
 import "../styles/globals.css";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -15,11 +18,11 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/img/favicon.ico" />
       </Head>
       {/* <Cursor /> */}
-      {Component.name !== "Login" &&
-      Component.name !== "Register" &&
-      Component.name !== "ToolHomePage" &&
-      Component.name !== "MarkeX" &&
-      Component.name !== "CodeX" ? (
+      {router.pathname !== "/login" &&
+      router.pathname !== "/register" &&
+      router.pathname !== "/apeiron" &&
+      router.pathname !== "/markex" &&
+      router.pathname !== "/codex" ? (
         <>
           <LoadingScreen disabled={false} />
           <Component {...pageProps} />
