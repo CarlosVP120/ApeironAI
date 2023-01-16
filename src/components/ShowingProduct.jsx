@@ -13,26 +13,26 @@ export default function ShowingProduct({
   type,
   platform,
 }) {
-  const [requestMode, setRequestMode] = useState("");
-
   const docRef = doc(db, "users", auth.currentUser.uid);
 
-  const updateResponse = useCallback(async (longer) => {
-    setRequestMode(
-      longer
-        ? "Give me a longer and more detailed version of this description: "
-        : "Give me a shorter version of this description: "
-    );
+  const writeToDatabase = (name, prompt, completion) => {
+    updateDoc(docRef, {
+      [type]: arrayUnion({
+        name: name,
+        prompt: prompt,
+        completion: completion,
+      }),
+    });
+  };
 
-    const writeToDatabase = (name, prompt, completion) => {
-      updateDoc(docRef, {
-        [type]: arrayUnion({
-          name: name,
-          prompt: prompt,
-          completion: completion,
-        }),
-      });
-    };
+  console.log(name, prompt, completion);
+
+  const updateResponse = async (longer) => {
+    let requestMode = longer
+      ? "Give me a longer and more detailed version of this description: "
+      : "Give me a shorter version of this description: ";
+
+    console.log(requestMode + completion);
 
     const response = await fetch("/api/hello", {
       method: "POST",
@@ -45,20 +45,19 @@ export default function ShowingProduct({
     const data = await response.json().then((data) => {
       writeToDatabase(
         name + (longer ? " longer" : " shorter"),
-        name + (longer ? " longer" : " shorter"),
+        prompt + (longer ? " longer" : " shorter"),
         data.result.choices[0].text
       );
 
       setShowingProduct({
         name: name + (longer ? " longer" : " shorter"),
-        prompt: name + (longer ? " longer" : " shorter"),
+        prompt: prompt + (longer ? " longer" : " shorter"),
         completion: data.result.choices[0].text,
       });
 
       setUnderlined(name + (longer ? " longer" : " shorter"));
-      setUnderlined(name + (longer ? " longer" : " shorter"));
     });
-  }, []);
+  };
 
   return (
     <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full tw-w-full">
