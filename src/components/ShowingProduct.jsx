@@ -6,16 +6,29 @@ export default function ShowingProduct({
   name,
   prompt,
   completion,
-  writeToDatabase,
   setShowingProduct,
   setUnderlined,
   type,
   platform,
 }) {
+  const [requestMode, setRequestMode] = useState("");
+
   const updateResponse = useCallback(async (longer) => {
-    const requestMode = longer
-      ? "Give me a longer and more detailed version of this description: "
-      : "Give me a shorter version of this description: ";
+    setRequestMode(
+      longer
+        ? "Give me a longer and more detailed version of this description: "
+        : "Give me a shorter version of this description: "
+    );
+
+    const writeToDatabase = (name, prompt, completion) => {
+      updateDoc(docRef, {
+        [type]: arrayUnion({
+          name: name,
+          prompt: prompt,
+          completion: completion,
+        }),
+      });
+    };
 
     const response = await fetch("/api/hello", {
       method: "POST",
@@ -24,21 +37,21 @@ export default function ShowingProduct({
       },
       body: JSON.stringify({ text: requestMode + completion }),
     });
+
     const data = await response.json().then((data) => {
       writeToDatabase(
         name + (longer ? " longer" : " shorter"),
-        requestMode + completion,
-        data.result.choices[0].text,
-        ""
+        name + (longer ? " longer" : " shorter"),
+        data.result.choices[0].text
       );
 
       setShowingProduct({
         name: name + (longer ? " longer" : " shorter"),
-        prompt: requestMode + completion,
+        prompt: name + (longer ? " longer" : " shorter"),
         completion: data.result.choices[0].text,
-        platform: "",
       });
 
+      setUnderlined(name + (longer ? " longer" : " shorter"));
       setUnderlined(name + (longer ? " longer" : " shorter"));
     });
   }, []);
