@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import styles from "../styles/Form.module.css";
 import Image from "next/image";
+import { arrayUnion, updateDoc } from "firebase/firestore";
 
 export default function ShowingProduct({
   name,
@@ -12,6 +13,8 @@ export default function ShowingProduct({
   platform,
 }) {
   const [requestMode, setRequestMode] = useState("");
+
+  const docRef = doc(db, "users", auth.currentUser.uid);
 
   const updateResponse = useCallback(async (longer) => {
     setRequestMode(
