@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import styles from "../styles/Form.module.css";
 import Image from "next/image";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { db, auth } from "../../firebase/firebaseClient";
 
 export default function ShowingProduct({
   name,
