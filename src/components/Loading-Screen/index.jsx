@@ -12,6 +12,14 @@ const LoadingScreen = ({ disabled }) => {
   React.useEffect(() => {
     if (router.pathname !== "/") {
       setShow("tw-hidden");
+    } else if (router.pathname !== "/features") {
+      setShow("tw-hidden");
+    } else if (router.pathname !== "/pricing") {
+      setShow("tw-hidden");
+    } else if (router.pathname !== "/contact") {
+      setShow("tw-hidden");
+    } else if (router.pathname !== "/about") {
+      setShow("tw-hidden");
     } else {
       setShow("");
     }
