@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Script from "next/script";
 import loadingPace from "../../common/loadingPace";
 import appData from "../../data/app.json";
@@ -9,16 +9,14 @@ const LoadingScreen = ({ disabled }) => {
 
   const [show, setShow] = React.useState("");
 
-  React.useEffect(() => {
-    if (router.pathname !== "/") {
-      setShow("tw-hidden");
-    } else if (router.pathname !== "/features") {
-      setShow("tw-hidden");
-    } else if (router.pathname !== "/pricing") {
-      setShow("tw-hidden");
-    } else if (router.pathname !== "/contact") {
-      setShow("tw-hidden");
-    } else if (router.pathname !== "/about") {
+  useEffect(() => {
+    if (
+      router.pathname !== "/" &&
+      router.pathname !== "/features" &&
+      router.pathname !== "/pricing" &&
+      router.pathname !== "/contact" &&
+      router.pathname !== "/about"
+    ) {
       setShow("tw-hidden");
     } else {
       setShow("");
