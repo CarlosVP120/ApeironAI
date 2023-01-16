@@ -3,20 +3,20 @@
     {
       "id": 1,
       "image": "/img/team/1.jpg",
-      "title": "Stephanie Lawrence",
-      "sub": "CEO, Colabrio Media"
+      "title": "Carlos Veryan",
+      "sub": "Founder"
     },
     {
       "id": 2,
       "image": "/img/team/2.jpg",
-      "title": "Alex Regelman",
-      "sub": "CEO, Colabrio Media"
+      "title": "Diego Partida",
+      "sub": "Founder"
     },
     {
       "id": 3,
       "image": "/img/team/3.jpg",
-      "title": "Stacey Stamper",
-      "sub": "CEO, Colabrio Media"
+      "title": "Diego Partida",
+      "sub": "Founder"
     },
     {
       "id": 4,
@@ -28,12 +28,12 @@
   "skills": [
     {
       "id": 1,
-      "text": "UI / UX Design",
+      "text": "Web Development",
       "value": "90%"
     },
     {
       "id": 2,
-      "text": "Apps Development",
+      "text": "Style & Branding",
       "value": "80%"
     }
   ]

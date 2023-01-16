@@ -6,9 +6,9 @@ import teamsDate from "../../data/sections/team.json";
 
 const Team = () => {
   React.useEffect(() => {
-    teamSkillsProgress()
+    teamSkillsProgress();
     setTimeout(() => {
-      tooltipEffect()
+      tooltipEffect();
     }, 1000);
   }, []);
   return (
@@ -27,8 +27,7 @@ const Team = () => {
                 We help to create visual strategies.
               </h3>
               <p>
-                We are Vie. We create award-winning websites, remarkable brands
-                and cutting-edge apps.Nullam imperdie.
+                We are a team of creative people who love to design and code.
               </p>
               <div className="skills-box mt-40">
                 {teamsDate.skills.map((skill) => (
@@ -47,7 +46,7 @@ const Team = () => {
               <div className="row">
                 <div className="col-sm-6 toright">
                   <div className="full-width">
-                    {teamsDate.teams.slice(0, 2).map((team, index) => (
+                    {teamsDate.teams.slice(0, 1).map((team, index) => (
                       <div key={team.id}>
                         <div
                           className={`img sizxl ${
@@ -64,9 +63,9 @@ const Team = () => {
                     ))}
                   </div>
                 </div>
-                <div className="col-sm-6 toleft valign">
+                <div className="col-sm-6  valign">
                   <div className="full-width text-left">
-                    {teamsDate.teams.slice(2, 4).map((team, index) => (
+                    {teamsDate.teams.slice(2, 3).map((team, index) => (
                       <div key={team.id}>
                         <div
                           className={`img sizxl ${
