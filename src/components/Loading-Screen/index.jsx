@@ -18,6 +18,7 @@ const LoadingScreen = ({ disabled }) => {
       router.pathname !== "/about"
     ) {
       setShow("tw-hidden");
+      console.log(router.pathname);
     }
 
     if (disabled) {
