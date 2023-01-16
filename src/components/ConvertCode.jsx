@@ -70,7 +70,7 @@ export default function ConvertCode() {
               Convert Code
             </h1>
             <h2 className="tw-mt-1 tw-text-sm">
-              Convert your code into a different programming language
+              Convert your code into a different programming language.
             </h2>
             <h2 className="tw-mt-4 ">Paste your code below...</h2>
             <textarea
@@ -136,7 +136,7 @@ export default function ConvertCode() {
                 </div>
                 {completion !== "" ? (
                   <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden">
-                    <div className="tw-text-lg tw-h-full tw-overflow-y-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
+                    <div className="tw-text-lg tw-h-full tw-overflow-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
                       {completion.split("\n").map((item, key) => {
                         return (
                           <span key={key}>

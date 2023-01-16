@@ -95,7 +95,7 @@ export default function GenerateCode() {
               Generate
             </button>
           </div>
-          <div className="tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-max-w-[65%] 2xl:tw-h-[80%] tw-h-[90%]">
+          <div className="tw-flex tw-flex-col tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-max-w-[65%] 2xl:tw-h-[80%] tw-h-[90%]">
             {completion !== "Loading..." ? (
               <>
                 <h1 className="tw-flex tw-items-center tw-text-2xl">
