@@ -168,7 +168,8 @@ export default function GenerateCode() {
                         <br />
                         var area = Math.PI * Math.pow(radius, 2);
                         <br />
-                        console.log('The area of the circle is ' + area);
+                        console.log(&apos;The area of the circle is &apos; +
+                        area);
                       </span>
                     </div>
                   </div>

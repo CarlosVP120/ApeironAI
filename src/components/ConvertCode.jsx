@@ -151,10 +151,10 @@ export default function ConvertCode() {
                   <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden">
                     <div className="tw-text-lg tw-h-full tw-overflow-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
                       <span className="tw-opacity-60">
-                        EXAMPLE: print("Hello World")
+                        EXAMPLE: print(&quot;Hello World&quot;)
                         <br />
                         <br />
-                        console.log("Hello World")
+                        console.log(&quot;Hello World&quot;)
                       </span>
                     </div>
                   </div>

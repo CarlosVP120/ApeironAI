@@ -16,7 +16,7 @@ const Services3 = () => {
                 Best Services
               </h6>
               <h3 className="wow color-font">
-                We would help you to grow your business &amp code your ideas.
+                We would help you to grow your business &amp; code your ideas.
               </h3>
             </div>
           </div>
