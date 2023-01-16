@@ -8,7 +8,7 @@ import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism.css";
 import styles from "../styles/styles.module.css";
 
-export default function CodeSnippet() {
+export default function ExplainCode() {
   const code = ``;
 
   const [value, setValue] = useState(code);
@@ -123,7 +123,7 @@ export default function CodeSnippet() {
                 </h2>
                 {completion !== "" ? (
                   <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden">
-                    <div className="tw-text-lg tw-h-full tw-overflow-y-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
+                    <div className="tw-text-lg tw-h-full tw-overflow-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
                       {completion.split("\n").map((item, key) => {
                         return (
                           <span key={key}>
