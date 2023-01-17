@@ -59,7 +59,7 @@ export default function MarkeXLayout({
               ? data.result.choices[0].text.split(delimiter, 1)[0]
               : value,
             value,
-            data.result.choices[0].text,
+            data.result.choices[0].text.replace(/^\s+|\s+$/g, ""),
             platform
           );
           setValue("");
@@ -70,7 +70,7 @@ export default function MarkeXLayout({
                 ? data.result.choices[0].text.split(delimiter, 1)[0]
                 : value,
             prompt: value,
-            completion: data.result.choices[0].text,
+            completion: data.result.choices[0].text.replace(/^\s+|\s+$/g, ""),
             platform: platform,
           });
           setUnderlined(
@@ -101,7 +101,7 @@ export default function MarkeXLayout({
             ? data.result.choices[0].text.split(delimiter, 1)[0]
             : value,
           value,
-          data.result.choices[0].text,
+          data.result.choices[0].text.replace(/^\s+|\s+$/g, ""),
           platform
         );
         setValue("");
@@ -112,7 +112,7 @@ export default function MarkeXLayout({
               ? data.result.choices[0].text.split(delimiter, 1)[0]
               : value,
           prompt: value,
-          completion: data.result.choices[0].text,
+          completion: data.result.choices[0].text.replace(/^\s+|\s+$/g, ""),
           platform: platform,
         });
         setUnderlined(
