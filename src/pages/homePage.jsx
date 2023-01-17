@@ -41,12 +41,13 @@ const Homepage5 = () => {
       {/* <Intro4 blackStar /> FOR LIGHT THEME*/}
       <AboutUs3 />
       <Works3 />
+      <Blogs4 />
       <Services3 />
       <MinimalArea2 />
-      <FullTestimonials classText="pb-0" />
+      {/*<FullTestimonials classText="pb-0"/>*/}
       <Team />
-      <Blogs4 />
-      <CallToAction />
+
+      {/*<CallToAction />*/}
       <Footer />
     </DarkTheme>
   );

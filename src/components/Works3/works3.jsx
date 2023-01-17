@@ -26,10 +26,10 @@ const Works3 = () => {
             <div className="col-lg-8 col-md-10">
               <div className="sec-head">
                 <h6 className="wow fadeIn" data-wow-delay=".5s">
-                  Portfolio
+                  CodeX - Tools
                 </h6>
                 <h3 className="wow color-font">
-                  Our Recent Web Design &amp; <br /> Some Past Projects.
+                  Five Different Tools&amp; <br /> Some Examples.
                 </h3>
               </div>
             </div>
@@ -94,14 +94,80 @@ const Works3 = () => {
                       <div className="img">
                         <span className="imgio">
                           <span className="wow cimgio" data-delay="500"></span>
-                          <img src="/img/portfolio/2.jpg" alt="" />
+                          <img src="/img/portfolio/explaincode.png" alt="" />
                         </span>
                       </div>
                       <div className="cont">
                         <h6>
+                          <Link href={`/works3/works3-dark`}>Explain Code</Link>
+                        </h6>
+                        <h4>
                           <Link
-                            href={`/works3/works3-dark`}
+                            href={`/project-details2/project-details2-dark`}
                           >
+                            Sharing knowledge
+                          </Link>
+                        </h4>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide className="swiper-slide">
+                    <div className="content">
+                      <div className="img">
+                        <span className="imgio">
+                          <span className="wow cimgio" data-delay="500"></span>
+                          <img src="/img/portfolio/convertcode.png" alt="" />
+                        </span>
+                      </div>
+                      <div className="cont">
+                        <h6>
+                          <Link href={`/codex`}>Convert Code</Link>
+                        </h6>
+                        <h4>
+                          <Link
+                            href={`/project-details2/project-details2-dark`}
+                          >
+                            Transforming ideas
+                          </Link>
+                        </h4>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide className="swiper-slide">
+                    <div className="content">
+                      <div className="img">
+                        <span className="imgio">
+                          <span className="wow cimgio" data-delay="500"></span>
+                          <img src="/img/portfolio/generatecode.png" alt="" />
+                        </span>
+                      </div>
+                      <div className="cont">
+                        <h6>
+                          <Link href={`/works3/works3-dark`}>
+                            Generate Code
+                          </Link>
+                        </h6>
+                        <h4>
+                          <Link
+                            href={`/project-details2/project-details2-dark`}
+                          >
+                            Building ideas
+                          </Link>
+                        </h4>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide className="swiper-slide">
+                    <div className="content">
+                      <div className="img">
+                        <span className="imgio">
+                          <span className="wow cimgio" data-delay="500"></span>
+                          <img src="/img/portfolio/cmdassistance.png" alt="" />
+                        </span>
+                      </div>
+                      <div className="cont">
+                        <h6>
+                          <Link href={`/works3/works3-dark`}>
                             art &amp; illustration
                           </Link>
                         </h6>
@@ -120,14 +186,12 @@ const Works3 = () => {
                       <div className="img">
                         <span className="imgio">
                           <span className="wow cimgio" data-delay="500"></span>
-                          <img src="/img/portfolio/1.jpg" alt="" />
+                          <img src="/img/portfolio/timecomp.png" alt="" />
                         </span>
                       </div>
                       <div className="cont">
                         <h6>
-                          <Link
-                            href={`/works3/works3-dark`}
-                          >
+                          <Link href={`/works3/works3-dark`}>
                             art &amp; illustration
                           </Link>
                         </h6>
@@ -146,92 +210,12 @@ const Works3 = () => {
                       <div className="img">
                         <span className="imgio">
                           <span className="wow cimgio" data-delay="500"></span>
-                          <img src="/img/portfolio/3.jpg" alt="" />
+                          <img src="/img/portfolio/explaincode.png" alt="" />
                         </span>
                       </div>
                       <div className="cont">
                         <h6>
-                          <Link
-                            href={`/works3/works3-dark`}
-                          >
-                            art &amp; illustration
-                          </Link>
-                        </h6>
-                        <h4>
-                          <Link
-                            href={`/project-details2/project-details2-dark`}
-                          >
-                            Inspiring new space
-                          </Link>
-                        </h4>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="content">
-                      <div className="img">
-                        <span className="imgio">
-                          <span className="wow cimgio" data-delay="500"></span>
-                          <img src="/img/portfolio/4.jpg" alt="" />
-                        </span>
-                      </div>
-                      <div className="cont">
-                        <h6>
-                          <Link
-                            href={`/works3/works3-dark`}
-                          >
-                            art &amp; illustration
-                          </Link>
-                        </h6>
-                        <h4>
-                          <Link
-                            href={`/project-details2/project-details2-dark`}
-                          >
-                            Inspiring new space
-                          </Link>
-                        </h4>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="content">
-                      <div className="img">
-                        <span className="imgio">
-                          <span className="wow cimgio" data-delay="500"></span>
-                          <img src="/img/portfolio/5.jpg" alt="" />
-                        </span>
-                      </div>
-                      <div className="cont">
-                        <h6>
-                          <Link
-                            href={`/works3/works3-dark`}
-                          >
-                            art &amp; illustration
-                          </Link>
-                        </h6>
-                        <h4>
-                          <Link
-                            href={`/project-details2/project-details2-dark`}
-                          >
-                            Inspiring new space
-                          </Link>
-                        </h4>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="content">
-                      <div className="img">
-                        <span className="imgio">
-                          <span className="wow cimgio" data-delay="500"></span>
-                          <img src="/img/portfolio/6.jpg" alt="" />
-                        </span>
-                      </div>
-                      <div className="cont">
-                        <h6>
-                          <Link
-                            href={`/works3/works3-dark`}
-                          >
+                          <Link href={`/works3/works3-dark`}>
                             art &amp; illustration
                           </Link>
                         </h6>

@@ -3,13 +3,13 @@
   "image1": "/img/01.jpg",
   "image2": "/img/02.jpg",
   "exp": {
-    "nmb": 28,
-    "name": "Years Of Experience"
+    "nmb": 8,
+    "name": "Differents Tools"
   },
   "title": { "first": "Unlimited Skills", "second": "for Super Projects." },
   "content": {
-    "first": "Branding is no longer simply about visual appeal (or the cherry in the apple pie example, as given in my earlier article).",
-    "second": "We develop creative solutions for small and big brands alike, build authentic product identities and much more."
+    "first": "Apeiron provides powerful and innovative solutions for companies of all sizes. We are a team of highly skilled professionals with a passion for technology and a desire to help our clients succeed. ",
+    "second": "With the help of Apeiron, the time to create and programming new codes is drastically decreased, creating efficiencies and cost savings that can be passed on to customers."
   },
   "smallTitle": "About Us"
 }

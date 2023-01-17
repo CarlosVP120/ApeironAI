@@ -175,7 +175,7 @@ const Blogs4 = () => {
                   <SwiperSlide className="swiper-slide">
                     <div className="item wow fadeIn" data-wow-delay=".6s">
                       <div className="content">
-                        <div className="tags">
+                        {/* <div className="tags">
                           <Link href="/blog/blog-dark">Trending</Link>
                         </div>
                         <div className="info">
@@ -186,7 +186,7 @@ const Blogs4 = () => {
                             </a>
                           </Link>
                           <a href="#0">by Alex Morgan</a>
-                        </div>
+                        </div>*/}
                         <div className="title">
                           <h4>
                             <Link href="/blog-details/blog-details-dark">
@@ -212,7 +212,7 @@ const Blogs4 = () => {
                   <SwiperSlide>
                     <div className="item wow fadeIn" data-wow-delay=".6s">
                       <div className="content">
-                        <div className="tags">
+                        {/*<div className="tags">
                           <Link href="/blog/blog-dark">Trending</Link>
                         </div>
                         <div className="info">
@@ -223,7 +223,7 @@ const Blogs4 = () => {
                             </a>
                           </Link>
                           <a href="#0">by Alex Morgan</a>
-                        </div>
+                        </div>*/}
                         <div className="title">
                           <h4>
                             <Link href="/blog-details/blog-details-dark">
@@ -249,7 +249,7 @@ const Blogs4 = () => {
                   <SwiperSlide>
                     <div className="item wow fadeIn" data-wow-delay=".6s">
                       <div className="content">
-                        <div className="tags">
+                        {/* <div className="tags">
                           <Link href="/blog/blog-dark">Trending</Link>
                         </div>
                         <div className="info">
@@ -260,7 +260,7 @@ const Blogs4 = () => {
                             </a>
                           </Link>
                           <a href="#0">by Alex Morgan</a>
-                        </div>
+                        </div>*/}
                         <div className="title">
                           <h4>
                             <Link href="/blog-details/blog-details-dark">
