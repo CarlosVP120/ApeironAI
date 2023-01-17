@@ -27,8 +27,11 @@ const MinimalArea = () => {
             <div className="content pt-0">
               <h4 className="wow color-font">About us.</h4>
               <p className="wow txt" data-splitting>
-                Our creative Ad agency is ranked among the finest in the US. We
-                cultivate smart ideas for start-ups and seasoned players.
+                An AI that programming new code could be trained on existing
+                code and then generate new code that is similar to the training
+                data. These AI models can be used to automate the process of
+                product design and software development, making it faster and
+                more efficient.
               </p>
               <ul className="feat">
                 <li className="wow fadeInUp" data-wow-delay=".2s">
