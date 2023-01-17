@@ -29,7 +29,7 @@ const Works3 = () => {
                   CodeX - Tools
                 </h6>
                 <h3 className="wow color-font">
-                  Five Different Tools&amp; <br /> Some Examples.
+                  Five Different Tools &amp; <br /> Some Examples.
                 </h3>
               </div>
             </div>
@@ -168,14 +168,14 @@ const Works3 = () => {
                       <div className="cont">
                         <h6>
                           <Link href={`/works3/works3-dark`}>
-                            art &amp; illustration
+                            Command Assistance
                           </Link>
                         </h6>
                         <h4>
                           <Link
                             href={`/project-details2/project-details2-dark`}
                           >
-                            Inspiring new space
+                            Helping developers
                           </Link>
                         </h4>
                       </div>
@@ -192,38 +192,14 @@ const Works3 = () => {
                       <div className="cont">
                         <h6>
                           <Link href={`/works3/works3-dark`}>
-                            art &amp; illustration
+                            Time Complexity
                           </Link>
                         </h6>
                         <h4>
                           <Link
                             href={`/project-details2/project-details2-dark`}
                           >
-                            Inspiring new space
-                          </Link>
-                        </h4>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="content">
-                      <div className="img">
-                        <span className="imgio">
-                          <span className="wow cimgio" data-delay="500"></span>
-                          <img src="/img/portfolio/explaincode.png" alt="" />
-                        </span>
-                      </div>
-                      <div className="cont">
-                        <h6>
-                          <Link href={`/works3/works3-dark`}>
-                            art &amp; illustration
-                          </Link>
-                        </h6>
-                        <h4>
-                          <Link
-                            href={`/project-details2/project-details2-dark`}
-                          >
-                            Inspiring new space
+                            Analyzing algorithms
                           </Link>
                         </h4>
                       </div>
