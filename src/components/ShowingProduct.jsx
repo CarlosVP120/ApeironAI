@@ -45,13 +45,13 @@ export default function ShowingProduct({
       writeToDatabase(
         name + (longer ? " longer" : " shorter"),
         prompt + (longer ? " longer" : " shorter"),
-        data.result.choices[0].text
+        data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
       );
 
       setShowingProduct({
         name: name + (longer ? " longer" : " shorter"),
         prompt: prompt + (longer ? " longer" : " shorter"),
-        completion: data.result.choices[0].text,
+        completion: data.result.choices[0].text.replace(/^\s+|\s+$/g, ""),
       });
 
       setLoading(false);
@@ -90,13 +90,19 @@ export default function ShowingProduct({
                     <div className="tw-flex tw-ml-4 tw-w-full tw-justify-end tw-bg-neutral-800 tw-rounded-xl tw-gap-2">
                       <button
                         className="tw-py-2 tw-px-2 tw-rounded-lg tw-bg-neutral-900 tw-text-white tw-text-sm tw-transition tw-duration-500 hover:tw-bg-neutral-700"
-                        onClick={() => updateResponse(false)}
+                        onClick={() => {
+                          setLoading(true);
+                          updateResponse(false);
+                        }}
                       >
                         Short version
                       </button>
                       <button
                         className="tw-py-2 tw-px-2 tw-rounded-lg tw-bg-neutral-900 tw-text-white tw-text-sm tw-transition tw-duration-500 hover:tw-bg-neutral-700"
-                        onClick={() => updateResponse(true)}
+                        onClick={() => {
+                          setLoading(true);
+                          updateResponse(true);
+                        }}
                       >
                         Long version
                       </button>
