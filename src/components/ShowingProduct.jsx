@@ -64,7 +64,7 @@ export default function ShowingProduct({
       <div className="tw-h-full tw-w-full tw-flex tw-flex-col tw-justify-center ">
         <div className="tw-font-bold tw-text-white tw-flex tw-justify-center tw-shadow-inner tw-w-full tw-h-full tw-items-center">
           <div className="tw-flex tw-mt-6 tw-flex-col tw-bg-neutral-800 tw-py-6 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-max-w-[70%] 2xl:tw-max-h-[60%] tw-max-h-[90%]">
-            {completion !== "" ? (
+            {completion !== "" && !loading ? (
               <>
                 <h1 className="tw-flex tw-items-center tw-text-2xl tw-mb-2">
                   <svg
