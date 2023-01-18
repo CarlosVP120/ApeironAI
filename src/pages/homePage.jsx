@@ -42,8 +42,9 @@ const Homepage5 = () => {
       <AboutUs3 />
       <Works3 />
       <Blogs4 />
-      <Services3 />
       <MinimalArea2 />
+      <Services3 />
+
       {/*<FullTestimonials classText="pb-0"/>*/}
       <Team />
 

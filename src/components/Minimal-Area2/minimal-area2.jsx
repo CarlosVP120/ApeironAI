@@ -25,13 +25,13 @@ const MinimalArea2 = () => {
           </div>
           <div className="col-lg-6 valign">
             <div className="content">
-              <h4 className="color-font">Dream. Innovate. Implement.</h4>
+              <h4 className="color-font">TypeX</h4>
               <Split>
                 <p className="wow txt words chars splitting" data-splitting>
-                  Our creative Ad agency is ranked among the finest in the US.
-                  We cultivate smart ideas for start-ups and seasoned players.
-                  By adhering to industry standards, we create some stunning
-                  portfolios. Company branding redefines.
+                  TypeX is a typing essay AI that helps you write essays faster
+                  and more efficiently. It can be used to automate the process
+                  of essay writing, create new essays, and improve your writing
+                  skills.
                 </p>
               </Split>
               <ul>
