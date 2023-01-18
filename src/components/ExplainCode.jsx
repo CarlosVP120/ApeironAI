@@ -1,11 +1,6 @@
 import { useCallback } from "react";
 import { useState } from "react";
 import Loading from "./Loading";
-import Editor from "react-simple-code-editor";
-import { highlight, languages } from "prismjs/components/prism-core";
-import "prismjs/components/prism-clike";
-import "prismjs/components/prism-javascript";
-import "prismjs/themes/prism.css";
 import styles from "../styles/styles.module.css";
 
 export default function ExplainCode() {

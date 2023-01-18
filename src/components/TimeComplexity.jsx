@@ -1,9 +1,6 @@
 import { useCallback } from "react";
 import { useState } from "react";
 import Loading from "./Loading";
-import "prismjs/components/prism-clike";
-import "prismjs/components/prism-javascript";
-import "prismjs/themes/prism.css";
 
 export default function TimeComplexity() {
   const code = ``;
