@@ -74,7 +74,7 @@ export default function ToolHomePage() {
       </Head>
       {auth.currentUser !== null ? (
         <>
-          {access !== "" ? (
+          {access !== "" && access !== "none" && access !== null ? (
             <User
               signOutHandler={signOutHandler}
               redirectHandler={redirectHandler}
