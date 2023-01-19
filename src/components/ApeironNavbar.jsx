@@ -285,9 +285,31 @@ export default function ApeironNavbar({
 
       <div className="tw-flex tw-justify-center ">
         <div className="tw-self-center">
-          {value === "main" && auth.currentUser.displayName}
+          {(value === "main" || value === "subscription") && (
+            <>
+              {auth.currentUser.displayName}
+              {value === "main" && (
+                <button
+                  onClick={() =>
+                    redirectHandler(
+                      "https://billing.stripe.com/p/login/test_7sI6rtcQO9gT3YceUU"
+                    )
+                  }
+                  className="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3"
+                >
+                  <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#ff8a05] tw-via-[#ff5478] tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-[#ff5478] group-hover:tw-to-[#ff8a05] tw-absolute"></span>
+                  <span
+                    className="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500
+"
+                  >
+                    <span className="tw-relative tw-text-white">Account</span>
+                  </span>
+                </button>
+              )}
+            </>
+          )}
         </div>
-        {value !== "main" ? (
+        {value !== "main" && value !== "subscription" ? (
           <button
             onClick={redirectHandler.bind(this, "/apeiron")}
             className="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3 "

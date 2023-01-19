@@ -43,7 +43,7 @@ function Test({ router }) {
   const [value, setValue] = React.useState("");
 
   return (
-    <div className="tw-w-full tw-h-[100vh] tw-text-center tw-bg-black tw-text-white">
+    <div className="tw-w-full tw-h-[100vh] tw-text-center tw-bg-black tw-text-white tw-overflow-hidden">
       <div className="tw-h-full tw-flex tw-flex-col w-gap-4 ">
         <ApeironNavbar
           setValue={setValue}

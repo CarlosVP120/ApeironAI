@@ -28,23 +28,20 @@ export default function GenerateCode() {
 
   const askName = "Generate a " + language + " code that: ";
 
-  const handleClick = useCallback(
-    async (e) => {
-      setPrompt(askName + value);
-      setCompletion("Loading...");
-      const response = await fetch("/api/hello", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ text: askName + value }),
-      });
-      const data = await response.json().then((data) => {
-        setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
-      });
-    },
-    [value]
-  );
+  const handleClick = async (e) => {
+    setPrompt(askName + value);
+    setCompletion("Loading...");
+    const response = await fetch("/api/hello", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text: askName + value }),
+    });
+    const data = await response.json().then((data) => {
+      setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+    });
+  };
 
   const handleSelect = (e) => {
     setLanguage(e.target.value);
