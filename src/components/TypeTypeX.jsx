@@ -2,8 +2,8 @@ import Typewriter from "typewriter-effect";
 
 export default function TypeTypeX() {
   return (
-    <div className="tw-text-5xl tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full ">
-      <h1 className="tw-text-7xl tw-font-bold tw-text-gray-100 tw-mb-5 tw-flex tw-justify-center tw-items-center ">
+    <div className="tw-text-5xl tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full tw-bg-white ">
+      <h1 className="tw-text-7xl tw-font-bold tw-text-neutral-800 tw-mb-5 tw-flex tw-justify-center tw-items-center ">
         <Typewriter
           onInit={(typewriter) => {
             typewriter
@@ -27,7 +27,7 @@ export default function TypeTypeX() {
         />
       </h1>
 
-      <h1 className="tw-text-3xl tw-font-bold tw-text-gray-100 tw-mb-5 tw-flex tw-justify-center tw-items-center ">
+      <h1 className="tw-text-3xl tw-font-bold tw-text-neutral-800 tw-mb-5 tw-flex tw-justify-center tw-items-center ">
         <Typewriter
           onInit={(typewriter) => {
             typewriter

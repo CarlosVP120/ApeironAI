@@ -9,12 +9,22 @@ export default function ApeironNavbar({
   signOutHandler,
   value,
   selected,
+  theme,
 }) {
   return (
-    <div className=" tw-justify-between tw-items-center tw-px-10 tw-relative tw-py-3 tw-pt-4 tw-flex">
+    <div
+      className={`tw-justify-between tw-items-center tw-px-10 tw-relative tw-py-3 tw-pt-4 tw-flex ${
+        theme === "light" ? "tw-bg-white" : ""
+      }`}
+    >
       <h1
-        className="tw-self-center tw-text-white tw-justify-center"
-        style={{ fontSize: "2rem", fontFamily: "Poppins" }}
+        className={`tw-self-center tw-justify-center ${
+          theme === "light" ? "tw-text-black" : "tw-text-white"
+        }`}
+        style={{
+          fontSize: "2rem",
+          fontFamily: "Poppins",
+        }}
       >
         Apeiron
         <span className={styles.color_font} style={{ fontWeight: "bold" }}>
@@ -295,10 +305,22 @@ export default function ApeironNavbar({
                 className={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
                   selected === "Article Creator"
                     ? "tw-bg-opacity-0"
+                    : theme === "light"
+                    ? "tw-bg-white"
                     : "tw-bg-black"
-                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500 `}
               >
-                <span className="tw-relative tw-text-white tw-flex tw-items-center">
+                <span
+                  className={`tw-relative ${
+                    theme === "light"
+                      ? ` group-hover:tw-text-white ${
+                          selected === "Article Creator"
+                            ? "tw-text-white"
+                            : "tw-text-black"
+                        } tw-transition tw-duration-300`
+                      : "tw-text-white"
+                  } tw-flex tw-items-center`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -310,7 +332,7 @@ export default function ApeironNavbar({
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                      d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
                     />
                   </svg>
                   Article Creator
@@ -327,10 +349,22 @@ export default function ApeironNavbar({
                 className={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
                   selected === "Article Outline"
                     ? "tw-bg-opacity-0"
+                    : theme === "light"
+                    ? "tw-bg-white"
                     : "tw-bg-black"
-                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500 `}
               >
-                <span className="tw-relative tw-text-white tw-flex tw-items-center">
+                <span
+                  className={`tw-relative ${
+                    theme === "light"
+                      ? ` group-hover:tw-text-white ${
+                          selected === "Article Outline"
+                            ? "tw-text-white"
+                            : "tw-text-black"
+                        } tw-transition tw-duration-300`
+                      : "tw-text-white"
+                  } tw-flex tw-items-center`}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -342,7 +376,7 @@ export default function ApeironNavbar({
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9"
+                      d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
                     />
                   </svg>
                   Article Outline
@@ -386,10 +420,19 @@ export default function ApeironNavbar({
           >
             <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#ff8a05] tw-via-[#ff5478] tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-[#ff5478] group-hover:tw-to-[#ff8a05] tw-absolute"></span>
             <span
-              className="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500
-"
+              className={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500 ${
+                theme === "light" ? "tw-bg-white" : "tw-bg-black"
+              }`}
             >
-              <span className="tw-relative tw-text-white">Tools</span>
+              <span
+                className={`tw-relative ${
+                  theme === "light"
+                    ? "tw-text-black group-hover:tw-text-white tw-transition tw-duration-300"
+                    : "tw-text-white"
+                }`}
+              >
+                Tools
+              </span>
             </span>
           </button>
         ) : null}
@@ -399,10 +442,19 @@ export default function ApeironNavbar({
         >
           <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#ff8a05] tw-via-[#ff5478] tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-[#ff5478] group-hover:tw-to-[#ff8a05] tw-absolute"></span>
           <span
-            className="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500
-"
+            className={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500  ${
+              theme === "light" ? "tw-bg-white" : "tw-bg-black"
+            }`}
           >
-            <span className="tw-relative tw-text-white">Sign Out</span>
+            <span
+              className={`tw-relative ${
+                theme === "light"
+                  ? "tw-text-black group-hover:tw-text-white tw-transition tw-duration-300"
+                  : "tw-text-white"
+              }`}
+            >
+              Sign Out
+            </span>
           </span>
         </button>
       </div>

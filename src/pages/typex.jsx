@@ -10,6 +10,8 @@ import Ads from "../components/Ads";
 import ApeironNavbar from "../components/ApeironNavbar";
 import TypeMarkex from "../components/TypeMarkeX";
 import TypeTypeX from "../components/TypeTypeX";
+import ArticleEditor from "../components/ArticleCreator";
+import ArticleOutline from "../components/ArticleOutline";
 
 export default function MarkeX() {
   const router = useRouter();
@@ -51,12 +53,15 @@ function Main({ router }) {
           redirectHandler={redirectHandler}
           signOutHandler={signOutHandler}
           value="typex"
+          theme="light"
         />
 
         {value === "" && <TypeTypeX />}
 
-        {value === "Article Creator" && <Descriptions />}
-        {value === "Article Outline" && <Keywords />}
+        {/* REACT QUILL */}
+
+        {value === "Article Creator" && <ArticleEditor />}
+        {value === "Article Outline" && <ArticleOutline />}
       </div>
     </div>
   );
