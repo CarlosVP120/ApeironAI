@@ -9,6 +9,7 @@ import Keywords from "../components/Keywords";
 import Ads from "../components/Ads";
 import ApeironNavbar from "../components/ApeironNavbar";
 import TypeMarkex from "../components/TypeMarkeX";
+import TypeTypeX from "../components/TypeTypeX";
 
 export default function MarkeX() {
   const router = useRouter();
@@ -52,11 +53,10 @@ function Main({ router }) {
           value="typex"
         />
 
-        {/* {value === "" && <TypeTypeX />}
+        {value === "" && <TypeTypeX />}
 
-        {value === "Descriptions" && <Descriptions />}
-        {value === "Keywords" && <Keywords />}
-        {value === "Ads" && <Ads />} */}
+        {value === "Article Creator" && <Descriptions />}
+        {value === "Article Outline" && <Keywords />}
       </div>
     </div>
   );
