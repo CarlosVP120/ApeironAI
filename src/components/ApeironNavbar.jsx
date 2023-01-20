@@ -283,6 +283,76 @@ export default function ApeironNavbar({
         </div>
       ) : null}
 
+      {value === "typex" ? (
+        <div className="tw-justify-center tw-hidden lg:tw-flex">
+          <div className="tw-justify-center tw-self-center tw-flex tw-gap-6">
+            <button
+              onClick={() => setValue("Article Creator")}
+              className="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3"
+            >
+              <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
+              <span
+                className={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
+                  selected === "Article Creator"
+                    ? "tw-bg-opacity-0"
+                    : "tw-bg-black"
+                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+              >
+                <span className="tw-relative tw-text-white tw-flex tw-items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="tw-w-5 tw-h-5 tw-mr-2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                    />
+                  </svg>
+                  Article Creator
+                </span>
+              </span>
+            </button>
+
+            <button
+              onClick={() => setValue("Article Outline")}
+              className="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3"
+            >
+              <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
+              <span
+                className={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
+                  selected === "Article Outline"
+                    ? "tw-bg-opacity-0"
+                    : "tw-bg-black"
+                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500`}
+              >
+                <span className="tw-relative tw-text-white tw-flex tw-items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="tw-w-5 tw-h-5 tw-mr-2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9"
+                    />
+                  </svg>
+                  Article Outline
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+      ) : null}
+
       <div className="tw-flex tw-justify-center ">
         <div className="tw-self-center">
           {(value === "main" || value === "subscription") && (
@@ -295,11 +365,11 @@ export default function ApeironNavbar({
                       "https://billing.stripe.com/p/login/test_7sI6rtcQO9gT3YceUU"
                     )
                   }
-                  className="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3"
+                  className="tw-relative tw-p-0.5 tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3 tw-hidden md:tw-inline-flex"
                 >
                   <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#ff8a05] tw-via-[#ff5478] tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-[#ff5478] group-hover:tw-to-[#ff8a05] tw-absolute"></span>
                   <span
-                    className="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500
+                    className="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500 
 "
                   >
                     <span className="tw-relative tw-text-white">Account</span>

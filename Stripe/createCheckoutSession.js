@@ -17,7 +17,9 @@ export async function createCheckoutSession(uid, typeOfProduct) {
       ? "price_1MRoiPFdnCXohRp9zM5iquVf"
       : typeOfProduct === "markex"
       ? "price_1MRroFFdnCXohRp9A4AKuIjS"
-      : "price_1MRsHWFdnCXohRp9xAwcChpE";
+      : typeOfProduct === "codex"
+      ? "price_1MRsHWFdnCXohRp9xAwcChpE"
+      : "price_1MS8d2FdnCXohRp9r0pijF4C";
 
   const docRef = await addDoc(
     collection(db, `users/${uid}/checkout_sessions`),

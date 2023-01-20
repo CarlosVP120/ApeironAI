@@ -22,7 +22,8 @@ function MyApp({ Component, pageProps }) {
       router.pathname !== "/register" &&
       router.pathname !== "/apeiron" &&
       router.pathname !== "/markex" &&
-      router.pathname !== "/codex" ? (
+      router.pathname !== "/codex" &&
+      router.pathname !== "/typex" ? (
         <>
           <LoadingScreen disabled={false} />
           <Component {...pageProps} />
