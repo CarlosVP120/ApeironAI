@@ -88,7 +88,32 @@ export default function ToolHomePage() {
             />
           ) : (
             <div className="tw-w-full tw-h-[100vh] tw-text-center tw-bg-black tw-text-white tw-overflow-hidden">
-              <div className="tw-h-full tw-flex tw-flex-col tw-gap-10 "></div>
+              <div className=" tw-justify-between tw-items-center tw-px-10 tw-relative tw-py-3 tw-pt-4 tw-flex">
+                <h1
+                  className="tw-self-center tw-text-white tw-justify-center"
+                  style={{ fontSize: "2rem", fontFamily: "Poppins" }}
+                >
+                  Apeiron
+                  <span
+                    className={styles.color_font}
+                    style={{ fontWeight: "bold" }}
+                  >
+                    AI
+                  </span>
+                </h1>
+                <button
+                  onClick={signOutHandler}
+                  className="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3"
+                >
+                  <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#ff8a05] tw-via-[#ff5478] tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-[#ff5478] group-hover:tw-to-[#ff8a05] tw-absolute"></span>
+                  <span
+                    className="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500
+"
+                  >
+                    <span className="tw-relative tw-text-white">Sign Out</span>
+                  </span>
+                </button>
+              </div>
             </div>
           )}
         </>
