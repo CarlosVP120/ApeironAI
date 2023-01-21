@@ -149,7 +149,7 @@ export default function MarkeXLayout({
             dataArray.map((data) => (
               <button
                 key={data.name}
-                className={`tw-w-full`}
+                className={`tw-w-full tw-animate-appear`}
                 onClick={() => {
                   setNewProductWelcome(false);
                   setShowingProduct(data);
@@ -174,7 +174,7 @@ export default function MarkeXLayout({
               </button>
             ))
           ) : (
-            <div className="tw-h-full tw-w-full tw-flex tw-self-center tw-flex-col tw-justify-center tw-items-center tw-mt-[30vh]">
+            <div className="tw-h-full tw-w-full tw-flex tw-self-center tw-flex-col tw-justify-center tw-items-center tw-mt-[30vh] tw-animate-appear">
               <h1>You have no recent products. Start by creating a new one!</h1>
             </div>
           )}
@@ -274,7 +274,7 @@ function NewProductWelcome({ type, setPlatform, askName }) {
 
   return (
     <div className="tw-flex tw-w-4/6 tw-h-full tw-flex-col tw-gap-5 tw-justify-center">
-      <h1 className="tw-text-3xl tw-font-bold tw-text-gray-100 tw-mb-5 tw-flex tw-justify-center tw-items-center ">
+      <h1 className="tw-text-3xl tw-font-bold tw-text-gray-100 tw-mb-5 tw-flex tw-justify-center tw-items-center tw-animate-appear">
         {type === "ads" ? (
           <span>
             Create a New <span className={styles.color_font}>Ad</span>{" "}
@@ -385,10 +385,10 @@ function NewProductWelcome({ type, setPlatform, askName }) {
       </div>
       {type === "ads" && (
         <>
-          <h1 className="tw-text-2xl tw-font-bold tw-text-gray-100 tw-flex tw-justify-center tw-items-center ">
+          <h1 className="tw-text-2xl tw-font-bold tw-text-gray-100 tw-flex tw-justify-center tw-items-center tw-animate-appear">
             Choose a platform to get started:
           </h1>
-          <div className="tw-flex tw-justify-center tw-items-center ">
+          <div className="tw-flex tw-justify-center tw-items-center tw-animate-appear">
             <div className="tw-flex tw-items-center tw-gap-5">
               <button
                 className={`tw-flex tw-items-center ${

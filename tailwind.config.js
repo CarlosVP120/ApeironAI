@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       animation: {
         tilt: "tilt 10s infinite linear",
+        appear: "appear 0.5s ease-in-out",
       },
       keyframes: {
         tilt: {
@@ -23,10 +24,19 @@ module.exports = {
             transform: "rotate(-1.5deg)",
           },
         },
+        appear: {
+          "0%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 1,
+          },
+        },
       },
+
       fontFamily: {
-        'code': ['Source Code Pro', 'monospace']
-      }
+        code: ["Source Code Pro", "monospace"],
+      },
     },
   },
   plugins: [],

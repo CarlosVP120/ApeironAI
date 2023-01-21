@@ -14,9 +14,9 @@ export default function ApeironNavbar({
 }) {
   return (
     <div
-      className={`tw-justify-between tw-items-center tw-px-10 tw-relative tw-py-3 tw-pt-4 tw-flex ${
+      className={` tw-justify-between tw-items-center tw-px-10 tw-relative tw-py-3 tw-pt-4 tw-flex ${
         theme === "light" ? "tw-bg-white" : ""
-      }`}
+      }  ${value === "main" ? "tw-animate-appear" : ""} `}
     >
       <a href="/">
         <h1
@@ -36,7 +36,7 @@ export default function ApeironNavbar({
       </a>
 
       {value === "markex" ? (
-        <div className="tw-justify-center tw-hidden lg:tw-flex">
+        <div className="tw-justify-center tw-hidden lg:tw-flex tw-animate-appear">
           <div className="tw-justify-center tw-self-center tw-flex tw-gap-6">
             <button
               onClick={() => setValue("Descriptions")}
@@ -134,7 +134,7 @@ export default function ApeironNavbar({
       ) : null}
 
       {value === "codex" ? (
-        <div className="tw-justify-center tw-hidden lg:tw-flex ">
+        <div className="tw-justify-center tw-hidden lg:tw-flex tw-animate-appear">
           <div className="tw-justify-center tw-self-center tw-flex tw-gap-2 ">
             <button
               onClick={() => setValue("Explain Code")}
@@ -298,7 +298,7 @@ export default function ApeironNavbar({
       ) : null}
 
       {value === "typex" ? (
-        <div className="tw-justify-center tw-hidden lg:tw-flex">
+        <div className="tw-justify-center tw-hidden lg:tw-flex tw-animate-appear">
           <div className="tw-justify-center tw-self-center tw-flex tw-gap-6">
             <button
               onClick={() => setValue("Article Creator")}
@@ -420,7 +420,7 @@ export default function ApeironNavbar({
         {value !== "main" && value !== "subscription" ? (
           <button
             onClick={redirectHandler.bind(this, "/apeiron")}
-            className="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3 "
+            className="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3 tw-animate-appear"
           >
             <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#ff8a05] tw-via-[#ff5478] tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-[#ff5478] group-hover:tw-to-[#ff8a05] tw-absolute"></span>
             <span

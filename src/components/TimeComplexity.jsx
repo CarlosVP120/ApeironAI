@@ -48,7 +48,7 @@ export default function TimeComplexity() {
   );
 
   return (
-    <div className="tw-w-full tw-h-[100vh] tw-bg-black tw-text-white tw-flex tw-justify-center tw-overflow-hidden">
+    <div className="tw-w-full tw-h-[100vh] tw-bg-black tw-text-white tw-flex tw-justify-center tw-overflow-hidden tw-animate-appear">
       <div className="tw-h-full tw-w-full tw-flex tw-flex-col tw-justify-center ">
         <div className="tw-font-bold tw-text-white tw-flex tw-justify-center tw-shadow-inner tw-w-full tw-h-full tw-items-center">
           <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none tw-w-[45%] tw-h-[90%] 2xl:tw-h-[80%] tw-justify-between">

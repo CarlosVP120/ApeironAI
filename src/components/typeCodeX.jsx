@@ -2,7 +2,7 @@ import Typewriter from "typewriter-effect";
 
 export default function TypeCodex() {
   return (
-    <div className="tw-text-5xl tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full ">
+    <div className="tw-text-5xl tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full tw-animate-appear">
       <h1 className="tw-text-7xl tw-font-bold tw-text-gray-100 tw-mb-5 tw-flex tw-justify-center tw-items-center ">
         <Typewriter
           onInit={(typewriter) => {
