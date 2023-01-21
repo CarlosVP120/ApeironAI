@@ -28,8 +28,7 @@ const Intro4 = ({ sliderRef, blackStar }) => {
     globeEl.current.controls().minDistance = 250;
     globeEl.current.controls().maxDistance = 500;
     globeEl.current.controls().rotateSpeed = 0.2;
-    globeEl.current.controls().autoZoom = true;
-    globeEl.current.controls().zoomSpeed = 0.3;
+    globeEl.current.controls().enableZoom = false;
     globeEl.current.controls().autoRotate = true;
 
     globeEl.current.controls().minPolarAngle = Math.PI / 3.5;
