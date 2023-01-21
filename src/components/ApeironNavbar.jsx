@@ -20,9 +20,9 @@ export default function ApeironNavbar({
     >
       <a href="/">
         <h1
-          className={`tw-self-center tw-justify-center tw-transition tw-duration-300 tw-px-2 tw-rounded-lg ${
+          className={`tw-self-center tw-justify-center tw-transition tw-duration-300 tw-rounded-lg ${
             theme === "light" ? "tw-text-black" : "tw-text-white"
-          } hover:tw-bg-gray-200 hover:tw-text-black`}
+          }`}
           style={{
             fontSize: "2rem",
             fontFamily: "Poppins",
