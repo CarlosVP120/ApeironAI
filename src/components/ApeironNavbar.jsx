@@ -2,6 +2,7 @@ import styles from "../styles/Markex.module.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { auth } from "../../firebase/firebaseClient";
+import Link from "next/link";
 
 export default function ApeironNavbar({
   setValue,
@@ -17,22 +18,24 @@ export default function ApeironNavbar({
         theme === "light" ? "tw-bg-white" : ""
       }`}
     >
-      <a href="/">
-        <h1
-          className={`tw-self-center tw-justify-center tw-transition tw-duration-300 tw-px-2 tw-rounded-lg ${
-            theme === "light" ? "tw-text-black" : "tw-text-white"
-          } hover:tw-bg-gray-200 hover:tw-text-black`}
-          style={{
-            fontSize: "2rem",
-            fontFamily: "Poppins",
-          }}
-        >
-          Apeiron
-          <span className={styles.color_font} style={{ fontWeight: "bold" }}>
-            AI
-          </span>
-        </h1>
-      </a>
+      <Link legacybehavior href="/">
+        <a>
+          <h1
+            className={`tw-self-center tw-justify-center tw-transition tw-duration-300 tw-px-2 tw-rounded-lg ${
+              theme === "light" ? "tw-text-black" : "tw-text-white"
+            } hover:tw-bg-gray-200 hover:tw-text-black`}
+            style={{
+              fontSize: "2rem",
+              fontFamily: "Poppins",
+            }}
+          >
+            Apeiron
+            <span className={styles.color_font} style={{ fontWeight: "bold" }}>
+              AI
+            </span>
+          </h1>
+        </a>
+      </Link>
       {value === "markex" ? (
         <div className="tw-justify-center tw-hidden lg:tw-flex">
           <div className="tw-justify-center tw-self-center tw-flex tw-gap-6">
