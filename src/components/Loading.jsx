@@ -3,7 +3,7 @@ export default function Loading() {
     <div
       disabled
       type="button"
-      className="tw-h-full tw-text-2xl tw-inline-flex tw-items-center"
+      className="tw-h-full tw-text-2xl tw-inline-flex tw-items-center tw-animate-appear"
     >
       <svg
         aria-hidden="true"
