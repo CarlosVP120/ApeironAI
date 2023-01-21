@@ -18,6 +18,15 @@ export default function ToolHomePage() {
   // Link to administrative page
   // https://billing.stripe.com/p/login/test_7sI6rtcQO9gT3YceUU
 
+  if (typeof window !== "undefined") {
+    history.pushState(null, document.title, location.href); // this is to prevent the back button from navigating to the previous page
+    window.addEventListener("popstate", function (event) {
+      // The popstate event is fired each time when the current history entry changes.
+      history.pushState(null, "ApeironAI", "/"); // this changes the url to the current page without adding it to the history
+      location.reload(); // this reloads the page
+    });
+  }
+
   useEffect(() => {
     if (auth.currentUser === null) {
       router.replace("/login");
