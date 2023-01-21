@@ -1,7 +1,7 @@
 import { useCallback } from "react";
-import { useState } from "react";
-import Loading from "./Loading";
-import styles from "../styles/styles.module.css";
+import { useState, useEffect } from "react";
+import { useQuill } from "react-quilljs";
+import "quill/dist/quill.snow.css";
 
 export default function ArticleOutline() {
   const code = ``;
@@ -9,6 +9,19 @@ export default function ArticleOutline() {
   const [value, setValue] = useState(code);
   const [prompt, setPrompt] = useState("");
   const [completion, setCompletion] = useState("");
+  const { quill, quillRef } = useQuill();
+  const [valueOutline, setValueOutline] = useState();
+
+  useEffect(() => {
+    if (quill) {
+      quill.on("text-change", () => {
+        console.log(quillRef.current.firstChild.innerHTML);
+        setValueOutline(quillRef.current.firstChild.innerHTML);
+      });
+    }
+  }, [quill]);
+
+  console.log(valueOutline, "this is quill Outline");
 
   const handleTab = (e) => {
     if (e.keyCode === 9) {
@@ -48,10 +61,20 @@ export default function ArticleOutline() {
     [value]
   );
 
+  const onClick = useCallback(() => {
+    setValue("");
+    setPrompt("");
+    setCompletion("");
+  }, []);
+
   return (
     <div className="tw-w-full tw-h-[100vh] tw-bg-white tw-text-black tw-flex tw-justify-center tw-overflow-hidden">
       <div className="tw-h-full tw-w-full tw-flex tw-flex-col tw-justify-center ">
-        <h1>Article Outline</h1>
+        <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-pt-10 tw-px-10 tw-text-xl tw-rounded-lg ">
+          <div style={{ width: 1200, height: 600 }}>
+            <div ref={quillRef} />
+          </div>
+        </div>
       </div>
     </div>
   );
