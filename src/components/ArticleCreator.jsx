@@ -1,22 +1,29 @@
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import styles from "../styles/Form.module.css";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Head from "next/head";
-
-const Editor = dynamic(
-  () => import("react-draft-wysiwyg").then((mod) => mod.Editor),
-  {
-    ssr: false,
-  }
-);
 
 export default function ArticleEditor() {
   const [value, setValue] = useState("");
   const [prompt, setPrompt] = useState("");
   const [completion, setCompletion] = useState("");
-  const [valueEditor, setValueEditor] = useState();
+  const [valueToSend, setValueToSend] = useState("");
+  const GenerateAI = "Give me more content based on the text: ";
+  const ReplaceAI = "Rephrase the text: ";
+  const ImproveAI = "Improve the grammar of this text: ";
+
+  function getSelectedText() {
+    var txt = "";
+    if (window.getSelection) {
+      txt = window.getSelection().toString();
+    } else if (document.getSelection) {
+      txt = document.getSelection().toString();
+    } else if (document.selection) {
+      txt = document.selection.createRange().text;
+    }
+    console.log(txt);
+    return txt;
+  }
 
   const handleTab = (e) => {
     if (e.keyCode === 9) {
@@ -36,33 +43,39 @@ export default function ArticleEditor() {
     setValue(e.target.value);
   }, []);
 
-  const GenerateAI = "Give me more content based on the text: ";
-
   const handleClick = useCallback(
     async (askName) => {
-      setPrompt(askName + value);
+      setPrompt(askName + valueToSend);
       setCompletion("Loading...");
+      console.log(askName + valueToSend);
       const response = await fetch("/api/hello", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ text: askName + value }),
+        body: JSON.stringify({ text: askName + valueToSend }),
       });
       const data = await response.json().then((data) => {
         setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
-        setValue(
-          value +
-            "\n" +
-            "\n" +
-            data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
-        );
+        if (askName === GenerateAI) {
+          setValue(
+            value +
+              "\n" +
+              "\n" +
+              data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+          );
+        } else {
+          setValue(
+            value.replace(
+              valueToSend,
+              data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+            )
+          );
+        }
       });
     },
-    [value]
+    [valueToSend, value]
   );
-
-  console.log(completion);
 
   return (
     <>
@@ -80,7 +93,10 @@ export default function ArticleEditor() {
                 <span className={styles.color_font}>Assistant Features</span>
               </h1>
               <button
-                onClick={() => handleClick(GenerateAI)}
+                onClick={() => {
+                  setValueToSend(value);
+                  handleClick(GenerateAI);
+                }}
                 className="tw-items-center tw-mt-6 tw-py-2 tw-px-3 tw-bg-purple-600 tw-text-white tw-rounded-lg tw-font-bold tw-text-base tw-flex tw-justify-center tw-transition tw-duration-300 hover:tw-bg-blue-500 hover:tw-text-white"
               >
                 <svg
@@ -92,8 +108,8 @@ export default function ArticleEditor() {
                   className="tw-w-5 tw-h-5 tw-mr-2"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
                   />
                 </svg>
@@ -108,7 +124,13 @@ export default function ArticleEditor() {
               <h1 className="tw-font-bold tw-text-left">
                 <span className={styles.color_font}>Writing Tools</span>
               </h1>
-              <button className="tw-items-center tw-mt-6 tw-py-2 tw-px-3 tw-bg-gray-300 tw-text-neutral-500 tw-rounded-lg tw-font-bold tw-text-base tw-flex tw-justify-center tw-transition tw-duration-300 hover:tw-bg-blue-500 hover:tw-text-white">
+              <button
+                onClick={() => {
+                  setValueToSend(getSelectedText());
+                  handleClick(ReplaceAI);
+                }}
+                className="tw-items-center tw-mt-6 tw-py-2 tw-px-3 tw-bg-gray-300 tw-text-neutral-500 tw-rounded-lg tw-font-bold tw-text-base tw-flex tw-justify-center tw-transition tw-duration-300 hover:tw-bg-blue-500 hover:tw-text-white"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -118,8 +140,8 @@ export default function ArticleEditor() {
                   className="tw-w-5 tw-h-5 tw-mr-2"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"
                   />
                 </svg>
@@ -129,7 +151,12 @@ export default function ArticleEditor() {
               <p className="tw-opacity-50 tw-mt-2 tw-text-sm tw-text-left tw-mb-4">
                 Highlight text and get alternate phrasing.
               </p>
-              <button className="tw-items-center tw-mt-6 tw-py-2 tw-px-3 tw-bg-gray-300 tw-text-neutral-500 tw-rounded-lg tw-font-bold tw-text-base tw-flex tw-justify-center tw-transition tw-duration-300 hover:tw-bg-blue-500 hover:tw-text-white">
+              <button
+                onClick={() => {
+                  handleClick(ImproveAI);
+                }}
+                className="tw-items-center tw-mt-6 tw-py-2 tw-px-3 tw-bg-gray-300 tw-text-neutral-500 tw-rounded-lg tw-font-bold tw-text-base tw-flex tw-justify-center tw-transition tw-duration-300 hover:tw-bg-blue-500 hover:tw-text-white"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -235,8 +262,8 @@ export default function ArticleEditor() {
                   className="tw-w-5 tw-h-5 tw-mr-2"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
