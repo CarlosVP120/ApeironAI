@@ -2,15 +2,17 @@ import { useCallback, useRef } from "react";
 import { useState, useEffect } from "react";
 import styles from "../styles/Form.module.css";
 import Head from "next/head";
+import Loading from "./Loading";
 
 export default function ArticleEditor() {
   const [value, setValue] = useState("");
   const [prompt, setPrompt] = useState("");
   const [completion, setCompletion] = useState("");
-  const [valueToSend, setValueToSend] = useState("");
-  const GenerateAI = "Give me more content based on the text: ";
+  const [feedback, setFeedback] = useState("");
+  const GenerateAI = "Give me more information based on this text: ";
   const ReplaceAI = "Rephrase the text: ";
   const ImproveAI = "Improve the grammar of this text: ";
+  const FeedbackAI = "Give me feedback on this text: ";
 
   function getSelectedText() {
     var txt = "";
@@ -21,7 +23,6 @@ export default function ArticleEditor() {
     } else if (document.selection) {
       txt = document.selection.createRange().text;
     }
-    console.log(txt);
     return txt;
   }
 
@@ -39,43 +40,42 @@ export default function ArticleEditor() {
     }
   };
 
-  const handleInput = useCallback((e) => {
+  const handleInput = (e) => {
     setValue(e.target.value);
-  }, []);
+  };
 
-  const handleClick = useCallback(
-    async (askName) => {
-      setPrompt(askName + valueToSend);
-      setCompletion("Loading...");
-      console.log(askName + valueToSend);
-      const response = await fetch("/api/hello", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ text: askName + valueToSend }),
-      });
-      const data = await response.json().then((data) => {
-        setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
-        if (askName === GenerateAI) {
-          setValue(
-            value +
-              "\n" +
-              "\n" +
-              data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
-          );
-        } else {
-          setValue(
-            value.replace(
-              valueToSend,
-              data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
-            )
-          );
-        }
-      });
-    },
-    [valueToSend, value]
-  );
+  const handleClick = async (askName, val) => {
+    setPrompt(askName + val);
+    if (askName !== FeedbackAI) setCompletion("Loading...");
+    if (askName === FeedbackAI) setFeedback("Loading...");
+    const response = await fetch("/api/hello", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text: askName + val }),
+    });
+    const data = await response.json().then((data) => {
+      setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+      if (askName === GenerateAI) {
+        setValue(
+          value +
+            "\n" +
+            "\n" +
+            data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+        );
+      } else if (askName === ReplaceAI || askName === ImproveAI) {
+        setValue(
+          value.replace(
+            val,
+            data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+          )
+        );
+      } else {
+        setFeedback(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+      }
+    });
+  };
 
   return (
     <>
@@ -94,8 +94,7 @@ export default function ArticleEditor() {
               </h1>
               <button
                 onClick={() => {
-                  setValueToSend(value);
-                  handleClick(GenerateAI);
+                  handleClick(GenerateAI, value);
                 }}
                 className="tw-items-center tw-mt-6 tw-py-2 tw-px-3 tw-bg-purple-600 tw-text-white tw-rounded-lg tw-font-bold tw-text-base tw-flex tw-justify-center tw-transition tw-duration-300 hover:tw-bg-blue-500 hover:tw-text-white"
               >
@@ -126,8 +125,7 @@ export default function ArticleEditor() {
               </h1>
               <button
                 onClick={() => {
-                  setValueToSend(getSelectedText());
-                  handleClick(ReplaceAI);
+                  handleClick(ReplaceAI, getSelectedText());
                 }}
                 className="tw-items-center tw-mt-6 tw-py-2 tw-px-3 tw-bg-gray-300 tw-text-neutral-500 tw-rounded-lg tw-font-bold tw-text-base tw-flex tw-justify-center tw-transition tw-duration-300 hover:tw-bg-blue-500 hover:tw-text-white"
               >
@@ -153,7 +151,7 @@ export default function ArticleEditor() {
               </p>
               <button
                 onClick={() => {
-                  handleClick(ImproveAI);
+                  handleClick(ImproveAI, getSelectedText());
                 }}
                 className="tw-items-center tw-mt-6 tw-py-2 tw-px-3 tw-bg-gray-300 tw-text-neutral-500 tw-rounded-lg tw-font-bold tw-text-base tw-flex tw-justify-center tw-transition tw-duration-300 hover:tw-bg-blue-500 hover:tw-text-white"
               >
@@ -193,18 +191,22 @@ export default function ArticleEditor() {
               lineHeight: "0.5",
             }}
           /> */}
-            <textarea
-              className="tw-bg-white tw-shadow-2xl tw-rounded-sm tw-overflow-auto tw-max-w-5xl tw-text-black  tw-p-10 tw-mt-6 tw-border-2 tw-w-full tw-outline-none"
-              value={value}
-              onChange={handleInput}
-              onKeyDown={handleTab}
-              style={{
-                height: "auto",
-                overflow: "auto",
-                minHeight: "95%",
-                maxHeight: "95%",
-              }}
-            />
+            {completion === "Loading..." ? (
+              <Loading />
+            ) : (
+              <textarea
+                className="tw-bg-white tw-shadow-2xl tw-rounded-sm tw-overflow-auto tw-max-w-5xl tw-text-black  tw-p-10 tw-mt-6 tw-border-2 tw-w-full tw-outline-none tw-animate-appear"
+                value={value}
+                onChange={handleInput}
+                onKeyDown={handleTab}
+                style={{
+                  height: "auto",
+                  overflow: "auto",
+                  minHeight: "95%",
+                  maxHeight: "95%",
+                }}
+              />
+            )}
           </div>
           <div className="tw-h-full tw-w-1/4 tw-px-10 tw-py-5 tw-font-bold tw-text-2xl tw-overflow-auto tw-flex tw-flex-col tw-gap-10">
             <div className="tw-flex tw-flex-col tw-items-end">
@@ -227,7 +229,7 @@ export default function ArticleEditor() {
                     d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64"
                   />
                 </svg>
-                <h1>100 Words</h1>
+                <h1>{value.split(" ").length} Words</h1>
               </div>
               <div className="tw-items-center tw-mt-2 tw-py-1 tw-px-30 tw-text-neutral-500 tw-rounded-lg tw-font-bold tw-text-base tw-flex tw-justify-center">
                 <svg
@@ -245,14 +247,17 @@ export default function ArticleEditor() {
                     d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"
                   />
                 </svg>
-                <h1>2 Paragraphs</h1>
+                <h1>{value.split("\n\n").length} Paragraphs</h1>
               </div>
             </div>
             <div className="tw-flex tw-flex-col tw-items-end">
               <h1 className="tw-font-bold tw-text-right">
                 <span className={styles.color_font}>Recommendations</span>
               </h1>
-              <button className="tw-items-center tw-mt-6 tw-py-2 tw-px-3 tw-bg-gray-300 tw-text-neutral-500 tw-rounded-lg tw-font-bold tw-text-base tw-flex tw-justify-center tw-transition tw-duration-300 hover:tw-bg-blue-500 hover:tw-text-white">
+              <button
+                onClick={() => handleClick(FeedbackAI, value)}
+                className="tw-items-center tw-mt-6 tw-py-2 tw-px-3 tw-bg-gray-300 tw-text-neutral-500 tw-rounded-lg tw-font-bold tw-text-base tw-flex tw-justify-center tw-transition tw-duration-300 hover:tw-bg-blue-500 hover:tw-text-white"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -271,14 +276,15 @@ export default function ArticleEditor() {
                 <h1>Generate AI Feedback</h1>
               </button>
               <p className="tw-opacity-50 tw-mt-4 tw-text-sm tw-text-justify tw-mb-4 tw-bg-gray-300 tw-px-2 tw-py-1 tw-rounded-md">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam laborum ullam velit iusto vel magnam, vitae
-                voluptates nobis. Sed rem expedita officiis quod repellendus a
-                dolor, eveniet quasi dignissimos, odio excepturi tempora
-                tenetur! Nisi, non pariatur quisquam, dolorem iusto
-                reprehenderit excepturi sequi eum eligendi fugit commodi quaerat
-                perspiciatis? Deleniti eligendi voluptatum obcaecati dolor magni
-                odit ratione saepe expedita nobis blanditiis?
+                {feedback === "Loading..." ? (
+                  <span>Loading...</span>
+                ) : feedback !== "" ? (
+                  <span className="tw-animate-appear">{feedback}</span>
+                ) : (
+                  <span>
+                    Recieve feedback from our AI on how to improve your text.
+                  </span>
+                )}
               </p>
             </div>
           </div>
