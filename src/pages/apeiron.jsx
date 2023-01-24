@@ -118,7 +118,7 @@ function User({ signOutHandler, redirectHandler, access }) {
           redirectHandler={redirectHandler}
         />
 
-        <div className="tw-h-3/4 tw-justify-center tw-flex tw-flex-col tw-w-full tw-animate-appear tw-gap-6">
+        <div className="tw-h-3/4 tw-justify-center tw-flex tw-flex-col tw-w-full tw-animate-appear tw-gap-10">
           <div className="tw-justify-center tw-self-center tw-flex tw-gap-10 tw-flex-col md:tw-flex-row">
             {access === "fullstack" || access === "codex" ? (
               <div className="tw-flex tw-relative tw-group tw-max-w-sm">
