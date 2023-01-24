@@ -134,7 +134,7 @@ export default function ExplainCode() {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  class="tw-w-6 tw-h-6"
+                  className="tw-w-6 tw-h-6"
                 >
                   <path
                     strokeLinecap="round"
