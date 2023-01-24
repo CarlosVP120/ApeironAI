@@ -28,7 +28,7 @@ export default function ArticleOutline() {
 
   const askName = "Create me an article outline for this theme: ";
   const askDescription =
-    ", give me the next format: \n 1- Introduction 1.1- example 1.2- example 2- Body 2.1- example \n 3- Conclusion, and so on...";
+    ", give me the next format:\n1-Introduction 1.1-example 1.2-example\n2-Body 2.1-example\n3-Conclusion, and so on...";
 
   const handleClick = useCallback(
     async (e) => {
@@ -48,6 +48,8 @@ export default function ArticleOutline() {
     [value]
   );
 
+  console.log(completion);
+
   const onClick = useCallback(() => {
     setValue("");
     setPrompt("");
@@ -65,7 +67,7 @@ export default function ArticleOutline() {
             </h1>
             <p className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-neutral-600">
               This tool will help you create an article outline for your theme.
-              Just enter a theme and click on the "Generate" button.
+              Just enter a theme and click on the &quot;Generate&quot; button.
             </p>
 
             <input
@@ -77,8 +79,15 @@ export default function ArticleOutline() {
 
             <div className="tw-w-full tw-flex tw-justify-between tw-items-center tw-mt-4">
               <span className="tw-p-2 tw-rounded-lg tw-bg-neutral-300 tw-text-black tw-text-xl tw-outline-none tw-transition tw-duration-300 tw-ease-in-out tw-focus:tw-outline-none tw-focus:tw-ring-2 tw-focus:tw-ring-neutral-500 tw-focus:tw-ring-opacity-50">
-                {completion.split("/n").map((item, i) => (
-                  <li key={i}>{item}</li>
+                {completion.split("\n").map((item, i) => (
+                  <>
+                    {item.includes(".") ? (
+                      <p key={i}>&nbsp;&nbsp;&nbsp;&nbsp;{item}</p>
+                    ) : (
+                      <p key={i}>{item}</p>
+                    )}
+                    <br />
+                  </>
                 ))}
               </span>
             </div>
