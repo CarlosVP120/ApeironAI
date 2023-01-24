@@ -391,6 +391,56 @@ export default function ApeironNavbar({
         </div>
       ) : null}
 
+      {value === "artix" ? (
+        <div className="tw-justify-center tw-hidden lg:tw-flex tw-animate-appear">
+          <div className="tw-justify-center tw-self-center tw-flex tw-gap-6">
+            <button
+              onClick={() => setValue("Generate Image")}
+              className="tw-relative tw-p-0.5 tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3"
+            >
+              <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-500 tw-via-purple-500 tw-to-[#ff00c6]  tw-absolute"></span>
+              <span
+                className={`tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out ${
+                  selected === "Generate Image"
+                    ? "tw-bg-opacity-0"
+                    : theme === "light"
+                    ? "tw-bg-white"
+                    : "tw-bg-black"
+                }  tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500 `}
+              >
+                <span
+                  className={`tw-relative ${
+                    theme === "light"
+                      ? ` group-hover:tw-text-white ${
+                          selected === "Generate Image"
+                            ? "tw-text-white"
+                            : "tw-text-black"
+                        } tw-transition tw-duration-300`
+                      : "tw-text-white"
+                  } tw-flex tw-items-center`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="tw-w-5 tw-h-5 tw-mr-2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                    />
+                  </svg>
+                  Generate Image
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+      ) : null}
+
       <div className="tw-flex tw-justify-center ">
         <div className="tw-self-center">
           {(value === "main" || value === "subscription") && (
