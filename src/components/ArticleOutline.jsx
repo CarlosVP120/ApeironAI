@@ -1,7 +1,5 @@
 import { useCallback } from "react";
 import { useState, useEffect } from "react";
-import { useQuill } from "react-quilljs";
-import "quill/dist/quill.snow.css";
 
 export default function ArticleOutline() {
   const code = ``;
@@ -9,19 +7,6 @@ export default function ArticleOutline() {
   const [value, setValue] = useState(code);
   const [prompt, setPrompt] = useState("");
   const [completion, setCompletion] = useState("");
-  const { quill, quillRef } = useQuill();
-  const [valueOutline, setValueOutline] = useState();
-
-  useEffect(() => {
-    if (quill) {
-      quill.on("text-change", () => {
-        console.log(quillRef.current.firstChild.innerHTML);
-        setValueOutline(quillRef.current.firstChild.innerHTML);
-      });
-    }
-  }, [quill]);
-
-  console.log(valueOutline, "this is quill Outline");
 
   const handleTab = (e) => {
     if (e.keyCode === 9) {
@@ -41,7 +26,9 @@ export default function ArticleOutline() {
     setValue(e.target.value);
   }, []);
 
-  const askName = "Explain me this code:";
+  const askName = "Create me an article outline for this theme: ";
+  const askDescription =
+    ", give me the next format: \n 1- Introduction 1.1- example 1.2- example 2- Body 2.1- example \n 3- Conclusion, and so on...";
 
   const handleClick = useCallback(
     async (e) => {
@@ -52,7 +39,7 @@ export default function ArticleOutline() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ text: askName + value }),
+        body: JSON.stringify({ text: askName + value + askDescription }),
       });
       const data = await response.json().then((data) => {
         setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
@@ -68,11 +55,41 @@ export default function ArticleOutline() {
   }, []);
 
   return (
-    <div className="tw-w-full tw-h-[100vh] tw-bg-white tw-text-black tw-flex tw-justify-center tw-overflow-hidden">
-      <div className="tw-h-full tw-w-full tw-flex tw-flex-col tw-justify-center ">
-        <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-pt-10 tw-px-10 tw-text-xl tw-rounded-lg ">
-          <div style={{ width: 1200, height: 600 }}>
-            <div ref={quillRef} />
+    <div className="tw-w-full tw-h-[100vh] tw-bg-white tw-text-black tw-flex  tw-overflow-hidden">
+      <div className="tw-h-full tw-w-full tw-flex tw-flex-col ">
+        <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-pt-10 tw-px-10 tw-text-xl ">
+          <div className="tw-bg-neutral-100 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-w-[45%] 2xl:tw-h-[80%] tw-h-[90%] tw-overflow-y-auto tw-overflow-x-hidden">
+            <h1 className=" tw-font-bold tw-mb-4">
+              <span className="tw-text-3xl tw-font-bold tw-mr-2">📝</span>
+              <span className="tw-text-3xl tw-font-bold">Article Outline</span>
+            </h1>
+            <p className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-neutral-600">
+              This tool will help you create an article outline for your theme.
+              Just enter a theme and click on the "Generate" button.
+            </p>
+
+            <input
+              className="tw-w-full tw-p-2 tw-mt-4 tw-rounded-lg tw-border tw-border-neutral-300 tw-text-black tw-text-xl tw-outline-none"
+              placeholder="Enter a theme"
+              value={value}
+              onChange={handleInput}
+            />
+
+            <div className="tw-w-full tw-flex tw-justify-between tw-items-center tw-mt-4">
+              <span className="tw-p-2 tw-rounded-lg tw-bg-neutral-300 tw-text-black tw-text-xl tw-outline-none tw-transition tw-duration-300 tw-ease-in-out tw-focus:tw-outline-none tw-focus:tw-ring-2 tw-focus:tw-ring-neutral-500 tw-focus:tw-ring-opacity-50">
+                {completion.split("/n").map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </span>
+            </div>
+            <div className="tw-w-full tw-flex tw-justify-between tw-items-center tw-mt-4">
+              <button
+                className="tw-w-1/2 tw-p-2 tw-rounded-lg tw-bg-neutral-300 tw-text-black tw-text-xl tw-outline-none tw-transition tw-duration-300 tw-ease-in-out tw-focus:tw-outline-none tw-focus:tw-ring-2 tw-focus:tw-ring-neutral-500 tw-focus:tw-ring-opacity-50"
+                onClick={handleClick}
+              >
+                Generate
+              </button>
+            </div>
           </div>
         </div>
       </div>
