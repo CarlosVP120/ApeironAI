@@ -28,21 +28,20 @@ export default function ExplainCode() {
     setValue(e.target.value);
   }, []);
 
-  const askName = "Explain me this code:";
-
   const handleClick = useCallback(
     async (e) => {
-      setPrompt(askName + value);
+      setPrompt(value);
       setCompletion("Loading...");
-      const response = await fetch("/api/hello", {
+      const response = await fetch("/api/walle", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ text: askName + value }),
+        body: JSON.stringify({ text: value }),
       });
       const data = await response.json().then((data) => {
-        setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+        setCompletion(data.result.data[0].url);
+        console.log(data.result.data[0].url);
       });
     },
     [value]
@@ -52,7 +51,7 @@ export default function ExplainCode() {
     <div className="tw-w-full tw-h-[100vh] tw-bg-black tw-text-white tw-flex tw-justify-center tw-overflow-hidden tw-animate-appear">
       <div className="tw-h-full tw-w-full tw-flex tw-flex-col tw-justify-center ">
         <div className="tw-font-bold tw-text-white tw-flex tw-justify-center tw-shadow-inner tw-w-full tw-h-full tw-items-center">
-          <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-rounded-r-none tw-w-[45%] tw-h-[90%] 2xl:tw-h-[80%] tw-justify-between">
+          <div className="tw-bg-neutral-900 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-flex tw-px-8 tw-flex-col tw-w-[45%] tw-h-[95%] 2xl:tw-h-[80%] tw-justify-between">
             <h1 className="tw-flex tw-items-center tw-text-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,77 +70,36 @@ export default function ExplainCode() {
               Generate Image
             </h1>
             <h2 className="tw-mt-1 tw-text-sm">
-              Explain some code based on the syntax provided.
+              Describe the image you want to generate and we will do the rest.
             </h2>
-            <h2 className="tw-mt-4 ">Paste your code below...</h2>
-            <textarea
-              className="tw-mt-4 tw-w-full tw-h-[80%] tw-p-4 tw-rounded-lg tw-text-[#eeffff] tw-bg-neutral-800 tw-border-black  tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0 tw-font-code"
+            <input
+              className="tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-text-[#eeffff] tw-bg-neutral-800 tw-border-black  tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0 tw-font-code"
               value={value}
               onChange={handleInput}
               onKeyDown={handleTab}
-              placeholder="print('Hello World')"
+              placeholder="What do you want to generate?"
             />
 
-            <button
-              onClick={handleClick}
-              className=" tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-text-white tw-bg-gray-100 tw-transition tw-duration-500 tw-bg-purple-500 hover:tw-bg-white hover:tw-text-black"
-            >
-              Explain
-            </button>
-          </div>
-
-          <div className="tw-flex tw-flex-col tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-w-[45%] tw-h-[90%] 2xl:tw-h-[80%]">
             {completion !== "Loading..." ? (
               <>
-                <h1 className="tw-flex tw-items-center tw-text-2xl">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="tw-w-8 tw-h-8 tw-mr-2 tw-stroke-current tw-stroke-2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
-                    />
-                  </svg>
-                  What does this code do?
-                </h1>
-                <h2 className="tw-mt-1 tw-text-sm ">
-                  Explain what this code does based on the syntax provided.
-                </h2>
-                <h2 className="tw-mt-4 ">
-                  The explanation will appear here...
-                </h2>
                 {completion !== "" ? (
-                  <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden">
+                  <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden tw-h-[80%]">
                     <div className="tw-text-lg tw-h-full tw-overflow-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
-                      {completion.split("\n").map((item, key) => {
-                        return (
-                          <span key={key}>
-                            {item}
-                            <br />
-                          </span>
-                        );
-                      })}
+                      <img
+                        src={completion}
+                        alt="Generated Image"
+                        className="tw-w-full tw-h-full tw-object-cover"
+                      />
                     </div>
                   </div>
                 ) : (
-                  <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden">
+                  <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden tw-h-[80%]">
                     <div className="tw-text-lg tw-h-full tw-overflow-y-auto tw-p-4 tw-text-white tw-bg-neutral-600 tw-rounded-lg tw-font-mono">
-                      <span className="tw-opacity-60">
-                        EXAMPLE: print(&quot;Hello World&quot;)
-                        <br />
-                        <br />
-                        This is a basic Python command that prints the phrase
-                        &quot;Hello World&quot; to the screen. This phrase is
-                        often used as a starting point when learning a new
-                        programming language, as it is a very basic example of
-                        using the print function.
-                      </span>
+                      <img
+                        src="/img/land.jpeg"
+                        alt="No results"
+                        className="tw-w-full tw-h-full tw-object-cover"
+                      />
                     </div>
                   </div>
                 )}
@@ -151,6 +109,41 @@ export default function ExplainCode() {
                 <Loading />
               </div>
             ) : null}
+
+            <div className="tw-flex">
+              <button
+                onClick={handleClick}
+                className={` ${
+                  completion === "" ? "tw-w-full" : "tw-w-[90%] tw-mr-2"
+                }   tw-mt-4  tw-flex tw-justify-center tw-p-4 tw-rounded-lg tw-text-white  tw-transition tw-duration-500 tw-bg-purple-500 hover:tw-bg-white hover:tw-text-black`}
+              >
+                Explain
+              </button>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={completion}
+                download
+                className={`${
+                  completion === "" ? "tw-hidden" : ""
+                } tw-animate-appear tw-mt-4 tw-w-[10%] tw-flex tw-justify-center tw-p-4 tw-rounded-lg tw-text-white  tw-transition tw-duration-500 tw-bg-purple-500 hover:tw-bg-white hover:tw-text-black`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-w-6 tw-h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
