@@ -123,10 +123,7 @@ const Footer = ({ hideBGCOLOR }) => {
               <div className="copy-right">
                 <p>
                   © 2022, Vie Template. Made with passion by
-                  <Link
-                    href="https://themeforest.net/user/themescamp/portfolio"
-                    
-                  >
+                  <Link href="https://themeforest.net/user/themescamp/portfolio">
                     <a target="_blank">ThemesCamp</a>
                   </Link>
                   .
@@ -136,6 +133,13 @@ const Footer = ({ hideBGCOLOR }) => {
           </div>
         </div>
       </div>
+      <a
+        style={{ fontSize: 6, color: "gray", marginLeft: 55 }}
+        href="https://es.vecteezy.com/video/2143039-rotar-circuito-ai-azul-brillante-en-microchip-en-placa-madre-de-computadora"
+      >
+        Gire el circuito ai azul brillante en el microchip de la placa base del
+        ordenador Vídeos de stocko por Vecteezy
+      </a>
     </footer>
   );
 };

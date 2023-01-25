@@ -16,20 +16,18 @@ const AboutUs3 = () => {
     <section className="agency section-padding position-re">
       <div className="container">
         <div className="row">
-          <div className="col-lg-7">
-            <div className="imgsec md-mb50">
-              <div className="row">
-                <div className="col-md-6">
+          <div className="col-lg-5 tw-items-end tw-flex">
+            <div className="imgsec ">
+              <div className="row tw-flex tw-justify-center">
+                <div className="col-md-8 ">
                   <div className="item">
                     <div
                       className="imgone big-bord wow fadeInDown"
                       data-wow-delay=".8s"
                     >
-                      <img
-                        className="thumparallax-down"
-                        src={AboutUs3date.image1}
-                        alt=""
-                      />
+                      <video className="thumparallax-down" autoPlay muted loop>
+                        <source src="/img/chipX.mp4" type="video/mp4" />
+                      </video>
                     </div>
                     <div className="exp">
                       <h2 className="nmb-font">{AboutUs3date.exp.nmb}</h2>
@@ -37,24 +35,10 @@ const AboutUs3 = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6">
-                  <div className="item">
-                    <div
-                      className="imgtwo big-bord wow fadeInUp"
-                      data-wow-delay=".6s"
-                    >
-                      <img
-                        className="thumparallax"
-                        src={AboutUs3date.image2}
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-          <div className="col-lg-5 valign">
+          <div className="col-lg-7 valign">
             <div className="content">
               <Split>
                 <h4 className="wow words chars splitting" data-splitting>
@@ -67,7 +51,7 @@ const AboutUs3 = () => {
                   {AboutUs3date.content.second}
                 </p>
               </Split>
-              <Link href={`/about/about-dark`}>
+              <Link href={`/about`}>
                 <a
                   className="butn bord curve mt-40 wow fadeInUp"
                   data-wow-delay=".8s"
@@ -75,6 +59,7 @@ const AboutUs3 = () => {
                   <span>{AboutUs3date.smallTitle}</span>
                 </a>
               </Link>
+
               <br />
             </div>
           </div>
