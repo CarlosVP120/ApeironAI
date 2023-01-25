@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import appData from "../../data/app.json";
+import styles from "../../styles/Form.module.css";
 
 const Footer = ({ hideBGCOLOR }) => {
   return (
@@ -15,24 +16,10 @@ const Footer = ({ hideBGCOLOR }) => {
               </div>
               <ul>
                 <li>
-                  <span className="icon pe-7s-map-marker"></span>
-                  <div className="cont">
-                    <h6>Officeal Address</h6>
-                    <p>504 White St . Dawsonville, GA 30534 , New York</p>
-                  </div>
-                </li>
-                <li>
                   <span className="icon pe-7s-mail"></span>
                   <div className="cont">
                     <h6>Email Us</h6>
-                    <p>support@gmail.com</p>
-                  </div>
-                </li>
-                <li>
-                  <span className="icon pe-7s-call"></span>
-                  <div className="cont">
-                    <h6>Call Us</h6>
-                    <p>+87986451666</p>
+                    <p>ApeironAICompany@gmail.com</p>
                   </div>
                 </li>
               </ul>
@@ -45,57 +32,20 @@ const Footer = ({ hideBGCOLOR }) => {
               </div>
               <ul>
                 <li>
-                  <div className="img">
-                    <Link href="/blog-details/blog-details-dark">
-                      <a>
-                        <img src="/img/blog/1.jpg" alt="" />
-                      </a>
-                    </Link>
-                  </div>
                   <div className="sm-post">
-                    <Link href="/blog-details/blog-details-dark">
+                    <Link href="/pricing">
                       <a>
                         <p>
-                          The Start-Up Ultimate Guide to Make Your WordPress
-                          Journal.
+                          ApeironAI is here! And we want to give you a free 7
+                          day trial on every tool we have!
                         </p>
                       </a>
                     </Link>
-                    <Link href="/blog/blog-dark">
+                    <Link href="/pricing">
                       <a>
-                        <span className="date">14 sep 2022</span>
+                        <span className="date">25 jan 2023</span>
                       </a>
                     </Link>
-                  </div>
-                </li>
-                <li>
-                  <div className="img">
-                    <Link href="/blog-details/blog-details-dark">
-                      <a>
-                        <img src="/img/blog/2.jpg" alt="" />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className="sm-post">
-                    <Link href="/blog-details/blog-details-dark">
-                      <a>
-                        <p>
-                          The Start-Up Ultimate Guide to Make Your WordPress
-                          Journal.
-                        </p>
-                      </a>
-                    </Link>
-                    <Link href="/blog/blog-dark">
-                      <a>
-                        <span className="date">14 sep 2022</span>
-                      </a>
-                    </Link>
-                  </div>
-                </li>
-                <li>
-                  <div className="subscribe">
-                    <input type="text" placeholder="Type Your Email" />
-                    <span className="subs pe-7s-paper-plane"></span>
                   </div>
                 </li>
               </ul>
@@ -104,22 +54,23 @@ const Footer = ({ hideBGCOLOR }) => {
           <div className="col-lg-4">
             <div className="item">
               <div className="logo">
-                <img src={appData.lightLogo} alt="" />
+                <h1
+                  className={`tw-self-center tw-justify-center tw-transition tw-duration-300 tw-rounded-lg tw-text-white`}
+                  style={{
+                    fontSize: "1.5rem",
+                    fontFamily: "Poppins",
+                  }}
+                >
+                  Apeiron
+                  <span
+                    className={styles.color_font}
+                    style={{ fontWeight: "bold" }}
+                  >
+                    AI
+                  </span>
+                </h1>
               </div>
-              <div className="social">
-                <a href="#0">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#0">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="#0">
-                  <i className="fab fa-instagram"></i>
-                </a>
-                <a href="#0">
-                  <i className="fab fa-youtube"></i>
-                </a>
-              </div>
+
               <div className="copy-right">
                 <p>
                   © 2022, Vie Template. Made with passion by
@@ -133,13 +84,22 @@ const Footer = ({ hideBGCOLOR }) => {
           </div>
         </div>
       </div>
-      <a
-        style={{ fontSize: 6, color: "gray", marginLeft: 55 }}
-        href="https://es.vecteezy.com/video/2143039-rotar-circuito-ai-azul-brillante-en-microchip-en-placa-madre-de-computadora"
-      >
-        Gire el circuito ai azul brillante en el microchip de la placa base del
-        ordenador Vídeos de stocko por Vecteezy
-      </a>
+      <div className="tw-flex tw-flex-col">
+        <a
+          style={{ fontSize: 6, color: "gray", marginLeft: 55 }}
+          href="https://es.vecteezy.com/video/2143039-rotar-circuito-ai-azul-brillante-en-microchip-en-placa-madre-de-computadora"
+        >
+          Gire el circuito ai azul brillante en el microchip de la placa base
+          del ordenador Vídeos de stocko por Vecteezy
+        </a>
+        <a
+          style={{ fontSize: 6, color: "gray", marginLeft: 55 }}
+          href="https://es.vecteezy.com/video/11992596-red-neuronal-ai-tecnologia-computacion-en-la-nube-bits-internet-5g-fondo-azul-informacion-atras"
+        >
+          red neuronal ai tecnología computación en la nube bits internet 5g
+          fondo azul información atrás Vídeos de stocko por Vecteezy
+        </a>
+      </div>
     </footer>
   );
 };

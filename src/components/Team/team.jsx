@@ -14,8 +14,8 @@ const Team = () => {
   return (
     <div className="team-crv section-padding">
       <div className="container">
-        <div className="row">
-          <div className="col-lg-5 valign">
+        <div className="row tw-flex tw-justify-center tw-items-center">
+          <div className="col-lg-9">
             <div className="content wow fadeInUp md-mb30" data-wow-delay=".5s">
               <div className="sub-title">
                 <h6>Our Staff</h6>
@@ -24,7 +24,7 @@ const Team = () => {
                 <span></span>
               </div>
               <h3 className="co-tit mb-15">
-                We help to create visual strategies.
+                We help to create the best websites for your business.
               </h3>
               <p>
                 We are a team of creative people who love to design and code.
@@ -41,7 +41,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-6 offset-lg-1">
+          {/* <div className="col-lg-6 offset-lg-1">
             <div className="img-box">
               <div className="row">
                 <div className="col-sm-6 toright">
@@ -84,7 +84,7 @@ const Team = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

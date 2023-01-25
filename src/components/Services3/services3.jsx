@@ -13,7 +13,7 @@ const Services3 = () => {
           <div className="col-lg-8 col-md-10">
             <div className="sec-head">
               <h6 className="wow fadeIn" data-wow-delay=".5s">
-                Best Services
+                Other Services
               </h6>
               <h3 className="wow color-font">
                 We would help you to grow your business &amp; code your ideas.
@@ -29,10 +29,10 @@ const Services3 = () => {
               </span>
               <h5>Interface Design</h5>
               <p>
-                Implementation and rollout of new network infrastructure,
-                including consolidation.
+                Implementation of the new network infrastructure, including
+                consolidation.
               </p>
-              <Link href="/about/about-dark">
+              <Link href="/contact">
                 <a className="more-stroke">
                   <span></span>
                 </a>
@@ -46,10 +46,10 @@ const Services3 = () => {
               </span>
               <h5>Creative Always</h5>
               <p>
-                Implementation and rollout of new network infrastructure,
-                including consolidation.
+                The creativity is the key to success. We are always creative and
+                we are always ready to help you.
               </p>
-              <Link href="/about/about-dark">
+              <Link href="/contact">
                 <a className="more-stroke">
                   <span></span>
                 </a>
@@ -63,10 +63,9 @@ const Services3 = () => {
               </span>
               <h5>Real-time Editing</h5>
               <p>
-                Implementation and rollout of new network infrastructure,
-                including consolidation.
+                Custom software development, including web, mobil and desktop.
               </p>
-              <Link href="/about/about-dark">
+              <Link href="/contact">
                 <a className="more-stroke">
                   <span></span>
                 </a>
@@ -80,10 +79,10 @@ const Services3 = () => {
               </span>
               <h5>Art Concept</h5>
               <p>
-                Implementation and rollout of new network infrastructure,
-                including consolidation.
+                We are always ready to help you with your ideas. We are always
+                ready to innovate.
               </p>
-              <Link href="/about/about-dark">
+              <Link href="/contact">
                 <a className="more-stroke">
                   <span></span>
                 </a>

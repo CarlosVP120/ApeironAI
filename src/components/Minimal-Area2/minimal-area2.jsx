@@ -16,11 +16,9 @@ const MinimalArea2 = () => {
         <div className="row">
           <div className="col-lg-6">
             <div className="img">
-              <img
-                className="thumparallax-down"
-                src="/img/min-area.jpg"
-                alt=""
-              />
+              <video className="thumparallax-down" muted autoPlay loop>
+                <source src="/img/video.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
           <div className="col-lg-6 valign">
@@ -36,13 +34,13 @@ const MinimalArea2 = () => {
               </Split>
               <ul>
                 <li className="wow fadeInUp" data-wow-delay=".2s">
-                  We provide free initial consultation and support.
+                  We provide the best services for our clients.
                 </li>
                 <li className="wow fadeInUp" data-wow-delay=".4s">
-                  We work with some of the most successful businesses.
+                  We work with the most advanced AI technology.
                 </li>
               </ul>
-              <Link href={`/about/about-dark`}>
+              <Link href={"/login"}>
                 <a
                   className="butn bord curve mt-40 wow fadeInUp"
                   data-wow-delay=".8s"
