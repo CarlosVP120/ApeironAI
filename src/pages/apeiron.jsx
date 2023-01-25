@@ -321,7 +321,7 @@ function User({ signOutHandler, redirectHandler, access }) {
               </div>
             ) : null}
           </div>
-          <div className="">
+          <div className="tw-animate-appearLong">
             <h1 className="tw-font-bold tw-opacity-50">
               Powered by
               <svg
