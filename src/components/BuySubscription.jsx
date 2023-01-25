@@ -311,7 +311,7 @@ export default function BuySub({ uid, signOutHandler, redirectHandler }) {
                   createCheckoutSession(uid, "fullstack");
                 }}
               >
-                <span className={styles.color_font}>Get all for $15/mo</span>
+                <span className={styles.color_font}>Get all for $18/mo</span>
               </button>
               {cart.length > 0 && (
                 <button
