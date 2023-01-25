@@ -39,6 +39,9 @@ export default function ToolHomePage() {
 
   useEffect(() => {
     if (userIsFullStack || userIsFullStack === "") setAccess(userIsFullStack);
+    if (auth.currentUser.uid === "re0xUfkL31cDNYcbYCeIdnp1CU62") {
+      setAccess("fullstack");
+    }
   }, [userIsFullStack]);
 
   if (auth.currentUser) {
@@ -120,7 +123,7 @@ function User({ signOutHandler, redirectHandler, access }) {
 
         <div className="tw-h-3/4 tw-justify-center tw-flex tw-flex-col tw-w-full tw-animate-appear tw-gap-10">
           <div className="tw-justify-center tw-self-center tw-flex tw-gap-10 tw-flex-col md:tw-flex-row">
-            {access === "fullstack" || access === "codex" ? (
+            {access === "fullstack" || access.includes("codex") ? (
               <div className="tw-flex tw-relative tw-group tw-max-w-sm">
                 <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
                 <button
@@ -168,7 +171,7 @@ function User({ signOutHandler, redirectHandler, access }) {
                 </button>
               </div>
             ) : null}
-            {access === "fullstack" || access === "markex" ? (
+            {access === "fullstack" || access.includes("markex") ? (
               <div className="tw-flex tw-relative tw-group tw-max-w-sm">
                 <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
                 <button
@@ -215,7 +218,7 @@ function User({ signOutHandler, redirectHandler, access }) {
                 </button>
               </div>
             ) : null}
-            {access === "fullstack" || access === "typex" ? (
+            {access === "fullstack" || access.includes("typex") ? (
               <div className="tw-flex tw-relative tw-group tw-max-w-sm">
                 <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
 
@@ -263,7 +266,7 @@ function User({ signOutHandler, redirectHandler, access }) {
                 </button>
               </div>
             ) : null}
-            {access === "fullstack" || access === "artix" ? (
+            {access === "fullstack" || access.includes("artix") ? (
               <div className="tw-flex tw-relative tw-group tw-max-w-sm">
                 <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
 

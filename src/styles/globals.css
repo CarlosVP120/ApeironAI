@@ -1,4 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap");
+
+.color_text {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#12c2e9),
+    color-stop(#c471ed),
+    to(#f64f59)
+  );
+  background: -webkit-linear-gradient(left, #12c2e9, #c471ed, #f64f59);
+  background: -o-linear-gradient(left, #12c2e9, #c471ed, #f64f59);
+  background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  @apply tw-animate-appear;
+}
