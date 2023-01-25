@@ -39,9 +39,6 @@ export default function ToolHomePage() {
 
   useEffect(() => {
     if (userIsFullStack || userIsFullStack === "") setAccess(userIsFullStack);
-    if (auth.currentUser.uid === "re0xUfkL31cDNYcbYCeIdnp1CU62") {
-      setAccess("fullstack");
-    }
   }, [userIsFullStack]);
 
   if (auth.currentUser) {
