@@ -125,7 +125,7 @@ function User({ signOutHandler, redirectHandler, access }) {
           <div className="tw-justify-center tw-self-center tw-flex tw-gap-10 tw-flex-col md:tw-flex-row">
             {access === "fullstack" || access.includes("codex") ? (
               <div className="tw-flex tw-relative tw-group tw-max-w-sm">
-                <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
+                <div className="group-hover:tw-animate-pulse tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
                 <button
                   className="tw-relative tw-px-2 tw-py-4 tw-bg-black tw-rounded-lg tw-leading-none tw-flex tw-flex-col tw-items-center"
                   onClick={redirectHandler.bind(this, "/codex")}
@@ -173,7 +173,7 @@ function User({ signOutHandler, redirectHandler, access }) {
             ) : null}
             {access === "fullstack" || access.includes("markex") ? (
               <div className="tw-flex tw-relative tw-group tw-max-w-sm">
-                <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
+                <div className="group-hover:tw-animate-pulse tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
                 <button
                   className="tw-relative tw-px-2 tw-py-4 tw-bg-black tw-rounded-lg tw-leading-none tw-flex tw-flex-col tw-items-center"
                   onClick={redirectHandler.bind(this, "/markex")}
@@ -220,7 +220,7 @@ function User({ signOutHandler, redirectHandler, access }) {
             ) : null}
             {access === "fullstack" || access.includes("typex") ? (
               <div className="tw-flex tw-relative tw-group tw-max-w-sm">
-                <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
+                <div className="group-hover:tw-animate-pulse tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
 
                 <button
                   className="tw-relative tw-px-2 tw-py-4 tw-bg-black tw-rounded-lg tw-leading-none tw-flex tw-flex-col tw-items-center  "
@@ -268,7 +268,7 @@ function User({ signOutHandler, redirectHandler, access }) {
             ) : null}
             {access === "fullstack" || access.includes("artix") ? (
               <div className="tw-flex tw-relative tw-group tw-max-w-sm">
-                <div className="tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
+                <div className=" group-hover:tw-animate-pulse tw-absolute tw--inset-0.5 tw-bg-gradient-to-r tw-from-pink-600 tw-to-purple-600 tw-opacity-75 tw-rounded-lg tw-blur group-hover:tw-opacity-100 tw-transition tw-duration-1000 group-hover:tw-duration-300 tw-animate-tilt"></div>
 
                 <button
                   className="tw-relative tw-px-2 tw-py-4 tw-bg-black tw-rounded-lg tw-leading-none tw-flex tw-flex-col tw-items-center  "
