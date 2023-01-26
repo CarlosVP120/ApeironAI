@@ -29,11 +29,11 @@ const ContactForm = () => {
                 }}
                 onSubmit={async (values) => {
                   await sendMessage(500);
-                  alert(JSON.stringify(values, null, 2));
+                  //alert(JSON.stringify(values, null, 2));
                   // show message
 
                   messageRef.current.innerText =
-                    "Your Message has been successfully sent. I will contact you soon.";
+                    "Your Message has been successfully sent. We will contact you soon.";
                   // Reset the values
                   values.name = "";
                   values.email = "";
@@ -99,7 +99,6 @@ const ContactForm = () => {
                 <h5>
                   <a href="#0">{ContactFromDate.email}</a>
                 </h5>
-                <h5>{ContactFromDate.phone}</h5>
               </div>
               <h3 className="wow" data-splitting>
                 Visit Us.
@@ -111,6 +110,7 @@ const ContactForm = () => {
                   {ContactFromDate.location.second}
                 </h6>
               </div>
+              {/*
               <div className="social mt-50">
                 <a href="#0" className="icon">
                   <i className="fab fa-facebook-f"></i>
@@ -125,6 +125,7 @@ const ContactForm = () => {
                   <i className="fab fa-behance"></i>
                 </a>
               </div>
+              */}
             </div>
           </div>
         </div>

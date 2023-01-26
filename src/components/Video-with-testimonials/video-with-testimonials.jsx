@@ -29,6 +29,7 @@ const VideoWithTestimonials = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-6">
+              {/*
               <div className="vid-area">
                 <span className="text">Watch Video</span>
                 <div className="vid-icon">
@@ -55,6 +56,7 @@ const VideoWithTestimonials = () => {
                   </a>
                 </div>
               </div>
+              */}
             </div>
             <div className="col-lg-5 offset-lg-1">
               <div className="testim-box">
