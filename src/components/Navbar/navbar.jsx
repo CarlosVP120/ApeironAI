@@ -58,9 +58,9 @@ const Navbar = ({ lr, nr, theme }) => {
               </Link>
             </li>
             <li className="nav-item nav-link">
-              <Link href={`/features`}>
+              <Link href={`/tools`}>
                 <a className="tw-transition tw-duration-400 hover:tw-border-b-gray-200 tw-border-transparent tw-border-2  ">
-                  Features
+                  Tools
                 </a>
               </Link>
             </li>

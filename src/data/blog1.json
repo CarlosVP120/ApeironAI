@@ -1,46 +1,125 @@
 [
   {
     "id": 1,
-    "title": "Build a Beautiful Blog With Ease",
-    "content": "My job is simple and sophisticated, so it is possible to describe and simple, and flowery language. I love the feel and sophistication of its superiority. I like people with a keen mind and at the same time easy to talk to. These qualities can be combined perfectly natural. However, things like people look miserable, if these properties are connected.",
-    "image": "/img/blog/b1.jpg",
-    "tags": ["WordPress", "Themeforest", "Vie"],
+    "title": "Article Creator",
+    "content": "Article Creator is a tool that allows users to generate articles quickly and easily. It uses natural language processing and machine learning algorithms to understand the user's input and create a coherent and well-written article on the chosen topic. The tool can be used for a variety of purposes, such as generating content for a blog or website, creating reports or whitepapers, and more. It can also be customized to match the user's writing style and tone. Overall, Article Creator is a powerful tool that can save time and effort for anyone who needs to produce written content on a regular basis. ",
+    "image": "/img/portfolio/articlecreator.png",
+    "tags": ["TypeX", "Article Creator"],
     "date": {
-      "day": "07",
-      "month": "August"
+      "day": "25",
+      "month": "January"
     }
   },
   {
     "id": 2,
-    "title": "Build a Beautiful Blog With Ease",
-    "content": "My job is simple and sophisticated, so it is possible to describe and simple, and flowery language. I love the feel and sophistication of its superiority. I like people with a keen mind and at the same time easy to talk to. These qualities can be combined perfectly natural. However, things like people look miserable, if these properties are connected.",
-    "image": "/img/blog/b2.jpg",
-    "tags": ["WordPress", "Themeforest", "Vie"],
+    "title": "Article Outline",
+    "content": "Article Outline Creator is a tool that allows users to generate a structured outline for an article quickly and easily. It prompts the user to enter the main topic and subtopics of the article, and then uses those inputs to generate a detailed outline with headings and subheadings. The tool can also be used to organize research and organize thoughts for a writing project. With Article Outline Creator, users can efficiently organize their thoughts and ideas and ensure that their articles stay on topic and on point. It can be used by bloggers, writers, students, and professionals who need to write articles and want to save time and effort.",
+    "image": "/img/portfolio/articleoutline.png",
+    "tags": ["TypeX", "Article Outline"],
     "date": {
-      "day": "07",
-      "month": "August"
+      "day": "25",
+      "month": "January"
     }
   },
+
   {
     "id": 3,
-    "title": "Build a Beautiful Blog With Ease",
-    "content": "My job is simple and sophisticated, so it is possible to describe and simple, and flowery language. I love the feel and sophistication of its superiority. I like people with a keen mind and at the same time easy to talk to. These qualities can be combined perfectly natural. However, things like people look miserable, if these properties are connected.",
-    "image": "/img/blog/b3.jpg",
-    "tags": ["WordPress", "Themeforest", "Vie"],
+    "title": "Image Generator",
+    "content": "Image Generator is a tool that allows users to generate custom images quickly and easily. It can use various inputs such as text, shapes, and even real-world images and then use machine learning and computer graphics techniques to generate new images based on those inputs. It can be used for a variety of purposes, such as creating custom graphics for a website or social media, generate product images for e-commerce, creating unique visual content for a blog or website, and more. The tool can also be customized to match the user's design preferences, such as the size and resolution of the output image, and can be set to generate images with different themes, styles and even realistic images. Overall, Image Generator is a powerful tool that can save time and effort for anyone who needs to produce images on a regular basis.",
+    "image": "/img/portfolio/imagecreator.png",
+    "tags": ["ArtiX", "Image Generator"],
     "date": {
-      "day": "07",
-      "month": "August"
+      "day": "25",
+      "month": "January"
     }
   },
   {
     "id": 4,
-    "title": "Build a Beautiful Blog With Ease",
-    "content": "My job is simple and sophisticated, so it is possible to describe and simple, and flowery language. I love the feel and sophistication of its superiority. I like people with a keen mind and at the same time easy to talk to. These qualities can be combined perfectly natural. However, things like people look miserable, if these properties are connected.",
-    "image": "/img/blog/b4.jpg",
-    "tags": ["WordPress", "Themeforest", "Vie"],
+    "title": "Explain Code",
+    "content": "Code Explanation Tool is a tool that allows users to understand the functionality of code quickly and easily. It takes in a piece of code as input, and then uses natural language processing and machine learning algorithms to analyze the code and generate a human-readable explanation of what the code does and how it works. The tool can be used to understand code written in various programming languages and can be especially useful for developers who are new to a codebase or for students learning to code. Overall, Code Explanation Tool is a powerful tool that can save time and effort for anyone who needs to understand or work with code.",
+    "image": "/img/portfolio/explaincode.png",
+    "tags": ["ProCodeX", "Explain Code"],
     "date": {
-      "day": "07",
-      "month": "August"
+      "day": "25",
+      "month": "January"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Generate Code",
+    "content": "Generate Code is a tool that allows users to generate code quickly and easily. It uses natural language processing and machine learning algorithms to understand the user's input, which can be in the form of a problem statement, specific requirements or a pseudocode. The tool then generates a working code in the specified programming language. It can save a lot of time and effort for developers, especially for repetitive or simple tasks. The tool can also be used to generate boilerplate code and can be especially useful for students and beginners who are learning to code. Overall, Generate Code is a powerful tool that can automate the coding process and make it more efficient.",
+    "image": "/img/portfolio/generatecode.png",
+    "tags": ["ProCodeX", "Generate Code"],
+    "date": {
+      "day": "25",
+      "month": "January"
+    }
+  },
+
+  {
+    "id": 6,
+    "title": "Convert Code",
+    "content": "Convert Code is a tool that allows users to convert code from one programming language to another. It takes in code written in one language as input, and then uses a set of predefined rules and algorithms to generate equivalent code in the target language. This tool is useful for developers who want to migrate their codebase to a different language, or for those who want to reuse existing code in a new project. It can also be used to convert code written in an older version of a programming language to a newer version. This tool can help developers to save time and effort and can also help to reduce the risk of errors when converting code manually.",
+    "image": "/img/portfolio/convertcode.png",
+    "tags": ["ProCodeX", "Convert Code"],
+    "date": {
+      "day": "25",
+      "month": "January"
+    }
+  },
+  {
+    "id": 7,
+    "title": "Command Assistance",
+    "content": "Command Assistance Tool is a tool that helps users to understand and use command-line interfaces (CLIs) more efficiently. The tool provides users with a list of commands that are available for a specific program or operating system, and it also provides a brief explanation of each command's purpose and how to use it. The tool can also provide examples of how to use the command in different scenarios, and also include any related or similar commands. It can be especially useful for developers, system administrators, and power-users who frequently use the command-line interface, and also for students and beginners who are learning to use the command-line. This tool can help users to save time and effort by providing quick access to the information they need, and also help to reduce the risk of errors when working with commands.",
+    "image": "/img/portfolio/cmdassistance.png",
+    "tags": ["ProCodeX", "Convert Code"],
+    "date": {
+      "day": "25",
+      "month": "January"
+    }
+  },
+  {
+    "id": 8,
+    "title": "Time Complexity",
+    "content": "Time Complexity Analysis Tool is a tool that helps to analyze the performance of an algorithm by determining its time complexity. Time complexity refers to the amount of time an algorithm takes to run as a function of the size of the input. The tool uses various methods such as mathematical analysis, experimental testing and statistical analysis to determine the time complexity of a given algorithm. It can also be used to compare the performance of different algorithms and to identify the most efficient one for a given task. This tool can be especially useful for developers, computer scientists, and students who are interested in optimizing the performance of their code. It can also be used to help identify and troubleshoot performance bottlenecks in existing code. Overall, Time Complexity Analysis Tool is a powerful tool that can help to make code more efficient and improve the performance of an application.",
+    "image": "/img/portfolio/cmdassistance.png",
+    "tags": ["ProCodeX", "Time Complexity"],
+    "date": {
+      "day": "25",
+      "month": "January"
+    }
+  },
+  {
+    "id": 9,
+    "title": "Product Descriptions",
+    "content": "Product Description Generator is a tool that allows users to generate product descriptions quickly and easily. It takes in information about a product, such as its features, benefits, and specifications, and uses natural language processing and machine learning algorithms to generate a well-written and compelling product description. The tool can be used by e-commerce businesses, manufacturers, and retailers to generate product descriptions for their products, and it can also be used by content writers and marketers to generate product descriptions for affiliate marketing or other purposes. The tool can be customized to match the user's brand voice and tone. Overall, Product Description Generator is a powerful tool that can save time and effort for anyone who needs to produce product descriptions on a regular basis.",
+    "image": "/img/portfolio/descriptions.png",
+    "tags": ["MarkeX", "Descriptions"],
+    "date": {
+      "day": "25",
+      "month": "January"
+    }
+  },
+  {
+    "id": 10,
+    "title": "Kewords",
+    "content": "Product Keyword Generator is a tool that allows users to generate a list of keywords related to a product. The tool uses natural language processing and machine learning algorithms to analyze the product's information and generate a list of relevant keywords that can be used for SEO and PPC campaigns, product listings, and other marketing efforts. The tool can be used by e-commerce businesses, manufacturers, and retailers to generate keywords for their products and can also be used by content writers, marketers and SEO professionals to generate keywords for affiliate marketing or other purposes. The tool can be customized to match the user's target audience and industry. Overall, Product Keyword Generator is a powerful tool that can save time and effort for anyone who needs to produce keywords for a product on a regular basis.",
+    "image": "/img/portfolio/keywords.png",
+    "tags": ["MarkeX", "Keywords"],
+    "date": {
+      "day": "25",
+      "month": "January"
+    }
+  },
+  {
+    "id": 11,
+    "title": "Ads",
+    "content": "Advertising Idea Generator is a tool that allows users to generate creative and effective ad campaign ideas. It uses natural language processing and machine learning algorithms to understand the user's input, such as target audience, product or service, and campaign goals, and then generate a list of ideas for different types of ads, such as social media ads, Google ads, video ads, influencer marketing and more. The tool can be used by marketers, advertisers, and business owners to generate ideas for new ad campaigns, or to come up with new approaches for existing campaigns. The tool can also be used by students and professionals to develop their creativity and generate new ideas for their projects or assignments. Overall, Advertising Idea Generator is a powerful tool that can save time and effort for anyone who needs to come up with ad campaign ideas on a regular basis.",
+    "image": "/img/portfolio/ads.png",
+    "tags": ["MarkeX", "Ads"],
+    "date": {
+      "day": "25",
+      "month": "January"
     }
   }
 ]
