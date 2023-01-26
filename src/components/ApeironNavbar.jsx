@@ -450,7 +450,7 @@ export default function ApeironNavbar({
                 <button
                   onClick={() =>
                     redirectHandler(
-                      "https://billing.stripe.com/p/login/test_7sI6rtcQO9gT3YceUU"
+                      "https://billing.stripe.com/p/login/5kA8zKfERbRQ6k0eUU"
                     )
                   }
                   className="tw-relative tw-p-0.5 tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3 tw-hidden md:tw-inline-flex"
