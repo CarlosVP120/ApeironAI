@@ -12,7 +12,7 @@ const LoadingScreen = ({ disabled }) => {
   useEffect(() => {
     if (
       router.pathname !== "/" &&
-      router.pathname !== "/features" &&
+      router.pathname !== "/tools" &&
       router.pathname !== "/pricing" &&
       router.pathname !== "/contact" &&
       router.pathname !== "/about"
