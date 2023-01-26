@@ -18,7 +18,7 @@ const MinimalArea = () => {
             <div className="img">
               <img
                 className="thumparallax-down"
-                src="/img/min-area.jpg"
+                src="/img/robotaboutus.png"
                 alt=""
               />
             </div>
@@ -39,7 +39,10 @@ const MinimalArea = () => {
                     <span>1</span> Our Mission
                   </h6>
                   <p>
-                    luctus massa ipsum at tempus eleifend congue lectus bibendum
+                    Our mission is to train AI models that can generate new code
+                    similar to existing code, in order to automate the process
+                    of product design and software development, making it faster
+                    and more efficient.
                   </p>
                 </li>
                 <li className="wow fadeInUp" data-wow-delay=".4s">
@@ -47,7 +50,9 @@ const MinimalArea = () => {
                     <span>2</span> Our Goals
                   </h6>
                   <p>
-                    luctus massa ipsum at tempus eleifend congue lectus bibendum
+                    Our goal is to improve the efficiency and speed of software
+                    development and product design by using AI models that can
+                    generate new code similar to existing code.
                   </p>
                 </li>
                 <li className="wow fadeInUp" data-wow-delay=".6s">
@@ -55,7 +60,9 @@ const MinimalArea = () => {
                     <span>3</span> Why Us?
                   </h6>
                   <p>
-                    luctus massa ipsum at tempus eleifend congue lectus bibendum
+                    Our AI-based code generation approach can improve software
+                    development efficiency and speed, making it a valuable tool
+                    for companies looking to stay competitive in the market.
                   </p>
                 </li>
               </ul>

@@ -9,19 +9,14 @@ export default function ArticleOutline() {
   const [prompt, setPrompt] = useState("");
   const [completion, setCompletion] = useState("");
 
-  const handleTab = (e) => {
-    if (e.keyCode === 9) {
-      e.preventDefault();
-      const start = e.target.selectionStart;
-      const end = e.target.selectionEnd;
-      e.target.value =
-        e.target.value.substring(0, start) +
-        "\t" +
-        e.target.value.substring(end);
-      e.target.selectionStart = e.target.selectionEnd = start + 1;
-      setValue(e.target.value);
-    }
-  };
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.keyCode === 13) {
+        handleClick(e);
+      }
+    },
+    [value]
+  );
 
   const handleInput = useCallback((e) => {
     setValue(e.target.value);
@@ -83,13 +78,13 @@ export default function ArticleOutline() {
               Paste your theme name and get an article outline for it.
             </h2>
             <h2 className="tw-mt-4 ">
-              Create me an article outline for this theme:
+              Create an article outline for this theme:
             </h2>
             <input
               className="tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-bg-neutral-300 tw-border-black tw-resize-none tw-transition tw-duration-500 focus:tw-outline-0 tw-placeholder-neutral-500"
               value={value}
               onChange={handleInput}
-              onKeyDown={handleTab}
+              onKeyDown={handleKeyDown}
               placeholder="Example: Air Pollution"
             />
 
@@ -114,7 +109,7 @@ export default function ArticleOutline() {
                   </div>
                 ) : (
                   <div className="tw-flex tw-justify-center tw-self-center tw-mt-4 tw-overflow-hidden tw-h-[80%]">
-                    <div className="tw-text-lg tw-h-full tw-overflow-y-auto tw-p-4 tw-bg-neutral-300 tw-rounded-lg tw-font-mono">
+                    <div className="tw-text-lg tw-h-full tw-overflow-y-auto tw-p-2 tw-bg-neutral-300 tw-rounded-lg tw-font-mono">
                       <span className="tw-opacity-60">
                         1-Introduction
                         <br />
@@ -151,7 +146,7 @@ export default function ArticleOutline() {
               onClick={handleClick}
               className=" tw-mt-4 tw-w-full tw-p-4 tw-rounded-lg tw-text-white  tw-transition tw-duration-500 tw-bg-purple-500 hover:tw-bg-white hover:tw-text-black"
             >
-              Explain
+              Create
             </button>
           </div>
         </div>

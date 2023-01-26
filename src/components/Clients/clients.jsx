@@ -3,11 +3,12 @@ import React from "react";
 import ClientsData from "../../data/sections/clients.json";
 import Split from "../Split";
 
-const Clients = ({theme}) => {
+const Clients = ({ theme }) => {
   var first = ClientsData.slice(0, ClientsData.length / 2);
   var second = ClientsData.slice(4, ClientsData.length);
   return (
-    <section className="clients section-padding">
+    <div>
+      {/*
       <div className="container">
         <div className="row">
           <div className="col-lg-4 valign md-mb50">
@@ -22,6 +23,7 @@ const Clients = ({theme}) => {
               </p>
             </div>
           </div>
+          
           <div className="col-lg-8">
             <div>
               <div className="row bord">
@@ -113,9 +115,10 @@ const Clients = ({theme}) => {
               </div>
             </div>
           </div>
+          
         </div>
-      </div>
-    </section>
+      </div>*/}
+    </div>
   );
 };
 
