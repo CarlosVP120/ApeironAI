@@ -4,7 +4,9 @@ const teamSkillsProgress = () => {
     window.addEventListener("scroll", () => {
       document.querySelectorAll(".skill-progress .progres").forEach((item) => {
         let myVal = item.getAttribute("data-value");
-        if (window.pageYOffset > teamSection.offsetTop - 200) {
+        if (window.scrollY > teamSection.offsetTop - 200) {
+          item.style.width = myVal;
+        } else {
           item.style.width = myVal;
         }
       });
