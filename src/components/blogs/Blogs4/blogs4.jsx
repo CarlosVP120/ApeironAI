@@ -221,11 +221,6 @@ const Blogs4 = () => {
                               search results.
                             </p>
                           </div>
-                          <div className="more">
-                            <Link href={`/blog-details/blog-details-dark`}>
-                              Read More
-                            </Link>
-                          </div>
                         </div>
                       </div>
                     </SwiperSlide>
@@ -259,11 +254,6 @@ const Blogs4 = () => {
                               and that your customers are likely to search for.
                             </p>
                           </div>
-                          <div className="more">
-                            <Link href={`/blog-details/blog-details-dark`}>
-                              Read More
-                            </Link>
-                          </div>
                         </div>
                       </div>
                     </SwiperSlide>
@@ -296,11 +286,6 @@ const Blogs4 = () => {
                               products, drive traffic to your store, and
                               increase sales.
                             </p>
-                          </div>
-                          <div className="more">
-                            <Link href={`/blog-details/blog-details-dark`}>
-                              Read More
-                            </Link>
                           </div>
                         </div>
                       </div>
