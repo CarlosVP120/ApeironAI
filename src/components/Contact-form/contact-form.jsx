@@ -114,7 +114,7 @@ const ContactForm = () => {
                       type="email"
                       name="email"
                       id="email"
-                      placeholder="Correo Electrónico"
+                      placeholder="Email"
                     />
                   </div>
                 </div>
