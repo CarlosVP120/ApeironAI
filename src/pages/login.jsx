@@ -33,6 +33,15 @@ export default function Login() {
     onSubmit: onSubmit,
   });
 
+  if (typeof window !== "undefined") {
+    history.pushState(null, document.title, location.href); // this is to prevent the back button from navigating to the previous page
+    window.addEventListener("popstate", function (event) {
+      // The popstate event is fired each time when the current history entry changes.
+      history.pushState(null, "ApeironAI", "/"); // this changes the url to the current page without adding it to the history
+      location.reload(); // this reloads the page
+    });
+  }
+
   const authListener = () => {
     auth.onAuthStateChanged((user) => {
       if (user) {
