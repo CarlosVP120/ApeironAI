@@ -6,6 +6,7 @@ import LightTheme from "../layouts/Light";
 import DarkTheme from "../layouts/Dark";
 import ContactHeader from "../components/Contact-header/contact-header";
 import ContactForm from "../components/Contact-form/contact-form";
+import axios from "axios";
 
 const Contact = () => {
   const navbarRef = React.useRef(null);

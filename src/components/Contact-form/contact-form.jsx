@@ -1,6 +1,9 @@
 import React from "react";
 import ContactFromDate from "../../data/sections/form-info.json";
 import { Formik, Form, Field } from "formik";
+import { useState } from "react";
+import { useCallback } from "react";
+import axios from "axios";
 
 const ContactForm = () => {
   const messageRef = React.useRef(null);
@@ -13,6 +16,71 @@ const ContactForm = () => {
     }
     return error;
   }
+
+  const [status, setStatus] = useState({
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: null },
+  });
+
+  const [inputs, setInputs] = useState({
+    companyName: "",
+    email: "",
+    message: "",
+  });
+
+  const handleOnChange = useCallback((e) => {
+    e.persist();
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+    setStatus({
+      submitted: false,
+      submitting: false,
+      info: { error: false, msg: null },
+    });
+  }, []);
+
+  const handleServerResponse = useCallback((ok, msg) => {
+    if (ok) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg },
+      });
+      setInputs({
+        companyName: "",
+        email: "",
+        message: "",
+      });
+    } else {
+      setStatus({
+        submitted: false,
+        submitting: false,
+        info: { error: true, msg },
+      });
+    }
+  }, []);
+
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
+      axios({
+        method: "POST",
+        url: "https://formspree.io/f/xdovaozp",
+        data: inputs,
+      }).then((_response) => {
+        handleServerResponse(
+          true,
+          "Thank you, your message has been submitted :)"
+        );
+      });
+    },
+    [inputs, handleServerResponse]
+  );
+
   const sendMessage = (ms) => new Promise((r) => setTimeout(r, ms));
   return (
     <section className="contact section-padding">
@@ -21,72 +89,59 @@ const ContactForm = () => {
           <div className="col-lg-6">
             <div className="form md-mb50">
               <h4 className="fw-700 color-font mb-50">Get In Touch.</h4>
-              <Formik
-                initialValues={{
-                  name: "",
-                  email: "",
-                  message: "",
-                }}
-                onSubmit={async (values) => {
-                  await sendMessage(500);
-                  //alert(JSON.stringify(values, null, 2));
-                  // show message
 
-                  messageRef.current.innerText =
-                    "Your Message has been successfully sent. We will contact you soon.";
-                  // Reset the values
-                  values.name = "";
-                  values.email = "";
-                  values.message = "";
-                  // clear message
-                  setTimeout(() => {
-                    messageRef.current.innerText = "";
-                  }, 2000);
-                }}
-              >
-                {({ errors, touched }) => (
-                  <Form id="contact-form">
-                    <div className="messages" ref={messageRef}></div>
-                    <div className="controls">
-                      <div className="form-group">
-                        <Field
-                          id="form_name"
-                          type="text"
-                          name="name"
-                          placeholder="Name"
-                          required="required"
-                        />
-                      </div>
-                      <div className="form-group">
-                        <Field
-                          validate={validateEmail}
-                          id="form_email"
-                          type="email"
-                          name="email"
-                          placeholder="Email"
-                        />
-                        {errors.email && touched.email && (
-                          <div>{errors.email}</div>
-                        )}
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <Field
-                        as="textarea"
-                        id="form_message"
-                        name="message"
-                        placeholder="Message"
-                        rows="4"
-                        required="required"
-                      />
-                    </div>
+              <form id="contact-form" onSubmit={handleSubmit}>
+                <div className="messages" ref={messageRef}></div>
+                <div className="controls">
+                  <div className="form-group">
+                    <input
+                      onChange={handleOnChange}
+                      value={inputs.companyName}
+                      required
+                      maxLength={128}
+                      type="text"
+                      name="companyName"
+                      id="companyName"
+                      placeholder="Name"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      onChange={handleOnChange}
+                      value={inputs.email}
+                      required
+                      maxLength={128}
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Correo Electrónico"
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <textarea
+                    onChange={handleOnChange}
+                    value={inputs.message}
+                    required
+                    maxLength={1048576}
+                    name="message"
+                    id="message"
+                    placeholder="Message"
+                  ></textarea>
+                </div>
 
-                    <button type="submit" className="butn bord">
+                <button type="submit" className="butn bord">
+                  {!status.submitting ? (
+                    !status.submitted ? (
                       <span>Send Message</span>
-                    </button>
-                  </Form>
-                )}
-              </Formik>
+                    ) : (
+                      <span>Submitted</span>
+                    )
+                  ) : (
+                    <span>Submitting...</span>
+                  )}
+                </button>
+              </form>
             </div>
           </div>
           <div className="col-lg-5 offset-lg-1">
