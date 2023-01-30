@@ -41,7 +41,8 @@ export default function ToolHomePage() {
     if (userIsFullStack || userIsFullStack === "") setAccess(userIsFullStack);
     if (
       auth.currentUser?.uid === "re0xUfkL31cDNYcbYCeIdnp1CU62" ||
-      auth.currentUser?.uid === "AZfy1rwg9Ia0qb4c6VcM5Jb8Jrd2"
+      auth.currentUser?.uid === "AZfy1rwg9Ia0qb4c6VcM5Jb8Jrd2" ||
+      auth.currentUser?.uid === "bOgJMKRQSkaS3Z1Ef1snw4AFqp23"
     ) {
       setAccess("fullstack");
     }
