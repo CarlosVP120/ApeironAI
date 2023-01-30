@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import particlesConfig from "../../config/particle-config";
 import particlesBlackConfig from "../../config/pr-s-black";
 import Particles from "react-tsparticles";
-import dynamic from "next/dynamic";
 import countries from "../../files/custom.geo.json";
 import lines from "../../files/lines.json";
 import map from "../../files/map.json";
 import * as THREE from "three";
+import Link from "next/link";
 
 const Intro4 = ({ sliderRef, blackStar }) => {
   let Globe = () => null;
@@ -62,13 +62,20 @@ const Intro4 = ({ sliderRef, blackStar }) => {
       <div className="container-fluid">
         <div className="row justify-content-center">
           <div
-            className="col-lg-6 align-self-center cont text-center justify-content-center container "
+            className="col-lg-6 align-self-center cont text-center justify-content-center container tw-flex tw-flex-col tw-gap-10 tw-items-center"
             style={{ display: "flex", height: "100vh" }}
           >
             <h1 className="align-self-center" style={{ fontSize: "3.3vw" }}>
               Unlock the power of <span className="color-font">AI</span> to{" "}
               <span className="color-font">change your future</span>.
             </h1>
+            <Link href="/login" className="focus:tw-outline-none">
+              <button className="tw-relative tw-px-6 tw-py-3 tw-font-bold tw-text-white tw-rounded-lg tw-group tw-z-50 focus:tw-outline-none">
+                <span className="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-transition tw-duration-300 tw-transform tw--translate-x-1 tw--translate-y-1 tw-bg-purple-800 tw-ease tw-opacity-80 group-hover:tw-translate-x-0 group-hover:tw-translate-y-0"></span>
+                <span className="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-transition tw-duration-300 tw-transform tw-translate-x-1 tw-translate-y-1 tw-bg-pink-800 tw-ease tw-opacity-80 group-hover:tw-translate-x-0 group-hover:tw-translate-y-0 tw-mix-blend-screen"></span>
+                <span className="tw-relative">Get Started!</span>
+              </button>
+            </Link>
           </div>
           <div
             className="col-lg-6 align-self-center pl-0 d-none d-lg-block h-100 mh-100"
