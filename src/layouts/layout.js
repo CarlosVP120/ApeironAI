@@ -18,8 +18,6 @@ export default function Layout({ children }) {
             style={{ display: !imageLoaded ? "none" : "block" }}
             className="tw-animate-appearLong"
           />
-          {/* <div className={styles.cloud_one}></div>
-          <div className={styles.cloud_two}></div> */}
         </div>
 
         <div className="tw-right tw-flex tw-flex-col tw-justify-evenly ">
