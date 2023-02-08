@@ -54,6 +54,8 @@ export default function ArticleEditor() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ text: askName + val }),
+    }).catch((err) => {
+      console.log("error");
     });
     const data = await response.json().then((data) => {
       setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));

@@ -58,8 +58,6 @@ function Main({ router }) {
 
         {value === "" && <TypeTypeX />}
 
-        {/* REACT QUILL */}
-
         {value === "Article Creator" && <ArticleEditor />}
         {value === "Article Outline" && <ArticleOutline />}
       </div>
