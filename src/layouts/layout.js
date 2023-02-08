@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   return (
     <div className="tw-flex tw-h-screen tw-bg-black">
       <div className="tw-m-auto tw-bg-black tw-rounded-md tw-w-5/6 tw-h-[90%] tw-grid lg:tw-grid-cols-2 tw-text-white tw-animate-appearLong">
-        <div className={styles.imgStyle}>
+        <div className="tw-flex tw-items-center">
           {/* <div className={styles.cartoonImg}></div> */}
           <img
             src="/assets/ai.jpg"
@@ -15,7 +15,17 @@ export default function Layout({ children }) {
             width="100%"
             height="100%"
             onLoad={() => setImageLoaded(true)}
-            style={{ display: !imageLoaded ? "none" : "block" }}
+            style={{
+              position: "relative",
+              bottom: "0",
+              left: "0",
+              right: "0",
+              top: "0",
+              display: !imageLoaded ? "none" : "block",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
             className="tw-animate-appearLong"
           />
         </div>
