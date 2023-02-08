@@ -5,9 +5,8 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-const [timedout, setTimedout] = useState(true);
-
 export default async function handler(req, res) {
+  const [timedout, setTimedout] = useState(true);
   do {
     const completion = await openai
       .createCompletion({
