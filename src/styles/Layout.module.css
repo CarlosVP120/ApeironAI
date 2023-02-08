@@ -1,5 +1,5 @@
 .imgStyle {
-  @apply tw-bg-gradient-to-r tw-from-blue-500 tw-to-indigo-500 tw-rounded-l-md;
+  @apply tw-bg-black tw-rounded-l-md;
   position: relative;
   overflow: hidden;
 }

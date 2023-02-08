@@ -73,7 +73,7 @@ const Intro4 = ({ sliderRef, blackStar }) => {
               <button className="tw-relative tw-px-6 tw-py-3 tw-font-bold tw-text-white tw-rounded-lg tw-group tw-z-50 focus:tw-outline-none">
                 <span className="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-transition tw-duration-300 tw-transform tw--translate-x-1 tw--translate-y-1 tw-bg-purple-800 tw-ease tw-opacity-80 group-hover:tw-translate-x-0 group-hover:tw-translate-y-0"></span>
                 <span className="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-transition tw-duration-300 tw-transform tw-translate-x-1 tw-translate-y-1 tw-bg-pink-800 tw-ease tw-opacity-80 group-hover:tw-translate-x-0 group-hover:tw-translate-y-0 tw-mix-blend-screen"></span>
-                <span className="tw-relative">Get Started!</span>
+                <span className="tw-relative">Try it now!</span>
               </button>
             </Link>
           </div>

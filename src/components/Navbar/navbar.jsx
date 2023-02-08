@@ -64,13 +64,13 @@ const Navbar = ({ lr, nr, theme }) => {
                 </a>
               </Link>
             </li>
-            <li className="nav-item nav-link">
+            {/* <li className="nav-item nav-link">
               <Link href={`/pricing`}>
                 <a className="tw-transition tw-duration-400 hover:tw-border-b-gray-200 tw-border-transparent tw-border-2  ">
                   Pricing
                 </a>
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item nav-link">
               <Link href={`/contact`}>
                 <a className="tw-transition tw-duration-400 hover:tw-border-b-gray-200 tw-border-transparent tw-border-2  ">
@@ -86,19 +86,19 @@ const Navbar = ({ lr, nr, theme }) => {
               </Link>
             </li>
             <li className="nav-item">
-              <button className="nav-link tw-relative tw-inline-flex tw-items-center tw-justify-center tw-p-4 tw-px-5 tw-py-3 tw-overflow-hidden tw-font-medium tw-text-indigo-600 tw-transition tw-duration-300 tw-ease-out tw-rounded-lg tw-shadow tw-group hover:tw-ring-purple-500 hover:tw-shadow-purple-700 hover:tw-shadow-md ">
+              <button className="nav-link tw-relative tw-inline-flex tw-items-center tw-justify-center tw-px-5 tw-py-3 tw-overflow-hidden tw-font-medium tw-text-indigo-600 tw-transition tw-duration-300 tw-ease-out tw-rounded-lg tw-shadow tw-group hover:tw-ring-purple-500 hover:tw-shadow-purple-700 hover:tw-shadow-md ">
                 <Link href={"/login"}>
                   <a>
                     <span className="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-blue-600 tw-via-purple-600 tw-to-pink-700"></span>
                     <span className="tw-absolute tw-bottom-0 tw-right-0 tw-block tw-w-64 tw-h-64 tw-mb-32 tw-mr-4 tw-transition tw-duration-500 tw-origin-bottom-left tw-transform tw-rotate-45 tw-translate-x-24 tw-bg-pink-600 tw-rounded-full tw-opacity-10 group-hover:tw-rotate-180 tw-ease"></span>
-                    <span className="tw-relative tw-text-white d-flex tw-font-bold">
+                    <span className="tw-relative tw-text-white d-flex tw-font-bold tw-flex tw-justify-center tw-items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
-                        className="tw-w-5 tw-h-5 tw-mr-2"
+                        className="tw-w-4 tw-h-4 tw-mr-2"
                       >
                         <path
                           strokeLinecap="round"

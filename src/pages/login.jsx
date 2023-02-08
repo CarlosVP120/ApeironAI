@@ -32,6 +32,7 @@ export default function Login() {
     validate: login_validate,
     onSubmit: onSubmit,
   });
+  const [submitted, setSubmitted] = useState(false);
 
   if (typeof window !== "undefined") {
     history.pushState(null, document.title, location.href); // this is to prevent the back button from navigating to the previous page
@@ -176,7 +177,7 @@ export default function Login() {
                   <HiAtSymbol size={25} />
                 </span>
               </div>
-              {formik.touched.email && formik.errors.email ? (
+              {formik.touched.email && formik.errors.email && submitted ? (
                 <span className="tw-text-red-500 tw-text-xs tw-font-medium">
                   {formik.errors.email}
                 </span>
@@ -196,14 +197,20 @@ export default function Login() {
                   <HiFingerPrint size={25} />
                 </span>
               </div>
-              {formik.touched.password && formik.errors.password ? (
+              {formik.touched.password &&
+              formik.errors.password &&
+              submitted ? (
                 <span className="tw-text-red-500 tw-text-xs tw-font-medium">
                   {formik.errors.password}
                 </span>
               ) : null}
 
               <div className="input-button">
-                <button type="submit" className={styles.button}>
+                <button
+                  type="submit"
+                  className={styles.button}
+                  onClick={() => setSubmitted(true)}
+                >
                   Login
                 </button>
               </div>
