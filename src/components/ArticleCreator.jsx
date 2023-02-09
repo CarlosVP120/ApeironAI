@@ -44,8 +44,10 @@ export default function ArticleEditor() {
     setValue(e.target.value);
   };
 
+  // // replace all \n at the beginning with a space
+  // console.log(value.replace(/(?:\r\n|\r|\n)/g, " "));
+
   const handleClick = async (askName, val) => {
-    setPrompt(askName + val);
     if (askName !== FeedbackAI) setCompletion("Loading...");
     if (askName === FeedbackAI) setFeedback("Loading...");
 
@@ -59,37 +61,75 @@ export default function ArticleEditor() {
     //   console.log("error");
     // });
 
-    const response = await fetch("https://apeironai-mainserver.onrender.com", {
+    let prompt = askName + "\n\n" + '"' + val.replace(/\n$/, "") + '"';
+    console.log(JSON.stringify({ text: prompt }));
+
+    await fetch("https://apeironai-mainserver.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Retry-After": "5",
       },
-      body: JSON.stringify({ text: askName + val }),
-    }).catch((err) => {
-      console.log("error");
+      body: JSON.stringify({ text: prompt }),
+    }).then((response) => {
+      return response
+        .json()
+        .then((data) => {
+          console.log(data);
+          if (data.result.choices[0].text.length < 3) {
+            alert(
+              "Apeiron didn't come up with anything. Please try again with a slighltly modified prompt."
+            );
+            setCompletion("Not Loading...");
+            return;
+          }
+          if (askName === GenerateAI) {
+            setValue(
+              (
+                value +
+                "\n" +
+                data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+              ).replace(/\n$/, "")
+            );
+          } else if (askName === ReplaceAI || askName === ImproveAI) {
+            setValue(
+              value.replace(
+                val,
+                data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+              )
+            );
+          } else {
+            setFeedback(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+          }
+
+          setCompletion("Not Loading...");
+        })
+        .catch((err) => {
+          setCompletion("Not Loading...");
+          alert("The server is saturated. Please try again in a few seconds.");
+        });
     });
 
-    const data = await response.json().then((data) => {
-      console.log(data);
-      setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
-      if (askName === GenerateAI) {
-        setValue(
-          value +
-            "\n" +
-            "\n" +
-            data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
-        );
-      } else if (askName === ReplaceAI || askName === ImproveAI) {
-        setValue(
-          value.replace(
-            val,
-            data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
-          )
-        );
-      } else {
-        setFeedback(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
-      }
-    });
+    // const data = await response.json().then((data) => {
+    //   setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+    //   if (askName === GenerateAI) {
+    //     setValue(
+    //       value +
+    //         "\n" +
+    //         "\n" +
+    //         data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+    //     );
+    //   } else if (askName === ReplaceAI || askName === ImproveAI) {
+    //     setValue(
+    //       value.replace(
+    //         val,
+    //         data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+    //       )
+    //     );
+    //   } else {
+    //     setFeedback(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+    //   }
+    // });
   };
 
   return (
