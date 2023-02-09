@@ -57,9 +57,13 @@ const Intro4 = ({ sliderRef, blackStar }) => {
   globeMaterial.emissiveIntensity = 0.1;
   globeMaterial.shininess = 0.7;
 
-  // save a variable to determine if the user is on a mobile device
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const [isMobile, setIsMobile] = React.useState(false);
 
+  useEffect(() => {
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      setIsMobile(true);
+    }
+  }, []);
   return (
     <header ref={sliderRef} className="particles circle-bg valign">
       <div className="container-fluid">
