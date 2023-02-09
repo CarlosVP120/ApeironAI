@@ -48,7 +48,18 @@ export default function ArticleEditor() {
     setPrompt(askName + val);
     if (askName !== FeedbackAI) setCompletion("Loading...");
     if (askName === FeedbackAI) setFeedback("Loading...");
-    const response = await fetch("/api/hello", {
+
+    // const response = await fetch("/api/hello", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ text: askName + val }),
+    // }).catch((err) => {
+    //   console.log("error");
+    // });
+
+    const response = await fetch("https://apeironai-mainserver.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +68,9 @@ export default function ArticleEditor() {
     }).catch((err) => {
       console.log("error");
     });
+
     const data = await response.json().then((data) => {
+      console.log(data);
       setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
       if (askName === GenerateAI) {
         setValue(
