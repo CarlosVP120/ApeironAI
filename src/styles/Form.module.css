@@ -57,3 +57,13 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@media (max-width: 768px) {
+  .button_custom {
+    @apply tw-w-full;
+  }
+
+  .button {
+    @apply tw-w-full;
+  }
+}

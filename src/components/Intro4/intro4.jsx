@@ -57,6 +57,9 @@ const Intro4 = ({ sliderRef, blackStar }) => {
   globeMaterial.emissiveIntensity = 0.1;
   globeMaterial.shininess = 0.7;
 
+  // save a variable to determine if the user is on a mobile device
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   return (
     <header ref={sliderRef} className="particles circle-bg valign">
       <div className="container-fluid">
@@ -65,7 +68,10 @@ const Intro4 = ({ sliderRef, blackStar }) => {
             className="col-lg-6 align-self-center cont text-center justify-content-center container tw-flex tw-flex-col tw-gap-10 tw-items-center"
             style={{ display: "flex", height: "100vh" }}
           >
-            <h1 className="align-self-center" style={{ fontSize: "3.3vw" }}>
+            <h1
+              className="align-self-center"
+              style={{ fontSize: isMobile ? "7vw" : "3.3vw" }}
+            >
               Unlock the power of <span className="color-font">AI</span> to{" "}
               <span className="color-font">change your future</span>.
             </h1>
