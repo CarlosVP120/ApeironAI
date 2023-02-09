@@ -4,7 +4,7 @@ import styles from "../styles/Layout.module.css";
 export default function Layout({ children }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
