@@ -30,15 +30,18 @@ export default function CmdAssitance() {
 
   const handleClick = useCallback(
     async (e) => {
-      setPrompt(askName + value);
+      let prompt = askName + value;
       setCompletion("Loading...");
-      const response = await fetch("/api/hello", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ text: askName + value }),
-      });
+      const response = await fetch(
+        "https://apeironai-mainserver.onrender.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: prompt }),
+        }
+      );
       const data = await response.json().then((data) => {
         setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
       });
@@ -90,7 +93,7 @@ export default function CmdAssitance() {
               Show me
             </button>
           </div>
-          <div className="tw-flex tw-flex-col tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-max-w-[45%] 2xl:tw-h-[80%] tw-h-[90%]">
+          <div className="tw-flex tw-flex-col tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-min-w-[30%] tw-max-w-[45%] 2xl:tw-h-[80%] tw-h-[90%]">
             {completion !== "Loading..." ? (
               <>
                 <h1 className="tw-flex tw-items-center tw-text-2xl">

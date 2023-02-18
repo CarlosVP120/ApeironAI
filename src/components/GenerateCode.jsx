@@ -29,14 +29,14 @@ export default function GenerateCode() {
   const askName = "Generate a " + language + " code that: ";
 
   const handleClick = async (e) => {
-    setPrompt(askName + value);
+    let prompt = askName + value;
     setCompletion("Loading...");
-    const response = await fetch("/api/hello", {
+    const response = await fetch("https://apeironai-mainserver.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ text: askName + value }),
+      body: JSON.stringify({ text: prompt }),
     });
     const data = await response.json().then((data) => {
       setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
@@ -89,7 +89,7 @@ export default function GenerateCode() {
               Generate
             </button>
           </div>
-          <div className="tw-flex tw-flex-col tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-max-w-[65%] 2xl:tw-h-[80%] tw-h-[90%]">
+          <div className="tw-flex tw-flex-col tw-bg-neutral-800 tw-py-8 tw-rounded-lg tw-text-left tw-text tw-px-8 tw-rounded-l-none tw-min-w-[30%] tw-max-w-[65%] 2xl:tw-h-[80%] tw-h-[90%]">
             {completion !== "Loading..." ? (
               <>
                 <h1 className="tw-flex tw-items-center tw-text-2xl">
@@ -170,7 +170,7 @@ export default function GenerateCode() {
                 )}
               </>
             ) : completion === "Loading..." ? (
-              <div className="tw-flex tw-justify-center tw-h-full">
+              <div className="tw-flex tw-justify-center tw-h-full tw-w-full">
                 <Loading />
               </div>
             ) : null}

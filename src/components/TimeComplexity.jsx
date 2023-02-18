@@ -31,15 +31,18 @@ export default function TimeComplexity() {
 
   const handleClick = useCallback(
     async (e) => {
-      setPrompt(askName + value);
+      let prompt = askName + "\n\n" + value;
       setCompletion("Loading...");
-      const response = await fetch("/api/hello", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ text: askName + value }),
-      });
+      const response = await fetch(
+        "https://apeironai-mainserver.onrender.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: prompt }),
+        }
+      );
       const data = await response.json().then((data) => {
         setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
       });

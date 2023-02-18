@@ -32,17 +32,29 @@ export default function ExplainCode() {
 
   const handleClick = useCallback(
     async (e) => {
-      setPrompt(askName + value);
+      let prompt = askName + "\n\n" + value;
+      console.log(prompt);
       setCompletion("Loading...");
-      const response = await fetch("/api/hello", {
+      await fetch("https://apeironai-mainserver.onrender.com/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ text: askName + value }),
-      });
-      const data = await response.json().then((data) => {
-        setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+        body: JSON.stringify({ text: prompt }),
+      }).then((response) => {
+        return response
+          .json()
+          .then((data) => {
+            setCompletion(
+              data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+            );
+          })
+          .catch((err) => {
+            console.log(err);
+            alert(
+              "The server is saturated. Please try again in a few seconds."
+            );
+          });
       });
     },
     [value]

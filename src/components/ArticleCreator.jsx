@@ -62,7 +62,6 @@ export default function ArticleEditor() {
     // });
 
     let prompt = askName + "\n\n" + '"' + val.replace(/\n$/, "") + '"';
-    console.log(JSON.stringify({ text: prompt }));
 
     await fetch("https://apeironai-mainserver.onrender.com", {
       method: "POST",
