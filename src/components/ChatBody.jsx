@@ -48,7 +48,7 @@ const ChatBody = ({ chat }) => {
           <div className="tw-text-2xl tw-text-gray-500 tw-font-bold">
             Start a conversation! <br />
             <span className="tw-text-sm tw-text-gray-400 tw-font-normal">
-              Ex. "What is Apeiron AI?"
+              Ex. &quot;What is Apeiron AI?&quot;
             </span>
           </div>
         </div>
