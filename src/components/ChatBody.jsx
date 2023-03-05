@@ -29,6 +29,7 @@ const ChatBody = ({ chat }) => {
           {chat.map((message, i) => {
             return (
               <div
+                key={i}
                 className={`tw-animate-appear tw-break-words tw-rounded-xl tw-self-end tw-max-w-[80%] tw-bg-gradient-to-r tw-from-pink-500 tw-via-red-500 tw-to-yellow-500 tw-p-[1.5px] ${
                   message.sender === "ai" && aiStyle
                 }`}
