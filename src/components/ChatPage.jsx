@@ -59,7 +59,7 @@ export default function Descriptions() {
   // END OF TO UPDATE/DELETE
 
   return (
-    <div className="tw-bg-black tw-h-screen tw-py-6 tw-relative sm:tw-px-16 tw-px-12 tw-text-white tw-overflow-hidden tw-flex tw-flex-col tw-justify-between tw-align-middle">
+    <div className="tw-animate-appear tw-bg-black tw-h-screen tw-py-6 tw-relative sm:tw-px-16 tw-px-12 tw-text-white tw-overflow-hidden tw-flex tw-flex-col tw-justify-between tw-align-middle">
       {/* gradients */}
       <div className="tw-gradient-01 tw-z-0 tw-absolute"></div>
       <div className="tw-gradient-02 tw-z-0 tw-absolute"></div>
