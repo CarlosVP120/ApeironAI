@@ -447,22 +447,36 @@ export default function ApeironNavbar({
             <>
               {auth.currentUser.displayName}
               {value === "main" && (
-                <button
-                  onClick={() =>
-                    redirectHandler(
-                      "https://billing.stripe.com/p/login/5kA8zKfERbRQ6k0eUU"
-                    )
-                  }
-                  className="tw-relative tw-p-0.5 tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3 tw-hidden md:tw-inline-flex"
-                >
-                  <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#ff8a05] tw-via-[#ff5478] tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-[#ff5478] group-hover:tw-to-[#ff8a05] tw-absolute"></span>
-                  <span
-                    className="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500 
-"
+                <>
+                  <button
+                    onClick={redirectHandler.bind(this, "/chat")}
+                    className="tw-relative tw-p-0.5 tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3 tw-hidden md:tw-inline-flex"
                   >
-                    <span className="tw-relative tw-text-white">Account</span>
-                  </span>
-                </button>
+                    <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#ff8a05] tw-via-[#ff5478] tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-[#ff5478] group-hover:tw-to-[#ff8a05] tw-absolute"></span>
+                    <span
+                      className="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500 
+"
+                    >
+                      <span className="tw-relative tw-text-white">Chat</span>
+                    </span>
+                  </button>
+                  <button
+                    onClick={() =>
+                      redirectHandler(
+                        "https://billing.stripe.com/p/login/5kA8zKfERbRQ6k0eUU"
+                      )
+                    }
+                    className="tw-relative tw-p-0.5 tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3 tw-hidden md:tw-inline-flex"
+                  >
+                    <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#ff8a05] tw-via-[#ff5478] tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-[#ff5478] group-hover:tw-to-[#ff8a05] tw-absolute"></span>
+                    <span
+                      className="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500 
+"
+                    >
+                      <span className="tw-relative tw-text-white">Account</span>
+                    </span>
+                  </button>
+                </>
               )}
             </>
           )}
