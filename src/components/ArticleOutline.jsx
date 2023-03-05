@@ -30,18 +30,17 @@ export default function ArticleOutline() {
     async (e) => {
       setPrompt(askName + value);
       setCompletion("Loading...");
-      const response = await fetch(
-        "https://apeironai-mainserver.onrender.com",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ text: askName + value + askDescription }),
-        }
-      );
+      const response = await fetch("http://localhost:5000", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text: askName + value + askDescription }),
+      });
       const data = await response.json().then((data) => {
-        setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+        setCompletion(
+          data.result.choices[0].message.content.replace(/^\s+|\s+$/g, "")
+        );
       });
     },
     [value]

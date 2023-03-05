@@ -56,10 +56,10 @@ export default function MarkeXLayout({
         const data = await response.json().then((data) => {
           writeToDatabase(
             type !== "ads"
-              ? data.result.choices[0].text.split(delimiter, 1)[0]
+              ? data.result.choices[0].message.content.split(delimiter, 1)[0]
               : value,
             value,
-            data.result.choices[0].text.replace(/^\s+|\s+$/g, ""),
+            data.result.choices[0].message.content.replace(/^\s+|\s+$/g, ""),
             platform
           );
           setValue("");
@@ -67,15 +67,18 @@ export default function MarkeXLayout({
           setShowingProduct({
             name:
               type !== "ads"
-                ? data.result.choices[0].text.split(delimiter, 1)[0]
+                ? data.result.choices[0].message.content.split(delimiter, 1)[0]
                 : value,
             prompt: value,
-            completion: data.result.choices[0].text.replace(/^\s+|\s+$/g, ""),
+            completion: data.result.choices[0].message.content.replace(
+              /^\s+|\s+$/g,
+              ""
+            ),
             platform: platform,
           });
           setUnderlined(
             type !== "ads"
-              ? data.result.choices[0].text.split(delimiter, 1)[0]
+              ? data.result.choices[0].message.content.split(delimiter, 1)[0]
               : value
           );
         });
@@ -98,10 +101,10 @@ export default function MarkeXLayout({
       const data = await response.json().then((data) => {
         writeToDatabase(
           type !== "ads"
-            ? data.result.choices[0].text.split(delimiter, 1)[0]
+            ? data.result.choices[0].message.content.split(delimiter, 1)[0]
             : value,
           value,
-          data.result.choices[0].text.replace(/^\s+|\s+$/g, ""),
+          data.result.choices[0].message.content.replace(/^\s+|\s+$/g, ""),
           platform
         );
         setValue("");
@@ -109,15 +112,18 @@ export default function MarkeXLayout({
         setShowingProduct({
           name:
             type !== "ads"
-              ? data.result.choices[0].text.split(delimiter, 1)[0]
+              ? data.result.choices[0].message.content.split(delimiter, 1)[0]
               : value,
           prompt: value,
-          completion: data.result.choices[0].text.replace(/^\s+|\s+$/g, ""),
+          completion: data.result.choices[0].message.content.replace(
+            /^\s+|\s+$/g,
+            ""
+          ),
           platform: platform,
         });
         setUnderlined(
           type !== "ads"
-            ? data.result.choices[0].text.split(delimiter, 1)[0]
+            ? data.result.choices[0].message.content.split(delimiter, 1)[0]
             : value
         );
       });

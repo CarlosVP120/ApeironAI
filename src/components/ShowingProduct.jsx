@@ -45,13 +45,16 @@ export default function ShowingProduct({
       writeToDatabase(
         name + (longer ? " longer" : " shorter"),
         prompt + (longer ? " longer" : " shorter"),
-        data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+        data.result.choices[0].message.content.replace(/^\s+|\s+$/g, "")
       );
 
       setShowingProduct({
         name: name + (longer ? " longer" : " shorter"),
         prompt: prompt + (longer ? " longer" : " shorter"),
-        completion: data.result.choices[0].text.replace(/^\s+|\s+$/g, ""),
+        completion: data.result.choices[0].message.content.replace(
+          /^\s+|\s+$/g,
+          ""
+        ),
       });
 
       setLoading(false);

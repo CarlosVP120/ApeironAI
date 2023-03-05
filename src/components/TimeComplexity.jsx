@@ -44,7 +44,9 @@ export default function TimeComplexity() {
         }
       );
       const data = await response.json().then((data) => {
-        setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+        setCompletion(
+          data.result.choices[0].message.content.replace(/^\s+|\s+$/g, "")
+        );
       });
     },
     [value]

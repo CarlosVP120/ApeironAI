@@ -75,7 +75,7 @@ export default function ArticleEditor() {
         .json()
         .then((data) => {
           console.log(data);
-          if (data.result.choices[0].text.length < 3) {
+          if (data.result.choices[0].message.content.length < 3) {
             alert(
               "Apeiron didn't come up with anything. Please try again with a slighltly modified prompt."
             );
@@ -87,18 +87,20 @@ export default function ArticleEditor() {
               (
                 value +
                 "\n" +
-                data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+                data.result.choices[0].message.content.replace(/^\s+|\s+$/g, "")
               ).replace(/\n$/, "")
             );
           } else if (askName === ReplaceAI || askName === ImproveAI) {
             setValue(
               value.replace(
                 val,
-                data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+                data.result.choices[0].message.content.replace(/^\s+|\s+$/g, "")
               )
             );
           } else {
-            setFeedback(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+            setFeedback(
+              data.result.choices[0].message.content.replace(/^\s+|\s+$/g, "")
+            );
           }
 
           setCompletion("Not Loading...");
@@ -110,23 +112,23 @@ export default function ArticleEditor() {
     });
 
     // const data = await response.json().then((data) => {
-    //   setCompletion(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+    //   setCompletion(data.result.choices[0].message.content.replace(/^\s+|\s+$/g, ""));
     //   if (askName === GenerateAI) {
     //     setValue(
     //       value +
     //         "\n" +
     //         "\n" +
-    //         data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+    //         data.result.choices[0].message.content.replace(/^\s+|\s+$/g, "")
     //     );
     //   } else if (askName === ReplaceAI || askName === ImproveAI) {
     //     setValue(
     //       value.replace(
     //         val,
-    //         data.result.choices[0].text.replace(/^\s+|\s+$/g, "")
+    //         data.result.choices[0].message.content.replace(/^\s+|\s+$/g, "")
     //       )
     //     );
     //   } else {
-    //     setFeedback(data.result.choices[0].text.replace(/^\s+|\s+$/g, ""));
+    //     setFeedback(data.result.choices[0].message.content.replace(/^\s+|\s+$/g, ""));
     //   }
     // });
   };

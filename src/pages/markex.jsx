@@ -85,7 +85,7 @@ function Main({ router }) {
 //         });
 //         const data = await response.json();
 //         setValue("");
-//         setCompletion(data.result.choices[0].text);
+//         setCompletion(data.result.choices[0].message.content);
 //       }
 //     },
 //     [value]
