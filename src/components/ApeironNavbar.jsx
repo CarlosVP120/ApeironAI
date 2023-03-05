@@ -452,7 +452,7 @@ export default function ApeironNavbar({
                     onClick={redirectHandler.bind(this, "/chat")}
                     className="tw-relative tw-p-0.5 tw-items-center tw-justify-center tw-font-bold tw-overflow-hidden tw-group tw-rounded-md tw-ml-3 tw-hidden md:tw-inline-flex"
                   >
-                    <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#ff8a05] tw-via-[#ff5478] tw-to-[#ff00c6] group-hover:tw-from-[#ff00c6] group-hover:tw-via-[#ff5478] group-hover:tw-to-[#ff8a05] tw-absolute"></span>
+                    <span className="tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-[#0565ff] tw-via-[#7354ff] tw-to-[#9d00ff] group-hover:tw-from-[#9d00ff] group-hover:tw-via-[#7354ff] group-hover:tw-to-[#0565ff] tw-absolute"></span>
                     <span
                       className="tw-relative tw-px-4 tw-py-2 tw-transition-all tw-ease-out tw-bg-black tw-rounded-md group-hover:tw-bg-opacity-0 tw-duration-500 
 "
