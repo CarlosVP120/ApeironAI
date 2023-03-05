@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const ChatBody = ({ chat }) => {
   const aiStyle =
-    "tw-bg-white tw-bg-opacity-95 tw-backdrop-blur-lg tw-dropshadow-md tw-mr-auto tw-animate-appear";
+    "tw-bg-white tw-bg-opacity-80 tw-backdrop-blur-lg tw-dropshadow-md tw-mr-auto tw-animate-appear";
 
   const parent = useRef(null);
   const bottomRef = useRef(null);
