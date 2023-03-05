@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const ChatBody = ({ chat }) => {
   const aiStyle =
-    "tw-bg-white tw-bg-opacity-40 tw-backdrop-blur-lg tw-dropshadow-md tw-mr-auto";
+    "tw-bg-white tw-bg-opacity-95 tw-backdrop-blur-lg tw-dropshadow-md tw-mr-auto tw-animate-appear";
 
   const parent = useRef(null);
   const bottomRef = useRef(null);
@@ -29,19 +29,24 @@ const ChatBody = ({ chat }) => {
           {chat.map((message, i) => {
             return (
               <div
-                key={i}
-                className={`tw-border-[#999999] tw-break-words tw-border-2 tw-rounded-xl tw-self-end tw-px-3 tw-py-3 tw-max-w-[80%] ${
+                className={`tw-animate-appear tw-break-words tw-rounded-xl tw-self-end tw-max-w-[80%] tw-bg-gradient-to-r tw-from-pink-500 tw-via-red-500 tw-to-yellow-500 tw-p-[1.5px] ${
                   message.sender === "ai" && aiStyle
                 }`}
               >
-                <pre className="tw-whitespace-pre-wrap">
-                  <span>{message.message}</span>
-                </pre>
+                <div
+                  className={`tw-flex tw-h-full tw-items-center tw-justify-center tw-bg-gray-800 tw-back tw-px-3 tw-py-3 tw-rounded-xl ${
+                    message.sender === "ai" && aiStyle
+                  }`}
+                >
+                  <pre className="tw-whitespace-pre-wrap">
+                    <span>{message.message}</span>
+                  </pre>
+                </div>
               </div>
             );
           })}
 
-          <div ref={bottomRef} className="tw-h-3"></div>
+          <div ref={bottomRef} />
         </div>
       ) : (
         <div className="tw-flex tw-justify-center tw-items-center tw-h-full">

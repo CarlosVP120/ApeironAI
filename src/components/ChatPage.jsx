@@ -66,7 +66,7 @@ export default function Descriptions() {
 
       {/* body */}
       <div
-        className="tw-h-[90%] tw-overflow-auto tw-w-full tw-max-w-4xl tw-min-w-[20rem] tw-py-8 tw-px-4 tw-self-center
+        className="tw-h-[90%] tw-overflow-auto tw-w-full  tw-min-w-[20rem] tw-py-8 tw-px-4 tw-self-center
   tw-scrollbar-thumb-slate-400 tw-scrollbar-thin tw-scrollbar-track-gray-tranparent tw-scrollbar-thumb-rounded-md
   "
       >
