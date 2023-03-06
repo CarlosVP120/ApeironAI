@@ -10,6 +10,7 @@ import {
 import ChatBody from "./ChatBody";
 import ChatInput from "./ChatInput";
 import { useMutation } from "react-query";
+import AudioRecorder from "./AudioRecorder";
 
 export default function Descriptions() {
   // TO UPDATE/DELETE:
@@ -76,6 +77,7 @@ export default function Descriptions() {
       {/* input */}
       <div className="tw-w-full tw-max-w-4xl tw-min-w-[20rem] tw-self-center">
         <ChatInput sendMessage={sendMessage} loading={mutation.isLoading} />
+        {/* <AudioRecorder sendMessage={sendMessage} /> */}
       </div>
     </div>
   );
