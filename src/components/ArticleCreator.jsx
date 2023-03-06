@@ -110,27 +110,6 @@ export default function ArticleEditor() {
           alert("The server is saturated. Please try again in a few seconds.");
         });
     });
-
-    // const data = await response.json().then((data) => {
-    //   setCompletion(data.result.choices[0].message.content.replace(/^\s+|\s+$/g, ""));
-    //   if (askName === GenerateAI) {
-    //     setValue(
-    //       value +
-    //         "\n" +
-    //         "\n" +
-    //         data.result.choices[0].message.content.replace(/^\s+|\s+$/g, "")
-    //     );
-    //   } else if (askName === ReplaceAI || askName === ImproveAI) {
-    //     setValue(
-    //       value.replace(
-    //         val,
-    //         data.result.choices[0].message.content.replace(/^\s+|\s+$/g, "")
-    //       )
-    //     );
-    //   } else {
-    //     setFeedback(data.result.choices[0].message.content.replace(/^\s+|\s+$/g, ""));
-    //   }
-    // });
   };
 
   return (
