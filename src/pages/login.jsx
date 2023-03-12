@@ -5,7 +5,6 @@ import styles from "../styles/Form.module.css";
 import Image from "next/image";
 import { HiFingerPrint, HiAtSymbol } from "react-icons/hi";
 import { useEffect, useState } from "react";
-import { signIn } from "next-auth/react";
 import { useFormik } from "formik";
 import login_validate from "../../lib/validate";
 import { useRouter } from "next/router";
@@ -18,7 +17,6 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase/firebaseClient";
 import Guest from "../components/Guest";
-import LoadingScreen from "../components/Loading-Screen";
 
 export default function Login() {
   const [loadingLogin, setLoading] = useState(true);

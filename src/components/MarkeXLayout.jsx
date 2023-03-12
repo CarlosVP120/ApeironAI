@@ -91,13 +91,16 @@ export default function MarkeXLayout({
     async (e) => {
       setPrompt(askName + value + askDescription);
       setCompletion("Loading...");
-      const response = await fetch("/api/hello", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ text: askName + value + askDescription }),
-      });
+      const response = await fetch(
+        "https://apeironai-mainserver.onrender.com/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: askName + value + askDescription }),
+        }
+      );
       const data = await response.json().then((data) => {
         writeToDatabase(
           type !== "ads"
